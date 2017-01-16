@@ -1,0 +1,97 @@
+{
+    "type": "Ext.app.Application",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "name": "ccmz",
+        "title": "长春市医疗救助管理系统",
+        "views": [
+            "MyViewport"
+        ]
+    },
+    "name": "Application",
+    "designerId": "application",
+    "cn": [
+        {
+            "type": "Ext.Loader",
+            "reference": {
+                "name": "loader",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "disableCaching": false,
+                "paths": [
+                    "{",
+                    "    ccmz:'app'",
+                    "}"
+                ]
+            },
+            "name": "Loader42",
+            "designerId": "ffca6c98-4e20-4826-b6cd-3018c7e15413"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|commentHeader": [
+                    "显示遮罩层"
+                ],
+                "designer|params": [
+                    "loadingMessage"
+                ],
+                "fn": "showLoadingMask",
+                "implHandler": [
+                    "if (Ext.isEmpty(loadingMessage)) loadText = '处理中......   请稍候';",
+                    "Ext.Ajax.on({",
+                    "    beforerequest: {",
+                    "        fn: function () {",
+                    "            Ext.getBody().mask(loadText, 'loading');",
+                    "        }, scope: Ext.getBody(), single: true",
+                    "    },",
+                    "    requestcomplete: { fn: Ext.getBody().unmask, scope: Ext.getBody(), single: true },",
+                    "    requestexception: { fn: Ext.getBody().unmask, scope: Ext.getBody(), single: true }",
+                    "});"
+                ]
+            },
+            "name": "showLoadingMask",
+            "designerId": "7b892684-0e02-4405-ae3b-8873d02b90b9"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|commentHeader": [
+                    "在调用store上的存储数据的方法时，出错后调这个方法显示错误信息"
+                ],
+                "designer|params": [
+                    "batch",
+                    "operation"
+                ],
+                "fn": "ShowServerError",
+                "implHandler": [
+                    "var msg = batch.operations[batch.current].request.scope.reader.jsonData.msg;",
+                    "Ext.Msg.show({",
+                    "    title: '错误',",
+                    "    msg: msg,",
+                    "    buttons: Ext.Msg.OK,",
+                    "    icon: Ext.Msg.ERROR",
+                    "});"
+                ]
+            },
+            "name": "ShowServerError",
+            "designerId": "d5180a41-3f26-4e18-974c-6a0bd8053756"
+        }
+    ]
+}

@@ -1,0 +1,14 @@
+{
+    "type": "cssresource",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "css_j8jnengn",
+        "url": "extClient.css"
+    },
+    "name": "css",
+    "designerId": "2378fd61-f58b-48ac-8aa9-4a1f642b6781"
+}

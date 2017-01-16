@@ -1,0 +1,62 @@
+{
+    "name": "ccmz",
+    "settings": {
+        "cmd": {
+            "license": "gpl",
+            "cmdVersion": "6.1.2.15",
+            "frameworkVersion": "5.1.2.748"
+        },
+        "urlPrefix": "http://localhost:1841/",
+        "exportPath": "",
+        "buildShouldOverwriteIndex": false,
+        "generateArchitectVersion": true,
+        "spacesToIndent": 4,
+        "lineEnding": "CRLF",
+        "genTimestamps": false,
+        "cacheBust": false,
+        "installStatus": "Not Installed",
+        "canvasControls": {
+            "viewportSize": {
+                "name": "Auto Expand",
+                "builtIn": true,
+                "height": null,
+                "width": null
+            }
+        },
+        "sdkPath": "",
+        "displayfield-ExtBox1-1375-inputEl": "a new version of the framework is available",
+        "displayfield-ExtBox1-1121-inputEl": "a new version of the framework is available",
+        "lastBuildSelection": {
+            "value": "webBuild",
+            "display": "Build web app"
+        },
+        "displayfield-ExtBox1-1201-inputEl": "a new version of the framework is available",
+        "displayfield-ExtBox1-1156-inputEl": "a new version of the framework is available",
+        "displayfield-ExtBox1-1210-inputEl": "a new version of the framework is available",
+        "displayfield-ExtBox1-1131-inputEl": "a new version of the framework is available",
+        "displayfield-ExtBox1-1265-inputEl": "a new version of the framework is available"
+    },
+    "xdsVersion": "3.5.1",
+    "xdsBuild": 348,
+    "schemaVersion": 1,
+    "upgradeVersion": 310000000001,
+    "framework": "ext51",
+    "viewOrderMap": {
+        "view": [
+            "d4ecdbba-cb02-477c-8944-27fa2a1bc1da",
+            "32101820-88dd-46a3-b08d-5f7f650b2a7d",
+            "e2467638-9b74-47b6-9a92-f19bfb693a47"
+        ],
+        "store": [],
+        "controller": [],
+        "model": [],
+        "resource": [
+            "1e35022e-01e9-4194-9bb0-df4773d6d7c4",
+            "c556fde5-a942-429b-9968-0a68ec3d6be8",
+            "2378fd61-f58b-48ac-8aa9-4a1f642b6781"
+        ],
+        "app": [
+            "application"
+        ]
+    }
+}

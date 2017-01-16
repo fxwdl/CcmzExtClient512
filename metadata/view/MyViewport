@@ -1,0 +1,207 @@
+{
+    "type": "Ext.container.Viewport",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|initialView": true,
+        "designer|userAlias": "myviewport",
+        "designer|userClassName": "MyViewport",
+        "layout": "border"
+    },
+    "name": "MyViewport",
+    "designerId": "d4ecdbba-cb02-477c-8944-27fa2a1bc1da",
+    "viewControllerInstanceId": "e2467638-9b74-47b6-9a92-f19bfb693a47",
+    "viewModelInstanceId": "32101820-88dd-46a3-b08d-5f7f650b2a7d",
+    "cn": [
+        {
+            "type": "Ext.container.Container",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "container|align": "bottom",
+                "height": 80,
+                "id": "app-header",
+                "layout": "hbox",
+                "layout|region": "north"
+            },
+            "name": "MyContainer",
+            "designerId": "b775e6f1-dfa6-49e7-9e74-7fd4fbd330ee",
+            "cn": [
+                {
+                    "type": "Ext.Component",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "id": "app-header-logo",
+                        "layout|flex": 1
+                    },
+                    "name": "MyComponent",
+                    "designerId": "1d4149da-1e05-4acd-afc0-bf8ccd7fc2bc"
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "id": "butCurDept",
+                        "layout|flex": null,
+                        "scale": null,
+                        "text": [
+                            "当前机构：&nbsp; {CurDept}"
+                        ]
+                    },
+                    "name": "MyButton4",
+                    "configAlternates": {
+                        "text": "binding"
+                    },
+                    "designerId": "68a92719-9b95-43b2-be0d-0753c9e7928f"
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "id": "btnCurUser",
+                        "layout|flex": null,
+                        "scale": null,
+                        "text": [
+                            "当前用户：&nbsp;{UserName}"
+                        ]
+                    },
+                    "name": "MyButton3",
+                    "configAlternates": {
+                        "text": "binding"
+                    },
+                    "designerId": "508759ac-a6cd-40ca-a309-22859e7bd1c4"
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "iconCls": "home",
+                        "id": "btnDesktop",
+                        "layout|flex": null,
+                        "scale": null,
+                        "text": "我的桌面"
+                    },
+                    "name": "MyButton2",
+                    "designerId": "2663410b-f4b2-43c6-9803-02be8746a437"
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "iconCls": "password",
+                        "id": "btnChangePwd",
+                        "layout|flex": null,
+                        "scale": null,
+                        "text": "修改密码"
+                    },
+                    "name": "MyButton1",
+                    "designerId": "37489546-f148-4ab0-9196-790607208f86"
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "iconCls": "logout",
+                        "id": "btnLogout",
+                        "layout|flex": null,
+                        "scale": null,
+                        "text": "安全退出"
+                    },
+                    "name": "MyButton",
+                    "designerId": "13f4fc8e-0863-4bc0-a573-971fa1117892"
+                },
+                {
+                    "type": "viewcontrollereventbinding",
+                    "reference": {
+                        "name": "listeners",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fn": "onAppHeaderRender",
+                        "implHandler": [
+                            "var me=this;",
+                            "ccmz.getApplication().showLoadingMask();",
+                            "Ext.Ajax.request({",
+                            "        url:'/Account/GetCurUserInfo',",
+                            "        success:function(response,opts){",
+                            "            var r=Ext.decode(response.responseText);",
+                            "            var vm=me.getViewModel();",
+                            "            vm.set(\"UserName\",r.UserName);",
+                            "            vm.set(\"CurDept\",r.CurDept);",
+                            "",
+                            "        }});"
+                        ],
+                        "name": "render",
+                        "scope": "me"
+                    },
+                    "name": "onAppHeaderRender",
+                    "designerId": "c536f00e-86bb-4048-9f4b-ba726983006f"
+                }
+            ]
+        },
+        {
+            "type": "Ext.panel.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "collapsed": false,
+                "collapsible": true,
+                "layout": "accordion",
+                "layout|region": "west",
+                "layout|split": true,
+                "title": "功能菜单",
+                "titleAlign": "center",
+                "width": 200
+            },
+            "name": "MyPanel",
+            "designerId": "2ca6513e-77b2-4b39-803a-93b1aedfbedc"
+        },
+        {
+            "type": "Ext.tab.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "layout|region": "center"
+            },
+            "name": "MyTabPanel",
+            "designerId": "933eb240-a2c7-4f6f-b8c9-b7e2e666dbfc"
+        }
+    ]
+}
