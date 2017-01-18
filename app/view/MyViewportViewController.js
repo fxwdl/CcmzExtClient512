@@ -17,6 +17,36 @@ Ext.define('ccmz.view.MyViewportViewController', {
     extend: 'Ext.app.ViewController',
     alias: 'controller.myviewport',
 
+    control: {
+        "#appMenu treepanel": {
+            itemclick: 'onMenuItemClick'
+        }
+    },
+
+    onMenuItemClick: function(dataview, record, item, index, e, eOpts) {
+        var me=this;
+        alert(record.raw);
+    },
+
+    onBtnLogoutClick: function(button, e, eOpts) {
+        Ext.MessageBox.confirm('提示', '确定要退出系统吗?', function(btn,text){
+            if(btn=='yes'){
+                var me=this;
+                ccmz.getApplication().showLoadingMask();
+                Ext.Ajax.request({
+                    url:'/Account/Logout',
+                    method: 'POST',
+                    success:function(response,opts){
+                        var r=Ext.decode(response.responseText);
+                        if (r.success){
+                            location.href = r.msg;
+                        }
+
+                    }});
+                }
+            }, this);
+    },
+
     onAppHeaderRender: function(component, eOpts) {
         var me=this;
         ccmz.getApplication().showLoadingMask();
@@ -29,6 +59,58 @@ Ext.define('ccmz.view.MyViewportViewController', {
                 vm.set("CurDept",r.CurDept);
 
             }});
+    },
+
+    onAppMenuRender: function(component, eOpts) {
+        var me=this;
+        ccmz.getApplication().showLoadingMask();
+        Ext.Ajax.request({
+            scope: this,
+            url: '/Home/GetMainMenu',
+            method: 'GET',
+            success: function (response, opts) {
+                var result = Ext.decode(response.responseText);
+                if (result.success) {
+                    for (var i = 0; i < result.msg.length; i++) {
+                        var curItem = result.msg[i];
+                        var newPanel = Ext.create('Ext.panel.Panel', { title: curItem.Title,titleAlign: 'center' });
+
+                        var root = {};
+                        root.children=new Array();
+                        for(var j=0;j<curItem.Children.length;j++){
+                            var curPage=curItem.Children[j];
+                            root.children[j]={id:curPage.PermissionId,text:curPage.PermissionDisplayName,leaf:true};
+                        }
+
+                        var newSubPanel = Ext.create('Ext.tree.Panel', {
+                            rootVisible: false,
+                            border: false,
+                            lines: false,
+                            root: root
+                        });
+
+                        newPanel.add(newSubPanel);
+                        component.add(newPanel);
+                    }
+                }
+                else {
+                    Ext.Msg.show({
+                        title: '错误',
+                        msg: result.msg,
+                        buttons: Ext.Msg.OK,
+                        icon: Ext.Msg.ERROR
+                    });
+                }
+            },
+            failure: function (response, opts) {
+                Ext.Msg.show({
+                    title: '错误',
+                    msg: '发生服务器错误：' + response.statusText,
+                    buttons: Ext.Msg.OK,
+                    icon: Ext.Msg.ERROR
+                });
+            },
+        });
     }
 
 });

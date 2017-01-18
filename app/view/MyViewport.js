@@ -76,7 +76,10 @@ Ext.define('ccmz.view.MyViewport', {
                     xtype: 'button',
                     id: 'btnLogout',
                     iconCls: 'logout',
-                    text: '安全退出'
+                    text: '安全退出',
+                    listeners: {
+                        click: 'onBtnLogoutClick'
+                    }
                 }
             ],
             listeners: {
@@ -87,12 +90,15 @@ Ext.define('ccmz.view.MyViewport', {
             xtype: 'panel',
             region: 'west',
             split: true,
+            id: 'appMenu',
             width: 200,
             layout: 'accordion',
             collapsed: false,
             collapsible: true,
             title: '功能菜单',
-            titleAlign: 'center'
+            listeners: {
+                render: 'onAppMenuRender'
+            }
         },
         {
             xtype: 'tabpanel',

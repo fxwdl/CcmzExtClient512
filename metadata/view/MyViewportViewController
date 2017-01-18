@@ -9,5 +9,28 @@
         "designer|userAlias": "myviewport",
         "designer|userClassName": "MyViewportViewController"
     },
-    "designerId": "e2467638-9b74-47b6-9a92-f19bfb693a47"
+    "designerId": "e2467638-9b74-47b6-9a92-f19bfb693a47",
+    "cn": [
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#appMenu treepanel",
+                "designer|targetType": "Ext.tree.Panel",
+                "fn": "onMenuItemClick",
+                "implHandler": [
+                    "var me=this;",
+                    "alert(record.raw);"
+                ],
+                "name": "itemclick",
+                "scope": "me"
+            },
+            "name": "onMenuItemClick",
+            "designerId": "6a38c5c5-899a-4d9a-b573-5ef0af045d8a"
+        }
+    ]
 }

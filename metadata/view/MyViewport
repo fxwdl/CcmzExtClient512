@@ -97,6 +97,7 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "glyph": null,
                         "iconCls": "home",
                         "id": "btnDesktop",
                         "layout|flex": null,
@@ -138,7 +139,42 @@
                         "text": "安全退出"
                     },
                     "name": "MyButton",
-                    "designerId": "13f4fc8e-0863-4bc0-a573-971fa1117892"
+                    "designerId": "13f4fc8e-0863-4bc0-a573-971fa1117892",
+                    "cn": [
+                        {
+                            "type": "viewcontrollereventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onBtnLogoutClick",
+                                "implHandler": [
+                                    "Ext.MessageBox.confirm('提示', '确定要退出系统吗?', function(btn,text){",
+                                    "    if(btn=='yes'){",
+                                    "        var me=this;",
+                                    "        ccmz.getApplication().showLoadingMask();",
+                                    "        Ext.Ajax.request({",
+                                    "            url:'/Account/Logout',",
+                                    "            method: 'POST',",
+                                    "            success:function(response,opts){",
+                                    "                var r=Ext.decode(response.responseText);",
+                                    "                if (r.success){",
+                                    "                    location.href = r.msg;",
+                                    "                }",
+                                    "",
+                                    "            }});",
+                                    "    }",
+                                    "}, this);"
+                                ],
+                                "name": "click",
+                                "scope": "me"
+                            },
+                            "name": "onBtnLogoutClick",
+                            "designerId": "6903d5c8-c5ee-46b1-82c6-7198e3180c21"
+                        }
+                    ]
                 },
                 {
                     "type": "viewcontrollereventbinding",
@@ -180,15 +216,84 @@
             "userConfig": {
                 "collapsed": false,
                 "collapsible": true,
+                "designer|uiInterfaceName": "default",
+                "id": "appMenu",
                 "layout": "accordion",
                 "layout|region": "west",
                 "layout|split": true,
                 "title": "功能菜单",
-                "titleAlign": "center",
                 "width": 200
             },
             "name": "MyPanel",
-            "designerId": "2ca6513e-77b2-4b39-803a-93b1aedfbedc"
+            "designerId": "2ca6513e-77b2-4b39-803a-93b1aedfbedc",
+            "cn": [
+                {
+                    "type": "viewcontrollereventbinding",
+                    "reference": {
+                        "name": "listeners",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fn": "onAppMenuRender",
+                        "implHandler": [
+                            "var me=this;",
+                            "ccmz.getApplication().showLoadingMask();",
+                            "Ext.Ajax.request({",
+                            "    scope: this,",
+                            "    url: '/Home/GetMainMenu',",
+                            "    method: 'GET',",
+                            "    success: function (response, opts) {",
+                            "        var result = Ext.decode(response.responseText);",
+                            "        if (result.success) {",
+                            "            for (var i = 0; i < result.msg.length; i++) {",
+                            "                var curItem = result.msg[i];",
+                            "                var newPanel = Ext.create('Ext.panel.Panel', { title: curItem.Title,titleAlign: 'center' });",
+                            "",
+                            "                var root = {};",
+                            "                root.children=new Array();",
+                            "                for(var j=0;j<curItem.Children.length;j++){",
+                            "                    var curPage=curItem.Children[j];",
+                            "                    root.children[j]={id:curPage.PermissionId,text:curPage.PermissionDisplayName,leaf:true};",
+                            "                }",
+                            "",
+                            "                var newSubPanel = Ext.create('Ext.tree.Panel', {",
+                            "                    rootVisible: false,",
+                            "                    border: false,",
+                            "                    lines: false,",
+                            "                    root: root",
+                            "                });",
+                            "",
+                            "                newPanel.add(newSubPanel);",
+                            "                component.add(newPanel);",
+                            "            }",
+                            "        }",
+                            "        else {",
+                            "            Ext.Msg.show({",
+                            "                title: '错误',",
+                            "                msg: result.msg,",
+                            "                buttons: Ext.Msg.OK,",
+                            "                icon: Ext.Msg.ERROR",
+                            "            });",
+                            "        }",
+                            "    },",
+                            "    failure: function (response, opts) {",
+                            "        Ext.Msg.show({",
+                            "            title: '错误',",
+                            "            msg: '发生服务器错误：' + response.statusText,",
+                            "            buttons: Ext.Msg.OK,",
+                            "            icon: Ext.Msg.ERROR",
+                            "        });",
+                            "    },",
+                            "});"
+                        ],
+                        "name": "render",
+                        "scope": "me"
+                    },
+                    "name": "onAppMenuRender",
+                    "designerId": "ab4d7e50-4940-4d34-9494-bf6f0036902d"
+                }
+            ]
         },
         {
             "type": "Ext.tab.Panel",
