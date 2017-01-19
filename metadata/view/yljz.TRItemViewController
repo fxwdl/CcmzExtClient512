@@ -1,0 +1,13 @@
+{
+    "type": "Ext.app.ViewController",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "yljz.tritem",
+        "designer|userClassName": "yljz.TRItemViewController"
+    },
+    "designerId": "14afedb1-7bd9-4cb4-9c5c-301f0adbe90b"
+}

@@ -24,13 +24,49 @@
                 "fn": "onMenuItemClick",
                 "implHandler": [
                     "var me=this;",
-                    "alert(record.raw);"
+                    "var tabPanel = me.lookupReference('mainTabPanel');",
+                    "switch(record.raw.id){",
+                    "    case 'LightSwitchApplication:S_Treatment_Add':",
+                    "        me.doS_Treatment_Add(record,tabPanel);",
+                    "        break;",
+                    "    default:",
+                    "        break;",
+                    "}"
                 ],
                 "name": "itemclick",
                 "scope": "me"
             },
             "name": "onMenuItemClick",
             "designerId": "6a38c5c5-899a-4d9a-b573-5ef0af045d8a"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "record",
+                    "tabPanel"
+                ],
+                "fn": "doS_Treatment_Add",
+                "implHandler": [
+                    "var v=Ext.create('ccmz.view.yljz.TRItem');",
+                    "var tab=tabPanel.add({",
+                    "    autoScroll: true,",
+                    "    xtype: \"panel\",",
+                    "    layout: 'fit',",
+                    "    title: '新建一站式报销',",
+                    "    closable: true,",
+                    "    items: v",
+                    "});",
+                    "tabPanel.setActiveTab(tab);"
+                ]
+            },
+            "name": "doS_Treatment_Add",
+            "designerId": "5b1e7d77-42f8-43ea-918c-2ab6aa49ea8d"
         }
     ]
 }

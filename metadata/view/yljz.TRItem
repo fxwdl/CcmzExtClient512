@@ -1,0 +1,868 @@
+{
+    "type": "Ext.form.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "bodyPadding": null,
+        "designer|uiInterfaceName": "default",
+        "designer|userAlias": "yljz.tritem",
+        "designer|userClassName": "yljz.TRItem",
+        "fieldDefaults": [
+            "{",
+            "labelAlign:'left'",
+            "}"
+        ],
+        "height": null,
+        "modelValidation": true,
+        "padding": 5,
+        "title": null,
+        "width": null
+    },
+    "designerId": "b52f97b3-979a-44ef-b2b3-b11a6c95f21e",
+    "viewControllerInstanceId": "14afedb1-7bd9-4cb4-9c5c-301f0adbe90b",
+    "viewModelInstanceId": "ac207feb-e765-484e-baee-d53e988a4e62",
+    "cn": [
+        {
+            "type": "Ext.form.FieldSet",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "defaults": [
+                    "{",
+                    "padding:5",
+                    "}"
+                ],
+                "frame": false,
+                "height": null,
+                "layout": "column",
+                "layout|anchor": null,
+                "padding": null,
+                "scrollable": true,
+                "shrinkWrap": null,
+                "title": "报销凭证",
+                "width": null
+            },
+            "name": "MyFieldSet",
+            "configAlternates": {
+                "scrollable": "boolean"
+            },
+            "designerId": "374d460d-7c80-486c-869d-bee90d25a23b",
+            "cn": [
+                {
+                    "type": "Ext.container.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "container|padding": "",
+                        "defaults": [
+                            "{",
+                            "width:250,",
+                            "labelWidth:80",
+                            "}"
+                        ],
+                        "layout": "vbox",
+                        "style": null,
+                        "width": "25%"
+                    },
+                    "name": "MyContainer1",
+                    "designerId": "09b677c5-8ff6-4993-a6d8-7df22e76ca14",
+                    "cn": [
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "身份证号",
+                                "labelWidth": null,
+                                "layout|flex": 1,
+                                "maxWidth": null,
+                                "minWidth": null,
+                                "name": null,
+                                "value": null,
+                                "width": null
+                            },
+                            "name": "MyTextField",
+                            "designerId": "6e0d0f4d-5921-48fc-a942-377c5384d987"
+                        },
+                        {
+                            "type": "Ext.form.field.ComboBox",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "报销类型"
+                            },
+                            "name": "MyComboBox",
+                            "designerId": "1a1db5a4-ee82-42e5-9937-b1b471940dbd"
+                        },
+                        {
+                            "type": "Ext.form.field.Date",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "入院时间"
+                            },
+                            "name": "MyDateField",
+                            "designerId": "8df7c7ca-1314-4d55-a2ff-17378113fc49"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "医疗保障号",
+                                "height": null
+                            },
+                            "name": "MyTextField1",
+                            "designerId": "e9b8f11c-99bc-4712-a872-0fc9cf785e42"
+                        },
+                        {
+                            "type": "Ext.form.field.Number",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "医疗总费用"
+                            },
+                            "name": "MyNumberField",
+                            "designerId": "ac50e421-0873-4327-ad54-23521204e744"
+                        },
+                        {
+                            "type": "Ext.form.field.Number",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "大病保险补偿金额"
+                            },
+                            "name": "MyNumberField1",
+                            "designerId": "956a232d-b9c9-416d-8416-0b00dd1bf55a"
+                        },
+                        {
+                            "type": "Ext.form.field.Number",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "个人账户支付"
+                            },
+                            "name": "MyNumberField2",
+                            "designerId": "07b2a37c-5b9c-43dc-a31d-a2be329c46f6"
+                        },
+                        {
+                            "type": "Ext.form.field.Date",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "报销时间"
+                            },
+                            "name": "MyDateField1",
+                            "designerId": "026eadc7-abcd-47c7-b97f-e029c867b480"
+                        },
+                        {
+                            "type": "Ext.form.field.Display",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "录入操作员",
+                                "value": null
+                            },
+                            "name": "MyDisplayField3",
+                            "designerId": "fd32b420-4b33-4b2d-a298-b1b179c85585"
+                        },
+                        {
+                            "type": "Ext.form.field.Display",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "报销基数",
+                                "value": null
+                            },
+                            "name": "MyDisplayField4",
+                            "designerId": "213e50ec-3c7e-44e3-93ca-f64aab60880b"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.container.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "container|padding": "",
+                        "defaults": [
+                            "{",
+                            "width:250,",
+                            "labelWidth:80",
+                            "}"
+                        ],
+                        "layout": "vbox",
+                        "layout|columnWidth": null,
+                        "width": "25%"
+                    },
+                    "name": "MyContainer4",
+                    "designerId": "f73b27bb-b385-4628-b062-955df81a9b6e",
+                    "cn": [
+                        {
+                            "type": "Ext.form.field.Display",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "姓名",
+                                "layout|flex": 1,
+                                "value": null
+                            },
+                            "name": "MyDisplayField",
+                            "designerId": "6abc3c66-655a-49a6-a88a-7ba221e32134"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "单据号"
+                            },
+                            "name": "MyTextField2",
+                            "designerId": "b0de991e-0a62-45ea-a7df-87a317f68099"
+                        },
+                        {
+                            "type": "Ext.form.field.Date",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "出院时间"
+                            },
+                            "name": "MyDateField2",
+                            "designerId": "b4a798e6-6209-4ca8-bc9d-e9cceac9377d"
+                        },
+                        {
+                            "type": "Ext.form.FieldContainer",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "container|align": "stretch",
+                                "fieldLabel": "疾病代码",
+                                "height": null,
+                                "layout": "hbox"
+                            },
+                            "name": "MyFieldContainer",
+                            "designerId": "b7a51cb3-40fa-43a1-a681-20d700d01d84",
+                            "cn": [
+                                {
+                                    "type": "Ext.form.field.Text",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fieldLabel": null,
+                                        "layout|flex": 1,
+                                        "width": null
+                                    },
+                                    "name": "MyTextField3",
+                                    "designerId": "9be18d0f-aee9-464a-8871-385227d11b7f"
+                                },
+                                {
+                                    "type": "Ext.button.Button",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "layout|flex": 0,
+                                        "text": "..."
+                                    },
+                                    "name": "MyButton12",
+                                    "designerId": "d8a65f7e-2b0b-45a0-9617-e1bc5acc911d"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.form.field.Number",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "自理费用"
+                            },
+                            "name": "MyNumberField4",
+                            "designerId": "785fad71-38b0-4ae2-a601-e6b4603fb740"
+                        },
+                        {
+                            "type": "Ext.form.field.Number",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "医保(农合)报销",
+                                "labelAlign": null,
+                                "labelStyle": null
+                            },
+                            "name": "MyNumberField3",
+                            "designerId": "23471470-f278-448b-9b14-b05b006e96d9"
+                        },
+                        {
+                            "type": "Ext.form.field.Number",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "医保其它支付"
+                            },
+                            "name": "MyNumberField5",
+                            "designerId": "7259f660-d6cd-48ed-b52e-f04035405986"
+                        },
+                        {
+                            "type": "Ext.form.field.Display",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": null,
+                                "hideEmptyLabel": false,
+                                "layout|flex": 1,
+                                "value": null
+                            },
+                            "name": "MyDisplayField11",
+                            "designerId": "03694762-8322-4d17-9624-e5e86f671459"
+                        },
+                        {
+                            "type": "Ext.form.field.Display",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "创建时间",
+                                "value": null
+                            },
+                            "name": "MyDisplayField5",
+                            "designerId": "2b875c40-fee4-4e5e-943c-f65d17df4799"
+                        },
+                        {
+                            "type": "Ext.form.field.Display",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "救助金额",
+                                "value": null
+                            },
+                            "name": "MyDisplayField6",
+                            "designerId": "903fa88c-e63e-43f1-8d17-fef0b1454377"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.container.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "container|padding": "",
+                        "defaults": [
+                            "{",
+                            "width:250,",
+                            "labelWidth:80",
+                            "}"
+                        ],
+                        "layout": "vbox",
+                        "width": "25%"
+                    },
+                    "name": "MyContainer5",
+                    "designerId": "0372a184-ba3c-4ab9-9483-fd0b0c45ea9d",
+                    "cn": [
+                        {
+                            "type": "Ext.form.field.Display",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "身份类别",
+                                "layout|flex": 1,
+                                "value": null
+                            },
+                            "name": "MyDisplayField1",
+                            "designerId": "a6741bc6-30e6-43b5-a2b2-c29abecf32b6"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "就诊医院"
+                            },
+                            "name": "MyTextField4",
+                            "designerId": "27b727c7-e1a4-47e1-9574-dd2821c31c46"
+                        },
+                        {
+                            "type": "Ext.form.field.Date",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "结算日期"
+                            },
+                            "name": "MyDateField3",
+                            "designerId": "25fad1b4-595d-4e32-ae28-a296ee54e77f"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "疾病名称",
+                                "minHeight": null
+                            },
+                            "name": "MyTextField5",
+                            "designerId": "8253d273-215d-4883-957f-691c7d0ff04f"
+                        },
+                        {
+                            "type": "Ext.form.field.Number",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "自费金额"
+                            },
+                            "name": "MyNumberField6",
+                            "designerId": "dbbe5cd3-e2ae-4872-a144-155eaf562955"
+                        },
+                        {
+                            "type": "Ext.form.field.Number",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "新农合参与补偿金额",
+                                "labelStyle": null
+                            },
+                            "name": "MyNumberField7",
+                            "designerId": "d2a83a03-a3a1-44e9-b5b9-7b8513f0e6ef"
+                        },
+                        {
+                            "type": "Ext.form.field.Number",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "个人承担&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
+                            },
+                            "name": "MyNumberField8",
+                            "designerId": "88c4d42b-1b89-4eae-8c13-53a0f0e67efb"
+                        },
+                        {
+                            "type": "Ext.form.field.Display",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": null,
+                                "hideEmptyLabel": false,
+                                "layout|flex": 1,
+                                "value": null
+                            },
+                            "name": "MyDisplayField12",
+                            "designerId": "a8b961a1-8a2e-435f-be0b-4feeb65b8e92"
+                        },
+                        {
+                            "type": "Ext.form.field.Display",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "报销操作员",
+                                "value": null
+                            },
+                            "name": "MyDisplayField7",
+                            "designerId": "67ca219a-1477-4d1b-a040-d5237921c503"
+                        },
+                        {
+                            "type": "Ext.form.field.Display",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "作废操作员",
+                                "value": null
+                            },
+                            "name": "MyDisplayField8",
+                            "designerId": "78ce27f9-2b6f-4338-9f2d-f4fc6ece7dbe"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.container.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "container|padding": "",
+                        "defaults": [
+                            "{",
+                            "width:250,",
+                            "labelWidth:80",
+                            "}"
+                        ],
+                        "layout": "vbox",
+                        "width": "25%"
+                    },
+                    "name": "MyContainer6",
+                    "designerId": "4a534bb4-c9e8-4199-8d2a-905fafc446c9",
+                    "cn": [
+                        {
+                            "type": "Ext.form.field.Display",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "人员状态",
+                                "layout|flex": 1,
+                                "value": ""
+                            },
+                            "name": "MyDisplayField2",
+                            "designerId": "5ed9ff97-be54-4222-8999-a273abae07b1"
+                        },
+                        {
+                            "type": "Ext.form.field.ComboBox",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "医疗类别"
+                            },
+                            "name": "MyComboBox1",
+                            "designerId": "0d930f9c-8242-4e08-a255-25360caf5bf0"
+                        },
+                        {
+                            "type": "Ext.form.field.Date",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "录入日期"
+                            },
+                            "name": "MyDateField4",
+                            "designerId": "900b966d-d2cf-46d1-9a75-32d0cb360346"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "家庭编码",
+                                "height": null
+                            },
+                            "name": "MyTextField6",
+                            "designerId": "ccf89a4b-2ae5-49d1-9b60-72a739dc7ed8"
+                        },
+                        {
+                            "type": "Ext.form.field.Number",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "起付线"
+                            },
+                            "name": "MyNumberField9",
+                            "designerId": "6a346249-7422-4142-9ec9-4dbd4f57f3fa"
+                        },
+                        {
+                            "type": "Ext.form.field.Number",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "新农合参与大病补偿金额"
+                            },
+                            "name": "MyNumberField10",
+                            "designerId": "e8e065a9-d233-4111-bb2d-a9af668c0a3f"
+                        },
+                        {
+                            "type": "Ext.form.field.ComboBox",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "特殊情况&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
+                            },
+                            "name": "MyComboBox2",
+                            "designerId": "c1727abf-4479-4df9-af96-eb76a64623de"
+                        },
+                        {
+                            "type": "Ext.form.field.Display",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": null,
+                                "hideEmptyLabel": false,
+                                "layout|flex": 1,
+                                "value": null
+                            },
+                            "name": "MyDisplayField13",
+                            "designerId": "74502192-9138-4b53-b201-97f2f795ffa8"
+                        },
+                        {
+                            "type": "Ext.form.field.Display",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "报销时间",
+                                "value": null
+                            },
+                            "name": "MyDisplayField9",
+                            "designerId": "eb645ed8-39f3-42e6-9e9a-8850b039eae7"
+                        },
+                        {
+                            "type": "Ext.form.field.Display",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "作废日期",
+                                "value": null
+                            },
+                            "name": "MyDisplayField10",
+                            "designerId": "b56a7f18-ac2b-45b8-8c44-d7624d9a822e"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Ext.toolbar.Toolbar",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "container|align": "middle",
+                "container|pack": "center",
+                "defaults": [
+                    "{",
+                    "    width:60",
+                    "}",
+                    ""
+                ],
+                "dock": null
+            },
+            "name": "MyToolbar",
+            "designerId": "ae4d3c78-0276-46a9-a13e-df44eec045bc",
+            "cn": [
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": null,
+                        "text": "提交"
+                    },
+                    "name": "MyButton5",
+                    "designerId": "065db1e9-d3a6-4f0d-be2c-663c50e37d5a"
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": null,
+                        "text": "重置"
+                    },
+                    "name": "MyButton6",
+                    "designerId": "cee640c7-4450-4a52-840b-568c051727b2"
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": null,
+                        "text": "试算大病保险",
+                        "width": 100
+                    },
+                    "name": "MyButton7",
+                    "designerId": "9f1d163e-dfba-45ca-8757-88c5a3723133"
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": null,
+                        "text": "报销"
+                    },
+                    "name": "MyButton8",
+                    "designerId": "3e78f83e-838d-4f09-8fb4-59464cd6ff1c"
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": null,
+                        "text": "打印凭证",
+                        "width": 80
+                    },
+                    "name": "MyButton9",
+                    "designerId": "854580ed-aacc-4214-913f-a18ed1fdd34a"
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": null,
+                        "text": "作废"
+                    },
+                    "name": "MyButton10",
+                    "designerId": "941af13d-3ccf-4183-a135-20222abe671d"
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": null,
+                        "text": "继续录入",
+                        "width": 80
+                    },
+                    "name": "MyButton11",
+                    "designerId": "576128b6-e0b3-4c27-965b-b1bbd2ac1273"
+                }
+            ]
+        }
+    ]
+}

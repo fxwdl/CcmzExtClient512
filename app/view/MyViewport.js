@@ -102,7 +102,9 @@ Ext.define('ccmz.view.MyViewport', {
         },
         {
             xtype: 'tabpanel',
-            region: 'center'
+            region: 'center',
+            reference: 'mainTabPanel',
+            referenceHolder: true
         }
     ]
 

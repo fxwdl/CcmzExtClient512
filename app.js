@@ -27,8 +27,12 @@ Ext.application({
     requires: [
         'Ext.Loader'
     ],
+    models: [
+        'Bn_TreatmentReimburse'
+    ],
     views: [
-        'MyViewport'
+        'MyViewport',
+        'yljz.TRItem'
     ],
     name: 'ccmz',
     title: '长春市医疗救助管理系统',

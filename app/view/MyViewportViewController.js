@@ -25,7 +25,27 @@ Ext.define('ccmz.view.MyViewportViewController', {
 
     onMenuItemClick: function(dataview, record, item, index, e, eOpts) {
         var me=this;
-        alert(record.raw);
+        var tabPanel = me.lookupReference('mainTabPanel');
+        switch(record.raw.id){
+            case 'LightSwitchApplication:S_Treatment_Add':
+                me.doS_Treatment_Add(record,tabPanel);
+                break;
+            default:
+                break;
+        }
+    },
+
+    doS_Treatment_Add: function(record, tabPanel) {
+        var v=Ext.create('ccmz.view.yljz.TRItem');
+        var tab=tabPanel.add({
+            autoScroll: true,
+            xtype: "panel",
+            layout: 'fit',
+            title: '新建一站式报销',
+            closable: true,
+            items: v
+        });
+        tabPanel.setActiveTab(tab);
     },
 
     onBtnLogoutClick: function(button, e, eOpts) {
@@ -71,17 +91,14 @@ Ext.define('ccmz.view.MyViewportViewController', {
             success: function (response, opts) {
                 var result = Ext.decode(response.responseText);
                 if (result.success) {
-                    for (var i = 0; i < result.msg.length; i++) {
-                        var curItem = result.msg[i];
+                    Ext.each(result.msg,function(curItem){
                         var newPanel = Ext.create('Ext.panel.Panel', { title: curItem.Title,titleAlign: 'center' });
 
                         var root = {};
                         root.children=new Array();
-                        for(var j=0;j<curItem.Children.length;j++){
-                            var curPage=curItem.Children[j];
-                            root.children[j]={id:curPage.PermissionId,text:curPage.PermissionDisplayName,leaf:true};
-                        }
-
+                        Ext.each(curItem.Children,function(curPage){
+                            root.children.push({id:curPage.PermissionId,text:curPage.PermissionDisplayName,leaf:true});
+                        });
                         var newSubPanel = Ext.create('Ext.tree.Panel', {
                             rootVisible: false,
                             border: false,
@@ -91,7 +108,7 @@ Ext.define('ccmz.view.MyViewportViewController', {
 
                         newPanel.add(newSubPanel);
                         component.add(newPanel);
-                    }
+                    });
                 }
                 else {
                     Ext.Msg.show({

@@ -45,11 +45,16 @@
         "view": [
             "d4ecdbba-cb02-477c-8944-27fa2a1bc1da",
             "32101820-88dd-46a3-b08d-5f7f650b2a7d",
-            "e2467638-9b74-47b6-9a92-f19bfb693a47"
+            "e2467638-9b74-47b6-9a92-f19bfb693a47",
+            "b52f97b3-979a-44ef-b2b3-b11a6c95f21e",
+            "ac207feb-e765-484e-baee-d53e988a4e62",
+            "14afedb1-7bd9-4cb4-9c5c-301f0adbe90b"
         ],
         "store": [],
         "controller": [],
-        "model": [],
+        "model": [
+            "918af568-007e-4252-a052-5100e8dbb872"
+        ],
         "resource": [
             "1e35022e-01e9-4194-9bb0-df4773d6d7c4",
             "c556fde5-a942-429b-9968-0a68ec3d6be8",
