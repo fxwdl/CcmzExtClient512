@@ -63,7 +63,7 @@ Ext.define("Ext.locale.zh_CN.form.field.Base", {
 // changing the msg text below will affect the LoadMask
 Ext.define("Ext.locale.zh_CN.view.AbstractView", {
     override: "Ext.view.AbstractView",
-    loadingText: "讀取中..."
+    loadingText: "读取中..."
 });
 
 Ext.define("Ext.locale.zh_CN.picker.Date", {
@@ -127,7 +127,8 @@ Ext.define("Ext.locale.zh_CN.form.field.Number", {
     override: "Ext.form.field.Number",
     minText: "该输入项的最小值是 {0}",
     maxText: "该输入项的最大值是 {0}",
-    nanText: "{0} 不是有效数值"
+    nanText: "{0} 不是有效数值",
+    negativeText:"值不能是负数"
 });
 
 Ext.define("Ext.locale.zh_CN.form.field.Date", {

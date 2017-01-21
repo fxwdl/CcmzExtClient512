@@ -1,0 +1,16 @@
+{
+    "type": "jsoverrideresource",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "defer": false,
+        "designer|userClassName": "js_b8c6970n",
+        "url": "app/override/form/field/Number.js",
+        "x-compile": true
+    },
+    "name": "js",
+    "designerId": "66c0d6d5-2034-45e8-a5e0-4819bec3e546"
+}

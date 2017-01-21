@@ -36,16 +36,59 @@ Ext.define('ccmz.view.MyViewportViewController', {
     },
 
     doS_Treatment_Add: function(record, tabPanel) {
-        var v=Ext.create('ccmz.view.yljz.TRItem');
+        /*
+        var d=new ccmz.model.Bn_TreatmentReimburse();
+        d.set('TypeIn_Date',Date());
+        d.set('Apply_Date',Date());
+        var v=new ccmz.view.yljz.TRItem({
+            viewModel:{
+                data:{
+                    d:d
+                }
+            }
+        });
         var tab=tabPanel.add({
             autoScroll: true,
             xtype: "panel",
             layout: 'fit',
             title: '新建一站式报销',
             closable: true,
-            items: v
+            items: v,
         });
         tabPanel.setActiveTab(tab);
+        */
+        ccmz.model.Bn_TreatmentReimburse.load('cb244d72-a330-4a90-88ba-0007c21a1c16', {
+            scope: this,
+            failure: function(record, operation) {
+                console.log("error");
+            },
+            success: function(record, operation) {
+                var v=new ccmz.view.yljz.TRItem({
+                    viewModel:{
+                        data:{
+                            d:record
+                        }
+                    }
+                });
+                var tab=tabPanel.add({
+                    autoScroll: true,
+                    xtype: "panel",
+                    layout: 'fit',
+                    title: record.get("Reim_NO"),
+                    closable: true,
+                    items: v,
+                });
+                tabPanel.setActiveTab(tab);
+            },
+            callback: function(record, operation, success) {
+                //do something whether the load succeeded or failed
+            }
+        });
+
+    },
+
+    onBtnChangePwdClick: function(button, e, eOpts) {
+
     },
 
     onBtnLogoutClick: function(button, e, eOpts) {

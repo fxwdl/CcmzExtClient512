@@ -1,0 +1,41 @@
+{
+    "type": "Ext.data.Model",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "SystemEnum"
+    },
+    "name": "MyModel",
+    "designerId": "2bfe6234-9df4-4a1d-8e69-a863cb132499",
+    "cn": [
+        {
+            "type": "Ext.data.field.Integer",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "value"
+            },
+            "name": "MyInteger",
+            "designerId": "bbca5d7c-df2a-4bdb-accf-8a6cfe1731e6"
+        },
+        {
+            "type": "Ext.data.field.String",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "text"
+            },
+            "name": "MyString19",
+            "designerId": "ee8d96ba-e2a1-4659-834e-321800447385"
+        }
+    ]
+}

@@ -1,7 +1,7 @@
 {
    "name": "ccmz",
    "indexHtmlPath": "index.html",
-   "classpath": "${app.dir}/app",
+   "classpath": "${app.dir}/app,${app.dir}/app/override/form/field/",
    "overrides": "${app.dir}/overrides",
    "framework": "ext",
    "theme": "ext-theme-crisp-c556fde5-a942-429b-9968-0a68ec3d6be8",
@@ -14,6 +14,10 @@
    "js": [
       {
          "path": "${framework.dir}/build/ext-all-rtl-debug.js"
+      },
+      {
+         "path": "app/override/form/field/Number.js",
+         "x-compile": true
       },
       {
          "path": "app.js",

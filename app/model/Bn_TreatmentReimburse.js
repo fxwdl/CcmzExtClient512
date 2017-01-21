@@ -25,6 +25,7 @@ Ext.define('ccmz.model.Bn_TreatmentReimburse', {
         'Ext.data.reader.Json'
     ],
 
+    convertOnSet: false,
     idProperty: 'ID',
 
     fields: [
@@ -53,6 +54,7 @@ Ext.define('ccmz.model.Bn_TreatmentReimburse', {
         },
         {
             type: 'int',
+            defaultValue: 1,
             name: 'Medicare_State'
         },
         {
@@ -61,6 +63,7 @@ Ext.define('ccmz.model.Bn_TreatmentReimburse', {
         },
         {
             type: 'int',
+            defaultValue: 2,
             name: 'Reim_Source'
         },
         {
@@ -86,22 +89,39 @@ Ext.define('ccmz.model.Bn_TreatmentReimburse', {
         },
         {
             type: 'int',
+            defaultValue: 15,
             name: 'Reim_Type_ID'
         },
         {
             type: 'date',
+            convert: function(v, rec) {
+                if (v)
+                return new Date(parseInt(v.replace('/Date(', '')));
+            },
             name: 'In_Date'
         },
         {
             type: 'date',
+            convert: function(v, rec) {
+                if (v)
+                return new Date(parseInt(v.replace('/Date(', '')));
+            },
             name: 'Out_Date'
         },
         {
             type: 'date',
+            convert: function(v, rec) {
+                if (v)
+                return new Date(parseInt(v.replace('/Date(', '')));
+            },
             name: 'Medicare_Date'
         },
         {
             type: 'date',
+            convert: function(v, rec) {
+                if (v)
+                return new Date(parseInt(v.replace('/Date(', '')));
+            },
             name: 'TypeIn_Date'
         },
         {
@@ -146,6 +166,10 @@ Ext.define('ccmz.model.Bn_TreatmentReimburse', {
         },
         {
             type: 'date',
+            convert: function(v, rec) {
+                if (v)
+                return new Date(parseInt(v.replace('/Date(', '')));
+            },
             name: 'Apply_Date'
         },
         {
@@ -158,6 +182,7 @@ Ext.define('ccmz.model.Bn_TreatmentReimburse', {
         },
         {
             type: 'int',
+            defaultValue: 0,
             name: 'Finish_Flag',
             persist: false
         },
@@ -181,6 +206,10 @@ Ext.define('ccmz.model.Bn_TreatmentReimburse', {
         },
         {
             type: 'date',
+            convert: function(v, rec) {
+                if (v)
+                return new Date(parseInt(v.replace('/Date(', '')));
+            },
             name: 'Create_Time',
             persist: false
         },
@@ -191,11 +220,16 @@ Ext.define('ccmz.model.Bn_TreatmentReimburse', {
         },
         {
             type: 'date',
+            convert: function(v, rec) {
+                if (v)
+                return new Date(parseInt(v.replace('/Date(', '')));
+            },
             name: 'Finish_Date',
             persist: false
         },
         {
             type: 'float',
+            defaultValue: 0,
             name: 'SelfBaseMoney',
             persist: false
         },
@@ -206,6 +240,10 @@ Ext.define('ccmz.model.Bn_TreatmentReimburse', {
         },
         {
             type: 'date',
+            convert: function(v, rec) {
+                if (v)
+                return new Date(parseInt(v.replace('/Date(', '')));
+            },
             name: 'Cancel_Date',
             persist: false
         },
@@ -228,6 +266,30 @@ Ext.define('ccmz.model.Bn_TreatmentReimburse', {
             type: 'float',
             name: 'YLJZ_Money_Total',
             persist: false
+        },
+        {
+            type: 'int',
+            name: 'Spec_BN'
+        },
+        {
+            type: 'float',
+            name: 'CYDBBC_Money'
+        },
+        {
+            type: 'int',
+            name: 'IdentityType_ID'
+        },
+        {
+            type: 'float',
+            name: 'SelBaseMoney_ZY_Total'
+        },
+        {
+            type: 'float',
+            name: 'GR_Accout_Pay'
+        },
+        {
+            type: 'float',
+            name: 'YB_Other_Pay'
         }
     ],
 
@@ -235,7 +297,7 @@ Ext.define('ccmz.model.Bn_TreatmentReimburse', {
         type: 'ajax',
         api: {
             create: '',
-            read: '',
+            read: '/YLJZ/GetTRItemById',
             update: '',
             destroy: ''
         },

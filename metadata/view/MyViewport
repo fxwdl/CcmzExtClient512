@@ -122,7 +122,27 @@
                         "text": "修改密码"
                     },
                     "name": "MyButton1",
-                    "designerId": "37489546-f148-4ab0-9196-790607208f86"
+                    "designerId": "37489546-f148-4ab0-9196-790607208f86",
+                    "cn": [
+                        {
+                            "type": "viewcontrollereventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onBtnChangePwdClick",
+                                "implHandler": [
+                                    ""
+                                ],
+                                "name": "click",
+                                "scope": "me"
+                            },
+                            "name": "onBtnChangePwdClick",
+                            "designerId": "e3405ba1-c308-403e-8ba7-63952a03a78f"
+                        }
+                    ]
                 },
                 {
                     "type": "Ext.button.Button",

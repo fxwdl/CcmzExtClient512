@@ -19,6 +19,7 @@ Ext.define('ccmz.view.yljz.TRItem', {
 
     requires: [
         'ccmz.view.yljz.TRItemViewModel',
+        'ccmz.view.yljz.TRItemViewController',
         'Ext.form.FieldSet',
         'Ext.form.field.ComboBox',
         'Ext.form.field.Date',
@@ -29,6 +30,7 @@ Ext.define('ccmz.view.yljz.TRItem', {
         'Ext.toolbar.Toolbar'
     ],
 
+    controller: 'yljz.tritem',
     viewModel: {
         type: 'yljz.tritem'
     },
@@ -38,6 +40,10 @@ Ext.define('ccmz.view.yljz.TRItem', {
         labelAlign: 'left'
     },
 
+    layout: {
+        type: 'vbox',
+        align: 'center'
+    },
     items: [
         {
             xtype: 'fieldset',
@@ -63,44 +69,104 @@ Ext.define('ccmz.view.yljz.TRItem', {
                     items: [
                         {
                             xtype: 'textfield',
-                            flex: 1,
-                            fieldLabel: '身份证号'
+                            reference: 'txtSfzh',
+                            tabIndex: 1,
+                            fieldLabel: '身份证号',
+                            selectOnFocus: true,
+                            bind: {
+                                value: '{d.Sfzh}',
+                                readOnly: '{Readonly}'
+                            }
                         },
                         {
                             xtype: 'combobox',
-                            fieldLabel: '报销类型'
+                            tabIndex: 2,
+                            padding: '5 0 0 0',
+                            fieldLabel: '报销类型',
+                            editable: false,
+                            valueField: 'value',
+                            bind: {
+                                value: '{d.Reim_Source}',
+                                readOnly: '{Readonly}',
+                                store: '{rsStore}'
+                            }
                         },
                         {
                             xtype: 'datefield',
-                            fieldLabel: '入院时间'
+                            tabIndex: 6,
+                            fieldLabel: '入院时间',
+                            selectOnFocus: true,
+                            bind: {
+                                value: '{d.In_Date}',
+                                readOnly: '{Readonly}'
+                            }
                         },
                         {
                             xtype: 'textfield',
-                            fieldLabel: '医疗保障号'
+                            tabIndex: 10,
+                            fieldLabel: '医疗保障号',
+                            selectOnFocus: true,
+                            bind: {
+                                value: '{d.Card_NO}',
+                                readOnly: '{Readonly}'
+                            }
                         },
                         {
                             xtype: 'numberfield',
-                            fieldLabel: '医疗总费用'
+                            useThousandSeparator: true,
+                            tabIndex: 14,
+                            fieldLabel: '医疗总费用',
+                            selectOnFocus: true,
+                            minValue: 0,
+                            bind: {
+                                value: '{d.YLZ_Money}',
+                                readOnly: '{Readonly}'
+                            }
                         },
                         {
                             xtype: 'numberfield',
-                            fieldLabel: '大病保险补偿金额'
+                            tabIndex: 18,
+                            fieldLabel: '大病保险补偿金额',
+                            selectOnFocus: true,
+                            bind: {
+                                value: '{d.DBBX_Money}',
+                                readOnly: '{Readonly}'
+                            }
                         },
                         {
                             xtype: 'numberfield',
-                            fieldLabel: '个人账户支付'
+                            tabIndex: 22,
+                            fieldLabel: '个人账户支付',
+                            selectOnFocus: true,
+                            bind: {
+                                value: '{d.GR_Accout_Pay}',
+                                readOnly: '{Readonly}'
+                            }
                         },
                         {
                             xtype: 'datefield',
-                            fieldLabel: '报销时间'
+                            tabIndex: 26,
+                            fieldLabel: '报销时间',
+                            selectOnFocus: true,
+                            bind: {
+                                value: '{d.Apply_Date}',
+                                readOnly: '{Readonly}'
+                            }
                         },
                         {
                             xtype: 'displayfield',
-                            fieldLabel: '录入操作员'
+                            padding: '3 0 0 0 ',
+                            fieldLabel: '录入操作员',
+                            bind: {
+                                value: '{d.Operator_Name}'
+                            }
                         },
                         {
                             xtype: 'displayfield',
-                            fieldLabel: '报销基数'
+                            fieldLabel: '报销基数',
+                            bind: {
+                                value: '{BaseMoneyDisplay}'
+                            }
                         }
                     ]
                 },
@@ -119,15 +185,31 @@ Ext.define('ccmz.view.yljz.TRItem', {
                         {
                             xtype: 'displayfield',
                             flex: 1,
-                            fieldLabel: '姓名'
+                            fieldLabel: '姓名',
+                            bind: {
+                                value: '{d.Name}'
+                            }
                         },
                         {
                             xtype: 'textfield',
-                            fieldLabel: '单据号'
+                            flex: 1,
+                            tabIndex: 3,
+                            fieldLabel: '单据号',
+                            selectOnFocus: true,
+                            bind: {
+                                value: '{d.BillNO}',
+                                readOnly: '{Readonly}'
+                            }
                         },
                         {
                             xtype: 'datefield',
-                            fieldLabel: '出院时间'
+                            tabIndex: 7,
+                            fieldLabel: '出院时间',
+                            selectOnFocus: true,
+                            bind: {
+                                value: '{d.Out_Date}',
+                                readOnly: '{Readonly}'
+                            }
                         },
                         {
                             xtype: 'fieldcontainer',
@@ -139,26 +221,54 @@ Ext.define('ccmz.view.yljz.TRItem', {
                             items: [
                                 {
                                     xtype: 'textfield',
-                                    flex: 1
+                                    flex: 1,
+                                    tabIndex: 11,
+                                    editable: false,
+                                    bind: {
+                                        value: '{d.StdDisease_Code}',
+                                        readOnly: '{Readonly}'
+                                    }
                                 },
                                 {
                                     xtype: 'button',
                                     flex: 0,
-                                    text: '...'
+                                    tabIndex: 11,
+                                    text: '...',
+                                    bind: {
+                                        disabled: '{Readonly}'
+                                    }
                                 }
                             ]
                         },
                         {
                             xtype: 'numberfield',
-                            fieldLabel: '自理费用'
+                            tabIndex: 15,
+                            fieldLabel: '自理费用',
+                            selectOnFocus: true,
+                            bind: {
+                                value: '{d.ZL_Money}',
+                                readOnly: '{Readonly}'
+                            }
                         },
                         {
                             xtype: 'numberfield',
-                            fieldLabel: '医保(农合)报销'
+                            tabIndex: 19,
+                            fieldLabel: '医保(农合)报销',
+                            selectOnFocus: true,
+                            bind: {
+                                value: '{d.YBBX_Money}',
+                                readOnly: '{Readonly}'
+                            }
                         },
                         {
                             xtype: 'numberfield',
-                            fieldLabel: '医保其它支付'
+                            tabIndex: 23,
+                            fieldLabel: '医保其它支付',
+                            selectOnFocus: true,
+                            bind: {
+                                value: '{d.YB_Other_Pay}',
+                                readOnly: '{Readonly}'
+                            }
                         },
                         {
                             xtype: 'displayfield',
@@ -167,11 +277,21 @@ Ext.define('ccmz.view.yljz.TRItem', {
                         },
                         {
                             xtype: 'displayfield',
-                            fieldLabel: '创建时间'
+                            renderer: function(value, displayField) {
+                                if(Ext.isDefined(value))
+                                return Ext.util.Format.date(value,'Y-m-d H:i:s');
+                            },
+                            fieldLabel: '创建时间',
+                            bind: {
+                                value: '{d.Create_Time}'
+                            }
                         },
                         {
                             xtype: 'displayfield',
-                            fieldLabel: '救助金额'
+                            fieldLabel: '救助金额',
+                            bind: {
+                                value: '{d.YLJZ_Money}'
+                            }
                         }
                     ]
                 },
@@ -190,31 +310,70 @@ Ext.define('ccmz.view.yljz.TRItem', {
                         {
                             xtype: 'displayfield',
                             flex: 1,
-                            fieldLabel: '身份类别'
+                            fieldLabel: '身份类别',
+                            bind: {
+                                value: '{d.SfLb}'
+                            }
                         },
                         {
                             xtype: 'textfield',
-                            fieldLabel: '就诊医院'
+                            tabIndex: 4,
+                            fieldLabel: '就诊医院',
+                            selectOnFocus: true,
+                            bind: {
+                                value: '{d.TreatmentHosptial}',
+                                readOnly: '{Readonly}'
+                            }
                         },
                         {
                             xtype: 'datefield',
-                            fieldLabel: '结算日期'
+                            tabIndex: 8,
+                            fieldLabel: '结算日期',
+                            selectOnFocus: true,
+                            bind: {
+                                value: '{d.Medicare_Date}',
+                                readOnly: '{Readonly}'
+                            }
                         },
                         {
                             xtype: 'textfield',
-                            fieldLabel: '疾病名称'
+                            tabIndex: 12,
+                            fieldLabel: '疾病名称',
+                            selectOnFocus: true,
+                            bind: {
+                                value: '{d.StdDisease_Name}',
+                                readOnly: '{Readonly}'
+                            }
                         },
                         {
                             xtype: 'numberfield',
-                            fieldLabel: '自费金额'
+                            tabIndex: 16,
+                            fieldLabel: '自费金额',
+                            selectOnFocus: true,
+                            bind: {
+                                value: '{d.ZF_Money}',
+                                readOnly: '{Readonly}'
+                            }
                         },
                         {
                             xtype: 'numberfield',
-                            fieldLabel: '新农合参与补偿金额'
+                            tabIndex: 20,
+                            fieldLabel: '新农合参与补偿金额',
+                            selectOnFocus: true,
+                            bind: {
+                                value: '{d.XNH_Money}',
+                                readOnly: '{Readonly}'
+                            }
                         },
                         {
                             xtype: 'numberfield',
-                            fieldLabel: '个人承担&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'
+                            tabIndex: 24,
+                            fieldLabel: '个人承担&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;',
+                            selectOnFocus: true,
+                            bind: {
+                                value: '{d.GR_Money}',
+                                readOnly: '{Readonly}'
+                            }
                         },
                         {
                             xtype: 'displayfield',
@@ -223,11 +382,17 @@ Ext.define('ccmz.view.yljz.TRItem', {
                         },
                         {
                             xtype: 'displayfield',
-                            fieldLabel: '报销操作员'
+                            fieldLabel: '报销操作员',
+                            bind: {
+                                value: '{d.Pay_Operator_Name}'
+                            }
                         },
                         {
                             xtype: 'displayfield',
-                            fieldLabel: '作废操作员'
+                            fieldLabel: '作废操作员',
+                            bind: {
+                                value: '{d.Cancel_Operator_Name}'
+                            }
                         }
                     ]
                 },
@@ -247,31 +412,73 @@ Ext.define('ccmz.view.yljz.TRItem', {
                             xtype: 'displayfield',
                             flex: 1,
                             fieldLabel: '人员状态',
-                            value: ''
+                            bind: {
+                                value: '{d.Ry_Zt}'
+                            }
                         },
                         {
                             xtype: 'combobox',
-                            fieldLabel: '医疗类别'
+                            tabIndex: 5,
+                            fieldLabel: '医疗类别',
+                            editable: false,
+                            valueField: 'value',
+                            bind: {
+                                value: '{d.Reim_Type_ID}',
+                                readOnly: '{Readonly}',
+                                store: '{rtStore}'
+                            }
                         },
                         {
                             xtype: 'datefield',
-                            fieldLabel: '录入日期'
+                            tabIndex: 9,
+                            fieldLabel: '录入日期',
+                            selectOnFocus: true,
+                            bind: {
+                                value: '{d.TypeIn_Date}',
+                                readOnly: '{Readonly}'
+                            }
                         },
                         {
                             xtype: 'textfield',
-                            fieldLabel: '家庭编码'
+                            tabIndex: 13,
+                            fieldLabel: '家庭编码',
+                            selectOnFocus: true,
+                            bind: {
+                                value: '{d.Family_Code}',
+                                readOnly: '{Readonly}'
+                            }
                         },
                         {
                             xtype: 'numberfield',
-                            fieldLabel: '起付线'
+                            tabIndex: 17,
+                            fieldLabel: '起付线',
+                            selectOnFocus: true,
+                            decimalPrecision: 0,
+                            bind: {
+                                value: '{d.Medicare_Line}',
+                                readOnly: '{Readonly}'
+                            }
                         },
                         {
                             xtype: 'numberfield',
-                            fieldLabel: '新农合参与大病补偿金额'
+                            tabIndex: 21,
+                            fieldLabel: '新农合参与大病补偿金额',
+                            bind: {
+                                value: '{d.CYDBBC_Money}',
+                                readOnly: '{Readonly}'
+                            }
                         },
                         {
                             xtype: 'combobox',
-                            fieldLabel: '特殊情况&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'
+                            tabIndex: 25,
+                            fieldLabel: '特殊情况&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;',
+                            editable: false,
+                            valueField: 'value',
+                            bind: {
+                                value: '{d.Spec_BN}',
+                                readOnly: '{Readonly}',
+                                store: '{sbnStore}'
+                            }
                         },
                         {
                             xtype: 'displayfield',
@@ -280,11 +487,25 @@ Ext.define('ccmz.view.yljz.TRItem', {
                         },
                         {
                             xtype: 'displayfield',
-                            fieldLabel: '报销时间'
+                            renderer: function(value, displayField) {
+                                if(Ext.isDefined(value))
+                                return Ext.util.Format.date(value,'Y-m-d H:i:s');
+                            },
+                            fieldLabel: '报销时间',
+                            bind: {
+                                value: '{d.Finish_Date}'
+                            }
                         },
                         {
                             xtype: 'displayfield',
-                            fieldLabel: '作废日期'
+                            renderer: function(value, displayField) {
+                                if(Ext.isDefined(value))
+                                return Ext.util.Format.date(value,'Y-m-d H:i:s');
+                            },
+                            fieldLabel: '作废日期',
+                            bind: {
+                                value: '{d.Cancel_Date}'
+                            }
                         }
                     ]
                 }
@@ -303,37 +524,68 @@ Ext.define('ccmz.view.yljz.TRItem', {
             items: [
                 {
                     xtype: 'button',
-                    text: '提交'
+                    tabIndex: 27,
+                    text: '提交',
+                    bind: {
+                        disabled: '{Readonly}'
+                    },
+                    listeners: {
+                        click: 'onSubmitClick'
+                    }
                 },
                 {
                     xtype: 'button',
-                    text: '重置'
+                    tabIndex: 28,
+                    text: '重置',
+                    bind: {
+                        disabled: '{Readonly}'
+                    }
                 },
                 {
                     xtype: 'button',
+                    tabIndex: 29,
                     width: 100,
-                    text: '试算大病保险'
+                    text: '试算大病保险',
+                    bind: {
+                        disabled: '{Readonly}'
+                    }
                 },
                 {
                     xtype: 'button',
-                    text: '报销'
+                    tabIndex: 30,
+                    text: '报销',
+                    bind: {
+                        disabled: '{!CanPay}'
+                    }
                 },
                 {
                     xtype: 'button',
+                    tabIndex: 31,
                     width: 80,
-                    text: '打印凭证'
+                    text: '打印凭证',
+                    bind: {
+                        disabled: '{!IsPayed}'
+                    }
                 },
                 {
                     xtype: 'button',
-                    text: '作废'
+                    tabIndex: 32,
+                    text: '作废',
+                    bind: {
+                        disabled: '{!IsPayed}'
+                    }
                 },
                 {
                     xtype: 'button',
+                    tabIndex: 33,
                     width: 80,
                     text: '继续录入'
                 }
             ]
         }
-    ]
+    ],
+    listeners: {
+        afterrender: 'onFormAfterRender'
+    }
 
 });

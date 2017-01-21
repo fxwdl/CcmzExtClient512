@@ -7,6 +7,7 @@
     "codeClass": null,
     "userConfig": {
         "bodyPadding": null,
+        "container|align": "center",
         "designer|uiInterfaceName": "default",
         "designer|userAlias": "yljz.tritem",
         "designer|userClassName": "yljz.TRItem",
@@ -16,6 +17,8 @@
             "}"
         ],
         "height": null,
+        "layout": "vbox",
+        "maxWidth": null,
         "modelValidation": true,
         "padding": 5,
         "title": null,
@@ -41,7 +44,6 @@
                 "frame": false,
                 "height": null,
                 "layout": "column",
-                "layout|anchor": null,
                 "padding": null,
                 "scrollable": true,
                 "shrinkWrap": null,
@@ -84,16 +86,29 @@
                             },
                             "codeClass": null,
                             "userConfig": {
+                                "editable": null,
                                 "fieldLabel": "身份证号",
                                 "labelWidth": null,
-                                "layout|flex": 1,
+                                "layout|flex": null,
                                 "maxWidth": null,
                                 "minWidth": null,
                                 "name": null,
-                                "value": null,
+                                "readOnly": [
+                                    "{Readonly}"
+                                ],
+                                "reference": "txtSfzh",
+                                "selectOnFocus": true,
+                                "tabIndex": 1,
+                                "value": [
+                                    "{d.Sfzh}"
+                                ],
                                 "width": null
                             },
                             "name": "MyTextField",
+                            "configAlternates": {
+                                "value": "binding",
+                                "readOnly": "binding"
+                            },
                             "designerId": "6e0d0f4d-5921-48fc-a942-377c5384d987"
                         },
                         {
@@ -104,9 +119,27 @@
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "fieldLabel": "报销类型"
+                                "editable": false,
+                                "fieldLabel": "报销类型",
+                                "padding": "5 0 0 0",
+                                "readOnly": [
+                                    "{Readonly}"
+                                ],
+                                "store": [
+                                    "{rsStore}"
+                                ],
+                                "tabIndex": 2,
+                                "value": [
+                                    "{d.Reim_Source}"
+                                ],
+                                "valueField": "value"
                             },
                             "name": "MyComboBox",
+                            "configAlternates": {
+                                "value": "binding",
+                                "store": "binding",
+                                "readOnly": "binding"
+                            },
                             "designerId": "1a1db5a4-ee82-42e5-9937-b1b471940dbd"
                         },
                         {
@@ -117,9 +150,21 @@
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "fieldLabel": "入院时间"
+                                "fieldLabel": "入院时间",
+                                "readOnly": [
+                                    "{Readonly}"
+                                ],
+                                "selectOnFocus": true,
+                                "tabIndex": 6,
+                                "value": [
+                                    "{d.In_Date}"
+                                ]
                             },
                             "name": "MyDateField",
+                            "configAlternates": {
+                                "value": "binding",
+                                "readOnly": "binding"
+                            },
                             "designerId": "8df7c7ca-1314-4d55-a2ff-17378113fc49"
                         },
                         {
@@ -131,9 +176,21 @@
                             "codeClass": null,
                             "userConfig": {
                                 "fieldLabel": "医疗保障号",
-                                "height": null
+                                "height": null,
+                                "readOnly": [
+                                    "{Readonly}"
+                                ],
+                                "selectOnFocus": true,
+                                "tabIndex": 10,
+                                "value": [
+                                    "{d.Card_NO}"
+                                ]
                             },
                             "name": "MyTextField1",
+                            "configAlternates": {
+                                "value": "binding",
+                                "readOnly": "binding"
+                            },
                             "designerId": "e9b8f11c-99bc-4712-a872-0fc9cf785e42"
                         },
                         {
@@ -144,10 +201,33 @@
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "fieldLabel": "医疗总费用"
+                                "fieldLabel": "医疗总费用",
+                                "minValue": 0,
+                                "readOnly": [
+                                    "{Readonly}"
+                                ],
+                                "selectOnFocus": true,
+                                "tabIndex": 14,
+                                "useThousandSeparator": true,
+                                "value": [
+                                    "{d.YLZ_Money}"
+                                ]
                             },
                             "name": "MyNumberField",
-                            "designerId": "ac50e421-0873-4327-ad54-23521204e744"
+                            "configAlternates": {
+                                "forcePrecision": "boolean",
+                                "value": "binding",
+                                "useThousandSeparator": "boolean",
+                                "readOnly": "binding"
+                            },
+                            "designerId": "ac50e421-0873-4327-ad54-23521204e744",
+                            "customConfigs": [
+                                {
+                                    "group": "(Custom Properties)",
+                                    "name": "useThousandSeparator",
+                                    "type": "string"
+                                }
+                            ]
                         },
                         {
                             "type": "Ext.form.field.Number",
@@ -157,9 +237,21 @@
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "fieldLabel": "大病保险补偿金额"
+                                "fieldLabel": "大病保险补偿金额",
+                                "readOnly": [
+                                    "{Readonly}"
+                                ],
+                                "selectOnFocus": true,
+                                "tabIndex": 18,
+                                "value": [
+                                    "{d.DBBX_Money}"
+                                ]
                             },
                             "name": "MyNumberField1",
+                            "configAlternates": {
+                                "value": "binding",
+                                "readOnly": "binding"
+                            },
                             "designerId": "956a232d-b9c9-416d-8416-0b00dd1bf55a"
                         },
                         {
@@ -170,9 +262,21 @@
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "fieldLabel": "个人账户支付"
+                                "fieldLabel": "个人账户支付",
+                                "readOnly": [
+                                    "{Readonly}"
+                                ],
+                                "selectOnFocus": true,
+                                "tabIndex": 22,
+                                "value": [
+                                    "{d.GR_Accout_Pay}"
+                                ]
                             },
                             "name": "MyNumberField2",
+                            "configAlternates": {
+                                "value": "binding",
+                                "readOnly": "binding"
+                            },
                             "designerId": "07b2a37c-5b9c-43dc-a31d-a2be329c46f6"
                         },
                         {
@@ -183,9 +287,21 @@
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "fieldLabel": "报销时间"
+                                "fieldLabel": "报销时间",
+                                "readOnly": [
+                                    "{Readonly}"
+                                ],
+                                "selectOnFocus": true,
+                                "tabIndex": 26,
+                                "value": [
+                                    "{d.Apply_Date}"
+                                ]
                             },
                             "name": "MyDateField1",
+                            "configAlternates": {
+                                "value": "binding",
+                                "readOnly": "binding"
+                            },
                             "designerId": "026eadc7-abcd-47c7-b97f-e029c867b480"
                         },
                         {
@@ -197,9 +313,15 @@
                             "codeClass": null,
                             "userConfig": {
                                 "fieldLabel": "录入操作员",
-                                "value": null
+                                "padding": "3 0 0 0 ",
+                                "value": [
+                                    "{d.Operator_Name}"
+                                ]
                             },
                             "name": "MyDisplayField3",
+                            "configAlternates": {
+                                "value": "binding"
+                            },
                             "designerId": "fd32b420-4b33-4b2d-a298-b1b179c85585"
                         },
                         {
@@ -211,9 +333,14 @@
                             "codeClass": null,
                             "userConfig": {
                                 "fieldLabel": "报销基数",
-                                "value": null
+                                "value": [
+                                    "{BaseMoneyDisplay}"
+                                ]
                             },
                             "name": "MyDisplayField4",
+                            "configAlternates": {
+                                "value": "binding"
+                            },
                             "designerId": "213e50ec-3c7e-44e3-93ca-f64aab60880b"
                         }
                     ]
@@ -250,9 +377,14 @@
                             "userConfig": {
                                 "fieldLabel": "姓名",
                                 "layout|flex": 1,
-                                "value": null
+                                "value": [
+                                    "{d.Name}"
+                                ]
                             },
                             "name": "MyDisplayField",
+                            "configAlternates": {
+                                "value": "binding"
+                            },
                             "designerId": "6abc3c66-655a-49a6-a88a-7ba221e32134"
                         },
                         {
@@ -263,9 +395,22 @@
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "fieldLabel": "单据号"
+                                "fieldLabel": "单据号",
+                                "layout|flex": 1,
+                                "readOnly": [
+                                    "{Readonly}"
+                                ],
+                                "selectOnFocus": true,
+                                "tabIndex": 3,
+                                "value": [
+                                    "{d.BillNO}"
+                                ]
                             },
                             "name": "MyTextField2",
+                            "configAlternates": {
+                                "value": "binding",
+                                "readOnly": "binding"
+                            },
                             "designerId": "b0de991e-0a62-45ea-a7df-87a317f68099"
                         },
                         {
@@ -276,9 +421,22 @@
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "fieldLabel": "出院时间"
+                                "fieldLabel": "出院时间",
+                                "format": null,
+                                "readOnly": [
+                                    "{Readonly}"
+                                ],
+                                "selectOnFocus": true,
+                                "tabIndex": 7,
+                                "value": [
+                                    "{d.Out_Date}"
+                                ]
                             },
                             "name": "MyDateField2",
+                            "configAlternates": {
+                                "value": "binding",
+                                "readOnly": "binding"
+                            },
                             "designerId": "b4a798e6-6209-4ca8-bc9d-e9cceac9377d"
                         },
                         {
@@ -305,11 +463,23 @@
                                     },
                                     "codeClass": null,
                                     "userConfig": {
+                                        "editable": false,
                                         "fieldLabel": null,
                                         "layout|flex": 1,
+                                        "readOnly": [
+                                            "{Readonly}"
+                                        ],
+                                        "tabIndex": 11,
+                                        "value": [
+                                            "{d.StdDisease_Code}"
+                                        ],
                                         "width": null
                                     },
                                     "name": "MyTextField3",
+                                    "configAlternates": {
+                                        "value": "binding",
+                                        "readOnly": "binding"
+                                    },
                                     "designerId": "9be18d0f-aee9-464a-8871-385227d11b7f"
                                 },
                                 {
@@ -320,10 +490,17 @@
                                     },
                                     "codeClass": null,
                                     "userConfig": {
+                                        "disabled": [
+                                            "{Readonly}"
+                                        ],
                                         "layout|flex": 0,
+                                        "tabIndex": 11,
                                         "text": "..."
                                     },
                                     "name": "MyButton12",
+                                    "configAlternates": {
+                                        "disabled": "binding"
+                                    },
                                     "designerId": "d8a65f7e-2b0b-45a0-9617-e1bc5acc911d"
                                 }
                             ]
@@ -336,9 +513,21 @@
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "fieldLabel": "自理费用"
+                                "fieldLabel": "自理费用",
+                                "readOnly": [
+                                    "{Readonly}"
+                                ],
+                                "selectOnFocus": true,
+                                "tabIndex": 15,
+                                "value": [
+                                    "{d.ZL_Money}"
+                                ]
                             },
                             "name": "MyNumberField4",
+                            "configAlternates": {
+                                "value": "binding",
+                                "readOnly": "binding"
+                            },
                             "designerId": "785fad71-38b0-4ae2-a601-e6b4603fb740"
                         },
                         {
@@ -351,9 +540,21 @@
                             "userConfig": {
                                 "fieldLabel": "医保(农合)报销",
                                 "labelAlign": null,
-                                "labelStyle": null
+                                "labelStyle": null,
+                                "readOnly": [
+                                    "{Readonly}"
+                                ],
+                                "selectOnFocus": true,
+                                "tabIndex": 19,
+                                "value": [
+                                    "{d.YBBX_Money}"
+                                ]
                             },
                             "name": "MyNumberField3",
+                            "configAlternates": {
+                                "value": "binding",
+                                "readOnly": "binding"
+                            },
                             "designerId": "23471470-f278-448b-9b14-b05b006e96d9"
                         },
                         {
@@ -364,9 +565,21 @@
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "fieldLabel": "医保其它支付"
+                                "fieldLabel": "医保其它支付",
+                                "readOnly": [
+                                    "{Readonly}"
+                                ],
+                                "selectOnFocus": true,
+                                "tabIndex": 23,
+                                "value": [
+                                    "{d.YB_Other_Pay}"
+                                ]
                             },
                             "name": "MyNumberField5",
+                            "configAlternates": {
+                                "value": "binding",
+                                "readOnly": "binding"
+                            },
                             "designerId": "7259f660-d6cd-48ed-b52e-f04035405986"
                         },
                         {
@@ -394,10 +607,38 @@
                             "codeClass": null,
                             "userConfig": {
                                 "fieldLabel": "创建时间",
-                                "value": null
+                                "value": [
+                                    "{d.Create_Time}"
+                                ]
                             },
                             "name": "MyDisplayField5",
-                            "designerId": "2b875c40-fee4-4e5e-943c-f65d17df4799"
+                            "configAlternates": {
+                                "value": "binding"
+                            },
+                            "designerId": "2b875c40-fee4-4e5e-943c-f65d17df4799",
+                            "cn": [
+                                {
+                                    "type": "fixedfunction",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|params": [
+                                            "value",
+                                            "displayField"
+                                        ],
+                                        "fn": "renderer",
+                                        "implHandler": [
+                                            "if(Ext.isDefined(value))",
+                                            "    return Ext.util.Format.date(value,'Y-m-d H:i:s');"
+                                        ]
+                                    },
+                                    "name": "renderer",
+                                    "designerId": "986e061b-23ea-4c25-b9a5-88b84250d70b"
+                                }
+                            ]
                         },
                         {
                             "type": "Ext.form.field.Display",
@@ -408,9 +649,14 @@
                             "codeClass": null,
                             "userConfig": {
                                 "fieldLabel": "救助金额",
-                                "value": null
+                                "value": [
+                                    "{d.YLJZ_Money}"
+                                ]
                             },
                             "name": "MyDisplayField6",
+                            "configAlternates": {
+                                "value": "binding"
+                            },
                             "designerId": "903fa88c-e63e-43f1-8d17-fef0b1454377"
                         }
                     ]
@@ -446,9 +692,14 @@
                             "userConfig": {
                                 "fieldLabel": "身份类别",
                                 "layout|flex": 1,
-                                "value": null
+                                "value": [
+                                    "{d.SfLb}"
+                                ]
                             },
                             "name": "MyDisplayField1",
+                            "configAlternates": {
+                                "value": "binding"
+                            },
                             "designerId": "a6741bc6-30e6-43b5-a2b2-c29abecf32b6"
                         },
                         {
@@ -459,9 +710,21 @@
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "fieldLabel": "就诊医院"
+                                "fieldLabel": "就诊医院",
+                                "readOnly": [
+                                    "{Readonly}"
+                                ],
+                                "selectOnFocus": true,
+                                "tabIndex": 4,
+                                "value": [
+                                    "{d.TreatmentHosptial}"
+                                ]
                             },
                             "name": "MyTextField4",
+                            "configAlternates": {
+                                "value": "binding",
+                                "readOnly": "binding"
+                            },
                             "designerId": "27b727c7-e1a4-47e1-9574-dd2821c31c46"
                         },
                         {
@@ -472,9 +735,21 @@
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "fieldLabel": "结算日期"
+                                "fieldLabel": "结算日期",
+                                "readOnly": [
+                                    "{Readonly}"
+                                ],
+                                "selectOnFocus": true,
+                                "tabIndex": 8,
+                                "value": [
+                                    "{d.Medicare_Date}"
+                                ]
                             },
                             "name": "MyDateField3",
+                            "configAlternates": {
+                                "value": "binding",
+                                "readOnly": "binding"
+                            },
                             "designerId": "25fad1b4-595d-4e32-ae28-a296ee54e77f"
                         },
                         {
@@ -486,9 +761,21 @@
                             "codeClass": null,
                             "userConfig": {
                                 "fieldLabel": "疾病名称",
-                                "minHeight": null
+                                "minHeight": null,
+                                "readOnly": [
+                                    "{Readonly}"
+                                ],
+                                "selectOnFocus": true,
+                                "tabIndex": 12,
+                                "value": [
+                                    "{d.StdDisease_Name}"
+                                ]
                             },
                             "name": "MyTextField5",
+                            "configAlternates": {
+                                "value": "binding",
+                                "readOnly": "binding"
+                            },
                             "designerId": "8253d273-215d-4883-957f-691c7d0ff04f"
                         },
                         {
@@ -499,9 +786,21 @@
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "fieldLabel": "自费金额"
+                                "fieldLabel": "自费金额",
+                                "readOnly": [
+                                    "{Readonly}"
+                                ],
+                                "selectOnFocus": true,
+                                "tabIndex": 16,
+                                "value": [
+                                    "{d.ZF_Money}"
+                                ]
                             },
                             "name": "MyNumberField6",
+                            "configAlternates": {
+                                "value": "binding",
+                                "readOnly": "binding"
+                            },
                             "designerId": "dbbe5cd3-e2ae-4872-a144-155eaf562955"
                         },
                         {
@@ -513,9 +812,21 @@
                             "codeClass": null,
                             "userConfig": {
                                 "fieldLabel": "新农合参与补偿金额",
-                                "labelStyle": null
+                                "labelStyle": null,
+                                "readOnly": [
+                                    "{Readonly}"
+                                ],
+                                "selectOnFocus": true,
+                                "tabIndex": 20,
+                                "value": [
+                                    "{d.XNH_Money}"
+                                ]
                             },
                             "name": "MyNumberField7",
+                            "configAlternates": {
+                                "value": "binding",
+                                "readOnly": "binding"
+                            },
                             "designerId": "d2a83a03-a3a1-44e9-b5b9-7b8513f0e6ef"
                         },
                         {
@@ -526,9 +837,21 @@
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "fieldLabel": "个人承担&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
+                                "fieldLabel": "个人承担&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;",
+                                "readOnly": [
+                                    "{Readonly}"
+                                ],
+                                "selectOnFocus": true,
+                                "tabIndex": 24,
+                                "value": [
+                                    "{d.GR_Money}"
+                                ]
                             },
                             "name": "MyNumberField8",
+                            "configAlternates": {
+                                "value": "binding",
+                                "readOnly": "binding"
+                            },
                             "designerId": "88c4d42b-1b89-4eae-8c13-53a0f0e67efb"
                         },
                         {
@@ -556,9 +879,14 @@
                             "codeClass": null,
                             "userConfig": {
                                 "fieldLabel": "报销操作员",
-                                "value": null
+                                "value": [
+                                    "{d.Pay_Operator_Name}"
+                                ]
                             },
                             "name": "MyDisplayField7",
+                            "configAlternates": {
+                                "value": "binding"
+                            },
                             "designerId": "67ca219a-1477-4d1b-a040-d5237921c503"
                         },
                         {
@@ -570,9 +898,14 @@
                             "codeClass": null,
                             "userConfig": {
                                 "fieldLabel": "作废操作员",
-                                "value": null
+                                "value": [
+                                    "{d.Cancel_Operator_Name}"
+                                ]
                             },
                             "name": "MyDisplayField8",
+                            "configAlternates": {
+                                "value": "binding"
+                            },
                             "designerId": "78ce27f9-2b6f-4338-9f2d-f4fc6ece7dbe"
                         }
                     ]
@@ -608,9 +941,14 @@
                             "userConfig": {
                                 "fieldLabel": "人员状态",
                                 "layout|flex": 1,
-                                "value": ""
+                                "value": [
+                                    "{d.Ry_Zt}"
+                                ]
                             },
                             "name": "MyDisplayField2",
+                            "configAlternates": {
+                                "value": "binding"
+                            },
                             "designerId": "5ed9ff97-be54-4222-8999-a273abae07b1"
                         },
                         {
@@ -621,9 +959,26 @@
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "fieldLabel": "医疗类别"
+                                "editable": false,
+                                "fieldLabel": "医疗类别",
+                                "readOnly": [
+                                    "{Readonly}"
+                                ],
+                                "store": [
+                                    "{rtStore}"
+                                ],
+                                "tabIndex": 5,
+                                "value": [
+                                    "{d.Reim_Type_ID}"
+                                ],
+                                "valueField": "value"
                             },
                             "name": "MyComboBox1",
+                            "configAlternates": {
+                                "value": "binding",
+                                "store": "binding",
+                                "readOnly": "binding"
+                            },
                             "designerId": "0d930f9c-8242-4e08-a255-25360caf5bf0"
                         },
                         {
@@ -634,9 +989,21 @@
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "fieldLabel": "录入日期"
+                                "fieldLabel": "录入日期",
+                                "readOnly": [
+                                    "{Readonly}"
+                                ],
+                                "selectOnFocus": true,
+                                "tabIndex": 9,
+                                "value": [
+                                    "{d.TypeIn_Date}"
+                                ]
                             },
                             "name": "MyDateField4",
+                            "configAlternates": {
+                                "value": "binding",
+                                "readOnly": "binding"
+                            },
                             "designerId": "900b966d-d2cf-46d1-9a75-32d0cb360346"
                         },
                         {
@@ -648,9 +1015,21 @@
                             "codeClass": null,
                             "userConfig": {
                                 "fieldLabel": "家庭编码",
-                                "height": null
+                                "height": null,
+                                "readOnly": [
+                                    "{Readonly}"
+                                ],
+                                "selectOnFocus": true,
+                                "tabIndex": 13,
+                                "value": [
+                                    "{d.Family_Code}"
+                                ]
                             },
                             "name": "MyTextField6",
+                            "configAlternates": {
+                                "value": "binding",
+                                "readOnly": "binding"
+                            },
                             "designerId": "ccf89a4b-2ae5-49d1-9b60-72a739dc7ed8"
                         },
                         {
@@ -661,9 +1040,22 @@
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "fieldLabel": "起付线"
+                                "decimalPrecision": 0,
+                                "fieldLabel": "起付线",
+                                "readOnly": [
+                                    "{Readonly}"
+                                ],
+                                "selectOnFocus": true,
+                                "tabIndex": 17,
+                                "value": [
+                                    "{d.Medicare_Line}"
+                                ]
                             },
                             "name": "MyNumberField9",
+                            "configAlternates": {
+                                "value": "binding",
+                                "readOnly": "binding"
+                            },
                             "designerId": "6a346249-7422-4142-9ec9-4dbd4f57f3fa"
                         },
                         {
@@ -674,9 +1066,20 @@
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "fieldLabel": "新农合参与大病补偿金额"
+                                "fieldLabel": "新农合参与大病补偿金额",
+                                "readOnly": [
+                                    "{Readonly}"
+                                ],
+                                "tabIndex": 21,
+                                "value": [
+                                    "{d.CYDBBC_Money}"
+                                ]
                             },
                             "name": "MyNumberField10",
+                            "configAlternates": {
+                                "value": "binding",
+                                "readOnly": "binding"
+                            },
                             "designerId": "e8e065a9-d233-4111-bb2d-a9af668c0a3f"
                         },
                         {
@@ -687,9 +1090,26 @@
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "fieldLabel": "特殊情况&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
+                                "editable": false,
+                                "fieldLabel": "特殊情况&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;",
+                                "readOnly": [
+                                    "{Readonly}"
+                                ],
+                                "store": [
+                                    "{sbnStore}"
+                                ],
+                                "tabIndex": 25,
+                                "value": [
+                                    "{d.Spec_BN}"
+                                ],
+                                "valueField": "value"
                             },
                             "name": "MyComboBox2",
+                            "configAlternates": {
+                                "value": "binding",
+                                "store": "binding",
+                                "readOnly": "binding"
+                            },
                             "designerId": "c1727abf-4479-4df9-af96-eb76a64623de"
                         },
                         {
@@ -717,10 +1137,38 @@
                             "codeClass": null,
                             "userConfig": {
                                 "fieldLabel": "报销时间",
-                                "value": null
+                                "value": [
+                                    "{d.Finish_Date}"
+                                ]
                             },
                             "name": "MyDisplayField9",
-                            "designerId": "eb645ed8-39f3-42e6-9e9a-8850b039eae7"
+                            "configAlternates": {
+                                "value": "binding"
+                            },
+                            "designerId": "eb645ed8-39f3-42e6-9e9a-8850b039eae7",
+                            "cn": [
+                                {
+                                    "type": "fixedfunction",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|params": [
+                                            "value",
+                                            "displayField"
+                                        ],
+                                        "fn": "renderer",
+                                        "implHandler": [
+                                            "if(Ext.isDefined(value))",
+                                            "    return Ext.util.Format.date(value,'Y-m-d H:i:s');"
+                                        ]
+                                    },
+                                    "name": "renderer",
+                                    "designerId": "595851c3-9d86-4ccf-aace-b8eab15ded15"
+                                }
+                            ]
                         },
                         {
                             "type": "Ext.form.field.Display",
@@ -731,10 +1179,38 @@
                             "codeClass": null,
                             "userConfig": {
                                 "fieldLabel": "作废日期",
-                                "value": null
+                                "value": [
+                                    "{d.Cancel_Date}"
+                                ]
                             },
                             "name": "MyDisplayField10",
-                            "designerId": "b56a7f18-ac2b-45b8-8c44-d7624d9a822e"
+                            "configAlternates": {
+                                "value": "binding"
+                            },
+                            "designerId": "b56a7f18-ac2b-45b8-8c44-d7624d9a822e",
+                            "cn": [
+                                {
+                                    "type": "fixedfunction",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|params": [
+                                            "value",
+                                            "displayField"
+                                        ],
+                                        "fn": "renderer",
+                                        "implHandler": [
+                                            "if(Ext.isDefined(value))",
+                                            "    return Ext.util.Format.date(value,'Y-m-d H:i:s');"
+                                        ]
+                                    },
+                                    "name": "renderer",
+                                    "designerId": "2760f2a6-4121-470e-b815-5052390973ac"
+                                }
+                            ]
                         }
                     ]
                 }
@@ -769,11 +1245,40 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "disabled": [
+                            "{Readonly}"
+                        ],
                         "layout|flex": null,
+                        "tabIndex": 27,
                         "text": "提交"
                     },
                     "name": "MyButton5",
-                    "designerId": "065db1e9-d3a6-4f0d-be2c-663c50e37d5a"
+                    "configAlternates": {
+                        "disabled": "binding"
+                    },
+                    "designerId": "065db1e9-d3a6-4f0d-be2c-663c50e37d5a",
+                    "cn": [
+                        {
+                            "type": "viewcontrollereventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onSubmitClick",
+                                "implHandler": [
+                                    "var vm=this.getViewModel();",
+                                    "alert(vm.get('d.In_Date'));",
+                                    "alert(vm.get('d.Out_Date'));"
+                                ],
+                                "name": "click",
+                                "scope": "me"
+                            },
+                            "name": "onSubmitClick",
+                            "designerId": "c9d38258-1083-49fd-895e-c41094fb98b4"
+                        }
+                    ]
                 },
                 {
                     "type": "Ext.button.Button",
@@ -783,10 +1288,17 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "disabled": [
+                            "{Readonly}"
+                        ],
                         "layout|flex": null,
+                        "tabIndex": 28,
                         "text": "重置"
                     },
                     "name": "MyButton6",
+                    "configAlternates": {
+                        "disabled": "binding"
+                    },
                     "designerId": "cee640c7-4450-4a52-840b-568c051727b2"
                 },
                 {
@@ -797,11 +1309,18 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "disabled": [
+                            "{Readonly}"
+                        ],
                         "layout|flex": null,
+                        "tabIndex": 29,
                         "text": "试算大病保险",
                         "width": 100
                     },
                     "name": "MyButton7",
+                    "configAlternates": {
+                        "disabled": "binding"
+                    },
                     "designerId": "9f1d163e-dfba-45ca-8757-88c5a3723133"
                 },
                 {
@@ -812,10 +1331,17 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "disabled": [
+                            "{!CanPay}"
+                        ],
                         "layout|flex": null,
+                        "tabIndex": 30,
                         "text": "报销"
                     },
                     "name": "MyButton8",
+                    "configAlternates": {
+                        "disabled": "binding"
+                    },
                     "designerId": "3e78f83e-838d-4f09-8fb4-59464cd6ff1c"
                 },
                 {
@@ -826,11 +1352,18 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "disabled": [
+                            "{!IsPayed}"
+                        ],
                         "layout|flex": null,
+                        "tabIndex": 31,
                         "text": "打印凭证",
                         "width": 80
                     },
                     "name": "MyButton9",
+                    "configAlternates": {
+                        "disabled": "binding"
+                    },
                     "designerId": "854580ed-aacc-4214-913f-a18ed1fdd34a"
                 },
                 {
@@ -841,10 +1374,17 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "disabled": [
+                            "{!IsPayed}"
+                        ],
                         "layout|flex": null,
+                        "tabIndex": 32,
                         "text": "作废"
                     },
                     "name": "MyButton10",
+                    "configAlternates": {
+                        "disabled": "binding"
+                    },
                     "designerId": "941af13d-3ccf-4183-a135-20222abe671d"
                 },
                 {
@@ -856,6 +1396,7 @@
                     "codeClass": null,
                     "userConfig": {
                         "layout|flex": null,
+                        "tabIndex": 33,
                         "text": "继续录入",
                         "width": 80
                     },
@@ -863,6 +1404,25 @@
                     "designerId": "576128b6-e0b3-4c27-965b-b1bbd2ac1273"
                 }
             ]
+        },
+        {
+            "type": "viewcontrollereventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onFormAfterRender",
+                "implHandler": [
+                    "var txtSfzh = this.lookupReference('txtSfzh');",
+                    "txtSfzh.focus(false,500);"
+                ],
+                "name": "afterrender",
+                "scope": "me"
+            },
+            "name": "onFormAfterRender",
+            "designerId": "58038f41-459e-462e-80dd-45ac1a9fca69"
         }
     ]
 }

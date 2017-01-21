@@ -7,7 +7,248 @@
     "codeClass": null,
     "userConfig": {
         "designer|userAlias": "yljz.tritem",
-        "designer|userClassName": "yljz.TRItemViewModel"
+        "designer|userClassName": "yljz.TRItemViewModel",
+        "links": [
+            "{",
+            "",
+            "}"
+        ]
     },
-    "designerId": "ac207feb-e765-484e-baee-d53e988a4e62"
+    "designerId": "ac207feb-e765-484e-baee-d53e988a4e62",
+    "cn": [
+        {
+            "type": "Ext.app.bind.Formula",
+            "reference": {
+                "name": "formulas",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "BaseMoneyDisplay"
+            },
+            "name": "MyFormula",
+            "designerId": "4f3561e0-1975-4d98-8a73-3ece6547972a",
+            "cn": [
+                {
+                    "type": "fixedfunction",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|params": [
+                            "get"
+                        ],
+                        "fn": "get",
+                        "implHandler": [
+                            "return Ext.util.Format.number(get('d.SelfBaseMoney'),'0.00');"
+                        ]
+                    },
+                    "name": "get",
+                    "designerId": "ad6124d8-a321-402d-b592-fdd3d0fdba11"
+                }
+            ]
+        },
+        {
+            "type": "Ext.data.ChainedStore",
+            "reference": {
+                "name": "stores",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "rsStore",
+                "source": "ReimSourceStore"
+            },
+            "name": "MyChainedStore",
+            "designerId": "8112f48a-7569-43bb-968e-cb703fd1a919"
+        },
+        {
+            "type": "Ext.data.ChainedStore",
+            "reference": {
+                "name": "stores",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "rtStore",
+                "source": "ReimburseTypeStore"
+            },
+            "name": "MyChainedStore1",
+            "designerId": "02b492a5-26ed-461f-bad4-91eb15366c93"
+        },
+        {
+            "type": "Ext.data.ChainedStore",
+            "reference": {
+                "name": "stores",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "sbnStore",
+                "source": "SpecBNStore"
+            },
+            "name": "MyChainedStore2",
+            "designerId": "3157a1ea-a68f-45bd-9c0c-421545e96d7b"
+        },
+        {
+            "type": "Ext.app.bind.Formula",
+            "reference": {
+                "name": "formulas",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "bind": [
+                    "{d.Finish_Flag}"
+                ],
+                "name": "Readonly"
+            },
+            "name": "MyFormula1",
+            "configAlternates": {
+                "bind": "object"
+            },
+            "designerId": "8953dd3c-9788-4fa6-b756-ed1d6a477c10",
+            "cn": [
+                {
+                    "type": "fixedfunction",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|params": [
+                            "data"
+                        ],
+                        "fn": "get",
+                        "implHandler": [
+                            "return data===1 || data===2;"
+                        ]
+                    },
+                    "name": "get",
+                    "designerId": "3487cb09-a472-4c78-b73b-176caa74b458"
+                }
+            ]
+        },
+        {
+            "type": "Ext.app.bind.Formula",
+            "reference": {
+                "name": "formulas",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "bind": [
+                    "{d.Finish_Flag}"
+                ],
+                "name": "IsPayed"
+            },
+            "name": "MyFormula2",
+            "configAlternates": {
+                "bind": "object"
+            },
+            "designerId": "b0070c55-948c-4bc5-8ed7-a449c11c9c31",
+            "cn": [
+                {
+                    "type": "fixedfunction",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|params": [
+                            "data"
+                        ],
+                        "fn": "get",
+                        "implHandler": [
+                            "return data===1;"
+                        ]
+                    },
+                    "name": "get",
+                    "designerId": "9952c24c-faa3-429e-a907-e13fedc7e295"
+                }
+            ]
+        },
+        {
+            "type": "Ext.app.bind.Formula",
+            "reference": {
+                "name": "formulas",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "bind": [
+                    "{d.Finish_Flag}"
+                ],
+                "name": "IsCanceled"
+            },
+            "name": "MyFormula3",
+            "configAlternates": {
+                "bind": "object"
+            },
+            "designerId": "ce66b973-9f59-4a3c-8c9d-77fa0ed5f932",
+            "cn": [
+                {
+                    "type": "fixedfunction",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|params": [
+                            "data"
+                        ],
+                        "fn": "get",
+                        "implHandler": [
+                            "return data===2;"
+                        ]
+                    },
+                    "name": "get",
+                    "designerId": "226c2d22-a788-49e7-94ff-12ff9cb4b32b"
+                }
+            ]
+        },
+        {
+            "type": "Ext.app.bind.Formula",
+            "reference": {
+                "name": "formulas",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "bind": null,
+                "name": "CanPay"
+            },
+            "name": "MyFormula4",
+            "configAlternates": {
+                "bind": "object"
+            },
+            "designerId": "b68aa727-cc17-4778-9b82-b4156f31fa32",
+            "cn": [
+                {
+                    "type": "fixedfunction",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|params": [
+                            "get"
+                        ],
+                        "fn": "get",
+                        "implHandler": [
+                            "return get('d.Finish_Flag')===0 && Ext.isDefined(get('d.Create_Time'));"
+                        ]
+                    },
+                    "name": "get",
+                    "designerId": "ed629649-b1be-4b43-89f0-997c43f9a0da"
+                }
+            ]
+        }
+    ]
 }

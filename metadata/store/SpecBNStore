@@ -1,0 +1,43 @@
+{
+    "type": "Ext.data.Store",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "data": [
+            "[",
+            "    {",
+            "        \"value\": 0,",
+            "        \"text\": \"无\"",
+            "    },",
+            "    {",
+            "        \"value\": 1,",
+            "        \"text\": \"单次单报\"",
+            "    },",
+            "    {",
+            "        \"value\": 2,",
+            "        \"text\": \"未参加基本医疗保险\"",
+            "    },",
+            "    {",
+            "        \"value\": 3,",
+            "        \"text\": \"单病种定额付费/低自付大病补助\"",
+            "    },",
+            "    {",
+            "        \"value\": 4,",
+            "        \"text\": \"医疗费用包干\"",
+            "    },",
+            "    {",
+            "        \"value\": 5,",
+            "        \"text\": \"按床日付费\"",
+            "    }",
+            "]"
+        ],
+        "designer|userClassName": "SpecBNStore",
+        "model": "SystemEnum",
+        "storeId": "SpecBNStore"
+    },
+    "name": "ReimSourceStore1",
+    "designerId": "a30bdf78-04da-4073-a88c-4c374d580f3c"
+}

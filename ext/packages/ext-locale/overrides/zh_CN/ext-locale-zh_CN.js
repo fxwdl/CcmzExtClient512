@@ -127,7 +127,8 @@ Ext.define("Ext.locale.zh_CN.form.field.Number", {
     override: "Ext.form.field.Number",
     minText: "该输入项的最小值是 {0}",
     maxText: "该输入项的最大值是 {0}",
-    nanText: "{0} 不是有效数值"
+    nanText: "{0} 不是有效数值",
+    negativeText:"值不能是负数"
 });
 
 Ext.define("Ext.locale.zh_CN.form.field.Date", {
@@ -137,7 +138,7 @@ Ext.define("Ext.locale.zh_CN.form.field.Date", {
     minText: "该输入项的日期必须在 {0} 之后",
     maxText: "该输入项的日期必须在 {0} 之前",
     invalidText: "{0} 是无效的日期 - 必须符合格式： {1}",
-    format: "y年m月d日"
+    format: "Y-m-d"
 });
 
 Ext.define("Ext.locale.zh_CN.form.field.ComboBox", {

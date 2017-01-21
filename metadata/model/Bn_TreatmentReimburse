@@ -6,6 +6,7 @@
     },
     "codeClass": null,
     "userConfig": {
+        "convertOnSet": false,
         "designer|userAlias": "bn_treatmentreimburse",
         "designer|userClassName": "Bn_TreatmentReimburse",
         "idProperty": "ID",
@@ -25,7 +26,7 @@
                 "name": "ID"
             },
             "name": "MyString",
-            "designerId": "5c6b70d1-5d3e-4b55-a5ce-5118b31cc605"
+            "designerId": "e0d2c922-0a1a-4c60-8ba2-928ff10305bf"
         },
         {
             "type": "Ext.data.field.String",
@@ -90,6 +91,9 @@
             },
             "codeClass": null,
             "userConfig": {
+                "defaultValue": [
+                    "1"
+                ],
                 "name": "Medicare_State"
             },
             "name": "MyInteger1",
@@ -116,6 +120,9 @@
             },
             "codeClass": null,
             "userConfig": {
+                "defaultValue": [
+                    "2"
+                ],
                 "name": "Reim_Source"
             },
             "name": "MyInteger2",
@@ -193,6 +200,9 @@
             },
             "codeClass": null,
             "userConfig": {
+                "defaultValue": [
+                    "15"
+                ],
                 "name": "Reim_Type_ID"
             },
             "name": "MyInteger3",
@@ -209,7 +219,30 @@
                 "name": "In_Date"
             },
             "name": "MyDate",
-            "designerId": "67aafb26-21a0-4305-aca1-3724f33b58b9"
+            "designerId": "67aafb26-21a0-4305-aca1-3724f33b58b9",
+            "cn": [
+                {
+                    "type": "fixedfunction",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|params": [
+                            "v",
+                            "rec"
+                        ],
+                        "fn": "convert",
+                        "implHandler": [
+                            "if (v)",
+                            "    return new Date(parseInt(v.replace('/Date(', '')));"
+                        ]
+                    },
+                    "name": "convert",
+                    "designerId": "dd78c101-963c-49c4-b261-766da08de5b7"
+                }
+            ]
         },
         {
             "type": "Ext.data.field.Date",
@@ -222,7 +255,30 @@
                 "name": "Out_Date"
             },
             "name": "MyDate1",
-            "designerId": "9d45caef-39b9-41b0-b30b-3b460c664b17"
+            "designerId": "9d45caef-39b9-41b0-b30b-3b460c664b17",
+            "cn": [
+                {
+                    "type": "fixedfunction",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|params": [
+                            "v",
+                            "rec"
+                        ],
+                        "fn": "convert",
+                        "implHandler": [
+                            "if (v)",
+                            "    return new Date(parseInt(v.replace('/Date(', '')));"
+                        ]
+                    },
+                    "name": "convert",
+                    "designerId": "f7405c6b-a7ea-423a-ad4c-c2188a652c62"
+                }
+            ]
         },
         {
             "type": "Ext.data.field.Date",
@@ -235,7 +291,30 @@
                 "name": "Medicare_Date"
             },
             "name": "MyDate2",
-            "designerId": "d35c7e2d-ec24-44e3-bf93-9fda688304eb"
+            "designerId": "d35c7e2d-ec24-44e3-bf93-9fda688304eb",
+            "cn": [
+                {
+                    "type": "fixedfunction",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|params": [
+                            "v",
+                            "rec"
+                        ],
+                        "fn": "convert",
+                        "implHandler": [
+                            "if (v)",
+                            "    return new Date(parseInt(v.replace('/Date(', '')));"
+                        ]
+                    },
+                    "name": "convert",
+                    "designerId": "1f57a63c-05de-4dab-b4ee-b406391d0f2f"
+                }
+            ]
         },
         {
             "type": "Ext.data.field.Date",
@@ -248,7 +327,30 @@
                 "name": "TypeIn_Date"
             },
             "name": "MyDate3",
-            "designerId": "600e1e1f-75c5-4ad0-abf9-e6178e5dd73e"
+            "designerId": "600e1e1f-75c5-4ad0-abf9-e6178e5dd73e",
+            "cn": [
+                {
+                    "type": "fixedfunction",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|params": [
+                            "v",
+                            "rec"
+                        ],
+                        "fn": "convert",
+                        "implHandler": [
+                            "if (v)",
+                            "    return new Date(parseInt(v.replace('/Date(', '')));"
+                        ]
+                    },
+                    "name": "convert",
+                    "designerId": "2e49b9d8-e16e-4ff3-9c57-3cf7a19fc016"
+                }
+            ]
         },
         {
             "type": "Ext.data.field.Number",
@@ -391,7 +493,30 @@
                 "name": "Apply_Date"
             },
             "name": "MyDate4",
-            "designerId": "8e4a4e16-9a2f-4520-8861-0e056f20a33a"
+            "designerId": "8e4a4e16-9a2f-4520-8861-0e056f20a33a",
+            "cn": [
+                {
+                    "type": "fixedfunction",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|params": [
+                            "v",
+                            "rec"
+                        ],
+                        "fn": "convert",
+                        "implHandler": [
+                            "if (v)",
+                            "    return new Date(parseInt(v.replace('/Date(', '')));"
+                        ]
+                    },
+                    "name": "convert",
+                    "designerId": "76c0914c-01dd-4375-9e2a-03358cfddb43"
+                }
+            ]
         },
         {
             "type": "Ext.data.field.Number",
@@ -427,6 +552,9 @@
             },
             "codeClass": null,
             "userConfig": {
+                "defaultValue": [
+                    "0"
+                ],
                 "name": "Finish_Flag",
                 "persist": false
             },
@@ -499,7 +627,30 @@
                 "persist": false
             },
             "name": "MyDate5",
-            "designerId": "dd601f61-e0f7-4bea-827d-bb79a41a8bd2"
+            "designerId": "dd601f61-e0f7-4bea-827d-bb79a41a8bd2",
+            "cn": [
+                {
+                    "type": "fixedfunction",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|params": [
+                            "v",
+                            "rec"
+                        ],
+                        "fn": "convert",
+                        "implHandler": [
+                            "if (v)",
+                            "    return new Date(parseInt(v.replace('/Date(', '')));"
+                        ]
+                    },
+                    "name": "convert",
+                    "designerId": "6d9931fa-dfe9-4440-aa74-dd5f6c662331"
+                }
+            ]
         },
         {
             "type": "Ext.data.field.String",
@@ -527,7 +678,30 @@
                 "persist": false
             },
             "name": "MyDate6",
-            "designerId": "3cd2ce70-0704-4779-8102-4b6d4dc0ce32"
+            "designerId": "3cd2ce70-0704-4779-8102-4b6d4dc0ce32",
+            "cn": [
+                {
+                    "type": "fixedfunction",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|params": [
+                            "v",
+                            "rec"
+                        ],
+                        "fn": "convert",
+                        "implHandler": [
+                            "if (v)",
+                            "    return new Date(parseInt(v.replace('/Date(', '')));"
+                        ]
+                    },
+                    "name": "convert",
+                    "designerId": "f1a60816-ee79-485a-ae71-b5a3258514e4"
+                }
+            ]
         },
         {
             "type": "Ext.data.field.Number",
@@ -537,6 +711,9 @@
             },
             "codeClass": null,
             "userConfig": {
+                "defaultValue": [
+                    "0"
+                ],
                 "name": "SelfBaseMoney",
                 "persist": false
             },
@@ -569,7 +746,30 @@
                 "persist": false
             },
             "name": "MyDate7",
-            "designerId": "18d5c63e-4a78-4f8b-8b36-04cb4e1db971"
+            "designerId": "18d5c63e-4a78-4f8b-8b36-04cb4e1db971",
+            "cn": [
+                {
+                    "type": "fixedfunction",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|params": [
+                            "v",
+                            "rec"
+                        ],
+                        "fn": "convert",
+                        "implHandler": [
+                            "if (v)",
+                            "    return new Date(parseInt(v.replace('/Date(', '')));"
+                        ]
+                    },
+                    "name": "convert",
+                    "designerId": "85e82582-40dd-4ccc-85a0-4526aa358dc4"
+                }
+            ]
         },
         {
             "type": "Ext.data.field.String",
@@ -628,6 +828,84 @@
             "designerId": "bc8b48e5-5154-41e8-8f9e-e37ddd210882"
         },
         {
+            "type": "Ext.data.field.Integer",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "Spec_BN"
+            },
+            "name": "MyInteger6",
+            "designerId": "b885b568-aa62-4296-8995-e233df530b1c"
+        },
+        {
+            "type": "Ext.data.field.Number",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "CYDBBC_Money"
+            },
+            "name": "MyNumber13",
+            "designerId": "fc0fbe84-e1e3-4e57-9318-b33e1bd7bd54"
+        },
+        {
+            "type": "Ext.data.field.Integer",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "IdentityType_ID"
+            },
+            "name": "MyInteger7",
+            "designerId": "d72362de-aaa9-4b25-8687-9ef46b01ed16"
+        },
+        {
+            "type": "Ext.data.field.Number",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "SelBaseMoney_ZY_Total"
+            },
+            "name": "MyNumber14",
+            "designerId": "871b8870-b077-4129-89c8-f69152e0873d"
+        },
+        {
+            "type": "Ext.data.field.Number",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "GR_Accout_Pay"
+            },
+            "name": "MyNumber15",
+            "designerId": "95d761da-9655-4752-b178-f4130062f5ef"
+        },
+        {
+            "type": "Ext.data.field.Number",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "YB_Other_Pay"
+            },
+            "name": "MyNumber16",
+            "designerId": "1a4b42fe-0571-4bd2-9ed2-d359a8f9ef98"
+        },
+        {
             "type": "Ext.data.proxy.Ajax",
             "reference": {
                 "name": "proxy",
@@ -638,7 +916,7 @@
                 "api": [
                     "{",
                     "create:'',",
-                    "read:'',",
+                    "read:'/YLJZ/GetTRItemById',",
                     "update:'',",
                     "destroy:''",
                     "}"

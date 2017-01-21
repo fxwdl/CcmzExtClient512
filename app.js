@@ -28,7 +28,13 @@ Ext.application({
         'Ext.Loader'
     ],
     models: [
-        'Bn_TreatmentReimburse'
+        'Bn_TreatmentReimburse',
+        'SystemEnum'
+    ],
+    stores: [
+        'ReimSourceStore',
+        'ReimburseTypeStore',
+        'SpecBNStore'
     ],
     views: [
         'MyViewport',

@@ -1,0 +1,27 @@
+{
+    "type": "Ext.data.Store",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "data": [
+            "[",
+            "    {",
+            "        \"value\": 1,",
+            "        \"text\": \"本院\"",
+            "    },",
+            "    {",
+            "        \"value\": 2,",
+            "        \"text\": \"外转\"",
+            "    }",
+            "]"
+        ],
+        "designer|userClassName": "ReimSourceStore",
+        "model": "SystemEnum",
+        "storeId": "ReimSourceStore"
+    },
+    "name": "MyStore",
+    "designerId": "c779747e-e542-431e-a979-56d4c04a2e3d"
+}

@@ -50,15 +50,21 @@
             "ac207feb-e765-484e-baee-d53e988a4e62",
             "14afedb1-7bd9-4cb4-9c5c-301f0adbe90b"
         ],
-        "store": [],
+        "store": [
+            "c779747e-e542-431e-a979-56d4c04a2e3d",
+            "a30bdf78-04da-4073-a88c-4c374d580f3c",
+            "850923a7-1953-48b0-ad28-4b23e9376f9a"
+        ],
         "controller": [],
         "model": [
-            "918af568-007e-4252-a052-5100e8dbb872"
+            "918af568-007e-4252-a052-5100e8dbb872",
+            "2bfe6234-9df4-4a1d-8e69-a863cb132499"
         ],
         "resource": [
             "1e35022e-01e9-4194-9bb0-df4773d6d7c4",
             "c556fde5-a942-429b-9968-0a68ec3d6be8",
-            "2378fd61-f58b-48ac-8aa9-4a1f642b6781"
+            "2378fd61-f58b-48ac-8aa9-4a1f642b6781",
+            "66c0d6d5-2034-45e8-a5e0-4819bec3e546"
         ],
         "app": [
             "application"

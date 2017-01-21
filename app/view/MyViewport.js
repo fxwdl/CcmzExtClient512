@@ -70,7 +70,10 @@ Ext.define('ccmz.view.MyViewport', {
                     xtype: 'button',
                     id: 'btnChangePwd',
                     iconCls: 'password',
-                    text: '修改密码'
+                    text: '修改密码',
+                    listeners: {
+                        click: 'onBtnChangePwdClick'
+                    }
                 },
                 {
                     xtype: 'button',

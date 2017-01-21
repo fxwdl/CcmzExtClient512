@@ -7,9 +7,15 @@
     "codeClass": null,
     "userConfig": {
         "models": [
-            "Bn_TreatmentReimburse"
+            "Bn_TreatmentReimburse",
+            "SystemEnum"
         ],
         "name": "ccmz",
+        "stores": [
+            "ReimSourceStore",
+            "ReimburseTypeStore",
+            "SpecBNStore"
+        ],
         "title": "长春市医疗救助管理系统",
         "views": [
             "MyViewport",

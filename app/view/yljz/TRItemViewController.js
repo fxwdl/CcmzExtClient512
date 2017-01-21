@@ -15,5 +15,17 @@
 
 Ext.define('ccmz.view.yljz.TRItemViewController', {
     extend: 'Ext.app.ViewController',
-    alias: 'controller.yljz.tritem'
+    alias: 'controller.yljz.tritem',
+
+    onSubmitClick: function(button, e, eOpts) {
+        var vm=this.getViewModel();
+        alert(vm.get('d.In_Date'));
+        alert(vm.get('d.Out_Date'));
+    },
+
+    onFormAfterRender: function(component, eOpts) {
+        var txtSfzh = this.lookupReference('txtSfzh');
+        txtSfzh.focus(false,500);
+    }
+
 });
