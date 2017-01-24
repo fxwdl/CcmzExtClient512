@@ -27,7 +27,8 @@ Ext.define('ccmz.view.yljz.TRItem', {
         'Ext.form.field.Display',
         'Ext.form.FieldContainer',
         'Ext.button.Button',
-        'Ext.toolbar.Toolbar'
+        'Ext.toolbar.Toolbar',
+        'ccmz.view.SelWindow'
     ],
 
     controller: 'yljz.tritem',
@@ -76,6 +77,9 @@ Ext.define('ccmz.view.yljz.TRItem', {
                             bind: {
                                 value: '{d.Sfzh}',
                                 readOnly: '{Readonly}'
+                            },
+                            listeners: {
+                                specialkey: 'onSfzhPressEnter'
                             }
                         },
                         {
@@ -89,6 +93,9 @@ Ext.define('ccmz.view.yljz.TRItem', {
                                 value: '{d.Reim_Source}',
                                 readOnly: '{Readonly}',
                                 store: '{rsStore}'
+                            },
+                            listeners: {
+                                change: 'onReimSourceChange'
                             }
                         },
                         {
@@ -114,6 +121,7 @@ Ext.define('ccmz.view.yljz.TRItem', {
                         {
                             xtype: 'numberfield',
                             useThousandSeparator: true,
+                            useDecimalSeparator: true,
                             tabIndex: 14,
                             fieldLabel: '医疗总费用',
                             selectOnFocus: true,
@@ -125,6 +133,7 @@ Ext.define('ccmz.view.yljz.TRItem', {
                         },
                         {
                             xtype: 'numberfield',
+                            useDecimalSeparator: true,
                             tabIndex: 18,
                             fieldLabel: '大病保险补偿金额',
                             selectOnFocus: true,
@@ -135,6 +144,7 @@ Ext.define('ccmz.view.yljz.TRItem', {
                         },
                         {
                             xtype: 'numberfield',
+                            useDecimalSeparator: true,
                             tabIndex: 22,
                             fieldLabel: '个人账户支付',
                             selectOnFocus: true,
@@ -163,9 +173,13 @@ Ext.define('ccmz.view.yljz.TRItem', {
                         },
                         {
                             xtype: 'displayfield',
+                            renderer: function(value, displayField) {
+                                if(Ext.isDefined(value))
+                                return Ext.util.Format.number(value,'0.00');
+                            },
                             fieldLabel: '报销基数',
                             bind: {
-                                value: '{BaseMoneyDisplay}'
+                                value: '{d.SelfBaseMoney}'
                             }
                         }
                     ]
@@ -233,15 +247,20 @@ Ext.define('ccmz.view.yljz.TRItem', {
                                     xtype: 'button',
                                     flex: 0,
                                     tabIndex: 11,
+                                    ui: 'default-toolbar-small',
                                     text: '...',
                                     bind: {
                                         disabled: '{Readonly}'
+                                    },
+                                    listeners: {
+                                        click: 'onSelDiseaseClick'
                                     }
                                 }
                             ]
                         },
                         {
                             xtype: 'numberfield',
+                            useDecimalSeparator: true,
                             tabIndex: 15,
                             fieldLabel: '自理费用',
                             selectOnFocus: true,
@@ -252,6 +271,7 @@ Ext.define('ccmz.view.yljz.TRItem', {
                         },
                         {
                             xtype: 'numberfield',
+                            useDecimalSeparator: true,
                             tabIndex: 19,
                             fieldLabel: '医保(农合)报销',
                             selectOnFocus: true,
@@ -262,6 +282,7 @@ Ext.define('ccmz.view.yljz.TRItem', {
                         },
                         {
                             xtype: 'numberfield',
+                            useDecimalSeparator: true,
                             tabIndex: 23,
                             fieldLabel: '医保其它支付',
                             selectOnFocus: true,
@@ -288,6 +309,10 @@ Ext.define('ccmz.view.yljz.TRItem', {
                         },
                         {
                             xtype: 'displayfield',
+                            renderer: function(value, displayField) {
+                                if(Ext.isDefined(value))
+                                return Ext.util.Format.number(value,'0.00');
+                            },
                             fieldLabel: '救助金额',
                             bind: {
                                 value: '{d.YLJZ_Money}'
@@ -337,6 +362,7 @@ Ext.define('ccmz.view.yljz.TRItem', {
                         },
                         {
                             xtype: 'textfield',
+                            reference: 'txtStdDisease_Name',
                             tabIndex: 12,
                             fieldLabel: '疾病名称',
                             selectOnFocus: true,
@@ -347,6 +373,7 @@ Ext.define('ccmz.view.yljz.TRItem', {
                         },
                         {
                             xtype: 'numberfield',
+                            useDecimalSeparator: true,
                             tabIndex: 16,
                             fieldLabel: '自费金额',
                             selectOnFocus: true,
@@ -357,6 +384,7 @@ Ext.define('ccmz.view.yljz.TRItem', {
                         },
                         {
                             xtype: 'numberfield',
+                            useDecimalSeparator: true,
                             tabIndex: 20,
                             fieldLabel: '新农合参与补偿金额',
                             selectOnFocus: true,
@@ -367,6 +395,7 @@ Ext.define('ccmz.view.yljz.TRItem', {
                         },
                         {
                             xtype: 'numberfield',
+                            useDecimalSeparator: true,
                             tabIndex: 24,
                             fieldLabel: '个人承担&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;',
                             selectOnFocus: true,
@@ -410,6 +439,14 @@ Ext.define('ccmz.view.yljz.TRItem', {
                     items: [
                         {
                             xtype: 'displayfield',
+                            renderer: function(value, displayField) {
+                                if(value==='正常'){
+                                    return '<span style="color:green">'+value+'</spen>';
+                                }
+                                else{
+                                    return '<span style="color:red">'+value+'</spen>';
+                                }
+                            },
                             flex: 1,
                             fieldLabel: '人员状态',
                             bind: {
@@ -450,6 +487,7 @@ Ext.define('ccmz.view.yljz.TRItem', {
                         },
                         {
                             xtype: 'numberfield',
+                            useDecimalSeparator: true,
                             tabIndex: 17,
                             fieldLabel: '起付线',
                             selectOnFocus: true,
@@ -461,6 +499,7 @@ Ext.define('ccmz.view.yljz.TRItem', {
                         },
                         {
                             xtype: 'numberfield',
+                            useDecimalSeparator: true,
                             tabIndex: 21,
                             fieldLabel: '新农合参与大病补偿金额',
                             bind: {
@@ -525,6 +564,7 @@ Ext.define('ccmz.view.yljz.TRItem', {
                 {
                     xtype: 'button',
                     tabIndex: 27,
+                    ui: 'default-toolbar-small',
                     text: '提交',
                     bind: {
                         disabled: '{Readonly}'

@@ -7,7 +7,54 @@
     "codeClass": null,
     "userConfig": {
         "designer|userAlias": "yljz.tritem",
-        "designer|userClassName": "yljz.TRItemViewController"
+        "designer|userClassName": "yljz.TRItemViewController",
+        "requires": [
+            "ccmz.view.SelWindow"
+        ]
     },
-    "designerId": "14afedb1-7bd9-4cb4-9c5c-301f0adbe90b"
+    "designerId": "14afedb1-7bd9-4cb4-9c5c-301f0adbe90b",
+    "cn": [
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doClearCallback",
+                "implHandler": [
+                    "var vm=this.getViewModel();",
+                    "vm.set('d.StdDisease_Code','');",
+                    "vm.set('d.StdDisease_Name','');"
+                ]
+            },
+            "name": "doClearCallback",
+            "designerId": "70f7801f-c1a9-4421-8b07-f98fa82a5df0"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "data"
+                ],
+                "fn": "doOkCallback",
+                "implHandler": [
+                    "if(data){",
+                    "    var vm=this.getViewModel();",
+                    "    vm.set('d.StdDisease_Code',data.get(\"Code\"));",
+                    "    vm.set('d.StdDisease_Name',data.get(\"Name\"));",
+                    "    this.lookupReference('txtStdDisease_Name').focus();",
+                    "}"
+                ]
+            },
+            "name": "doOkCallback",
+            "designerId": "e228027b-480e-47f2-beb5-f3547992bc8e"
+        }
+    ]
 }

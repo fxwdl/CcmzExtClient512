@@ -3,7 +3,7 @@ Ext.define('ccmz.override.form.field.Number', {
     /**
     * @cfg {Boolean} useDecimalSeparator
     */
-    useDecimalSeparator: true,
+    useDecimalSeparator: false,
     
     /**
     * @cfg {Boolean} useThousandSeparator

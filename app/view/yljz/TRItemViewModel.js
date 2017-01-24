@@ -18,18 +18,27 @@ Ext.define('ccmz.view.yljz.TRItemViewModel', {
     alias: 'viewmodel.yljz.tritem',
 
     requires: [
+        'Ext.data.ChainedStore',
         'Ext.app.bind.Formula',
-        'Ext.data.ChainedStore'
+        'ccmz.view.SelWindow'
     ],
 
     links: {
         
     },
 
-    formulas: {
-        BaseMoneyDisplay: function(get) {
-            return Ext.util.Format.number(get('d.SelfBaseMoney'),'0.00');
+    stores: {
+        rsStore: {
+            source: 'ReimSourceStore'
         },
+        rtStore: {
+            source: 'ReimburseTypeStore'
+        },
+        sbnStore: {
+            source: 'SpecBNStore'
+        }
+    },
+    formulas: {
         CanPay: function(get) {
             return get('d.Finish_Flag')===0 && Ext.isDefined(get('d.Create_Time'));
         },
@@ -50,17 +59,6 @@ Ext.define('ccmz.view.yljz.TRItemViewModel', {
                 return data===2;
             },
             bind: '{d.Finish_Flag}'
-        }
-    },
-    stores: {
-        rsStore: {
-            source: 'ReimSourceStore'
-        },
-        rtStore: {
-            source: 'ReimburseTypeStore'
-        },
-        sbnStore: {
-            source: 'SpecBNStore'
         }
     }
 

@@ -215,7 +215,7 @@
                             "            var vm=me.getViewModel();",
                             "            vm.set(\"UserName\",r.UserName);",
                             "            vm.set(\"CurDept\",r.CurDept);",
-                            "",
+                            "            ccmz.getApplication().curUser=r.d;",
                             "        }});"
                         ],
                         "name": "render",

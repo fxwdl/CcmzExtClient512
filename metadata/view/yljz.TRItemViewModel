@@ -12,44 +12,13 @@
             "{",
             "",
             "}"
+        ],
+        "requires": [
+            "ccmz.view.SelWindow"
         ]
     },
     "designerId": "ac207feb-e765-484e-baee-d53e988a4e62",
     "cn": [
-        {
-            "type": "Ext.app.bind.Formula",
-            "reference": {
-                "name": "formulas",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "name": "BaseMoneyDisplay"
-            },
-            "name": "MyFormula",
-            "designerId": "4f3561e0-1975-4d98-8a73-3ece6547972a",
-            "cn": [
-                {
-                    "type": "fixedfunction",
-                    "reference": {
-                        "name": "items",
-                        "type": "array"
-                    },
-                    "codeClass": null,
-                    "userConfig": {
-                        "designer|params": [
-                            "get"
-                        ],
-                        "fn": "get",
-                        "implHandler": [
-                            "return Ext.util.Format.number(get('d.SelfBaseMoney'),'0.00');"
-                        ]
-                    },
-                    "name": "get",
-                    "designerId": "ad6124d8-a321-402d-b592-fdd3d0fdba11"
-                }
-            ]
-        },
         {
             "type": "Ext.data.ChainedStore",
             "reference": {

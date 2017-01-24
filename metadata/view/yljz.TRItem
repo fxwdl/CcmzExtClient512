@@ -21,6 +21,9 @@
         "maxWidth": null,
         "modelValidation": true,
         "padding": 5,
+        "requires": [
+            "ccmz.view.SelWindow"
+        ],
         "title": null,
         "width": null
     },
@@ -109,7 +112,50 @@
                                 "value": "binding",
                                 "readOnly": "binding"
                             },
-                            "designerId": "6e0d0f4d-5921-48fc-a942-377c5384d987"
+                            "designerId": "6e0d0f4d-5921-48fc-a942-377c5384d987",
+                            "cn": [
+                                {
+                                    "type": "viewcontrollereventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onSfzhPressEnter",
+                                        "implHandler": [
+                                            "if (e.getKey()==e.ENTER){",
+                                            "    ccmz.model.DictFamilyMember1.load(field.getValue(), {",
+                                            "        scope: this,",
+                                            "        failure: function(record, operation) {",
+                                            "            console.log(\"error\");",
+                                            "        },",
+                                            "        success: function(record, operation) {",
+                                            "            var vm=this.getViewModel();",
+                                            "            if (!Ext.isEmpty(operation._response.responseText)){                ",
+                                            "                vm.set('d.Name',record.get('Name'));",
+                                            "                vm.set('d.SfLb',record.get('Sflb'));",
+                                            "                vm.set('d.Family_Code',record.get('Family_Code'));",
+                                            "                vm.set('d.Ry_Zt',record.get('Ry_Zt'));",
+                                            "            }",
+                                            "            else{",
+                                            "                Ext.Msg.alert('提示','此人未录入到系统中');",
+                                            "                vm.set('d.Name','');",
+                                            "                vm.set('d.SfLb','');",
+                                            "                vm.set('d.Family_Code','');",
+                                            "                vm.set('d.Ry_Zt','');                ",
+                                            "            }",
+                                            "        }",
+                                            "    });",
+                                            "}"
+                                        ],
+                                        "name": "specialkey",
+                                        "scope": "me"
+                                    },
+                                    "name": "onSfzhPressEnter",
+                                    "designerId": "e75d8469-4565-4608-8193-34cc088823bc"
+                                }
+                            ]
                         },
                         {
                             "type": "Ext.form.field.ComboBox",
@@ -140,7 +186,35 @@
                                 "store": "binding",
                                 "readOnly": "binding"
                             },
-                            "designerId": "1a1db5a4-ee82-42e5-9937-b1b471940dbd"
+                            "designerId": "1a1db5a4-ee82-42e5-9937-b1b471940dbd",
+                            "cn": [
+                                {
+                                    "type": "viewcontrollereventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onReimSourceChange",
+                                        "implHandler": [
+                                            "var vm=this.getViewModel();",
+                                            "if (newValue==1){",
+                                            "    vm.set('d.TreatmentHosptial_Code','');",
+                                            "    vm.set('d.TreatmentHosptial','');",
+                                            "}",
+                                            "else{",
+                                            "    vm.set('d.TreatmentHosptial_Code',ccmz.getApplication().curUser.Hospital.Code);",
+                                            "    vm.set('d.TreatmentHosptial',ccmz.getApplication().curUser.Hospital.Name);    ",
+                                            "}"
+                                        ],
+                                        "name": "change",
+                                        "scope": "me"
+                                    },
+                                    "name": "onReimSourceChange",
+                                    "designerId": "80ff6bf4-1dfb-4722-8707-47ad6d162a1d"
+                                }
+                            ]
                         },
                         {
                             "type": "Ext.form.field.Date",
@@ -208,6 +282,7 @@
                                 ],
                                 "selectOnFocus": true,
                                 "tabIndex": 14,
+                                "useDecimalSeparator": true,
                                 "useThousandSeparator": true,
                                 "value": [
                                     "{d.YLZ_Money}"
@@ -218,13 +293,19 @@
                                 "forcePrecision": "boolean",
                                 "value": "binding",
                                 "useThousandSeparator": "boolean",
-                                "readOnly": "binding"
+                                "readOnly": "binding",
+                                "useDecimalSeparator": "boolean"
                             },
                             "designerId": "ac50e421-0873-4327-ad54-23521204e744",
                             "customConfigs": [
                                 {
                                     "group": "(Custom Properties)",
                                     "name": "useThousandSeparator",
+                                    "type": "string"
+                                },
+                                {
+                                    "group": "(Custom Properties)",
+                                    "name": "useDecimalSeparator",
                                     "type": "string"
                                 }
                             ]
@@ -243,6 +324,7 @@
                                 ],
                                 "selectOnFocus": true,
                                 "tabIndex": 18,
+                                "useDecimalSeparator": true,
                                 "value": [
                                     "{d.DBBX_Money}"
                                 ]
@@ -250,9 +332,17 @@
                             "name": "MyNumberField1",
                             "configAlternates": {
                                 "value": "binding",
-                                "readOnly": "binding"
+                                "readOnly": "binding",
+                                "useDecimalSeparator": "boolean"
                             },
-                            "designerId": "956a232d-b9c9-416d-8416-0b00dd1bf55a"
+                            "designerId": "956a232d-b9c9-416d-8416-0b00dd1bf55a",
+                            "customConfigs": [
+                                {
+                                    "group": "(Custom Properties)",
+                                    "name": "useDecimalSeparator",
+                                    "type": "string"
+                                }
+                            ]
                         },
                         {
                             "type": "Ext.form.field.Number",
@@ -268,6 +358,7 @@
                                 ],
                                 "selectOnFocus": true,
                                 "tabIndex": 22,
+                                "useDecimalSeparator": true,
                                 "value": [
                                     "{d.GR_Accout_Pay}"
                                 ]
@@ -275,9 +366,17 @@
                             "name": "MyNumberField2",
                             "configAlternates": {
                                 "value": "binding",
-                                "readOnly": "binding"
+                                "readOnly": "binding",
+                                "useDecimalSeparator": "boolean"
                             },
-                            "designerId": "07b2a37c-5b9c-43dc-a31d-a2be329c46f6"
+                            "designerId": "07b2a37c-5b9c-43dc-a31d-a2be329c46f6",
+                            "customConfigs": [
+                                {
+                                    "group": "(Custom Properties)",
+                                    "name": "useDecimalSeparator",
+                                    "type": "string"
+                                }
+                            ]
                         },
                         {
                             "type": "Ext.form.field.Date",
@@ -334,14 +433,37 @@
                             "userConfig": {
                                 "fieldLabel": "报销基数",
                                 "value": [
-                                    "{BaseMoneyDisplay}"
+                                    "{d.SelfBaseMoney}"
                                 ]
                             },
                             "name": "MyDisplayField4",
                             "configAlternates": {
                                 "value": "binding"
                             },
-                            "designerId": "213e50ec-3c7e-44e3-93ca-f64aab60880b"
+                            "designerId": "213e50ec-3c7e-44e3-93ca-f64aab60880b",
+                            "cn": [
+                                {
+                                    "type": "fixedfunction",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|params": [
+                                            "value",
+                                            "displayField"
+                                        ],
+                                        "fn": "renderer",
+                                        "implHandler": [
+                                            "if(Ext.isDefined(value))",
+                                            "    return Ext.util.Format.number(value,'0.00');"
+                                        ]
+                                    },
+                                    "name": "renderer",
+                                    "designerId": "22acd370-f52c-42cd-93de-31dde4385e7f"
+                                }
+                            ]
                         }
                     ]
                 },
@@ -490,18 +612,46 @@
                                     },
                                     "codeClass": null,
                                     "userConfig": {
+                                        "designer|uiInterfaceName": "default-toolbar-small",
                                         "disabled": [
                                             "{Readonly}"
                                         ],
                                         "layout|flex": 0,
                                         "tabIndex": 11,
-                                        "text": "..."
+                                        "text": "...",
+                                        "ui": "default-toolbar-small"
                                     },
                                     "name": "MyButton12",
                                     "configAlternates": {
                                         "disabled": "binding"
                                     },
-                                    "designerId": "d8a65f7e-2b0b-45a0-9617-e1bc5acc911d"
+                                    "designerId": "d8a65f7e-2b0b-45a0-9617-e1bc5acc911d",
+                                    "cn": [
+                                        {
+                                            "type": "viewcontrollereventbinding",
+                                            "reference": {
+                                                "name": "listeners",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "fn": "onSelDiseaseClick",
+                                                "implHandler": [
+                                                    "var params={doClearCallback:this.doClearCallback,doOkCallback:this.doOkCallback,scope:this};",
+                                                    "var win=Ext.create('ccmz.view.SelWindow',params);",
+                                                    "var vm=win.getViewModel();",
+                                                    "var store=vm.getStore('stdDiseaseStore');",
+                                                    "var rt_id=this.getViewModel().get('d.Reim_Type_ID');",
+                                                    "store.filter('RT_ID',rt_id);",
+                                                    "win.show();"
+                                                ],
+                                                "name": "click",
+                                                "scope": "me"
+                                            },
+                                            "name": "onSelDiseaseClick",
+                                            "designerId": "118710cf-ac2a-4b9a-99f5-f4b73945d1e0"
+                                        }
+                                    ]
                                 }
                             ]
                         },
@@ -519,6 +669,7 @@
                                 ],
                                 "selectOnFocus": true,
                                 "tabIndex": 15,
+                                "useDecimalSeparator": true,
                                 "value": [
                                     "{d.ZL_Money}"
                                 ]
@@ -526,9 +677,17 @@
                             "name": "MyNumberField4",
                             "configAlternates": {
                                 "value": "binding",
-                                "readOnly": "binding"
+                                "readOnly": "binding",
+                                "useDecimalSeparator": "boolean"
                             },
-                            "designerId": "785fad71-38b0-4ae2-a601-e6b4603fb740"
+                            "designerId": "785fad71-38b0-4ae2-a601-e6b4603fb740",
+                            "customConfigs": [
+                                {
+                                    "group": "(Custom Properties)",
+                                    "name": "useDecimalSeparator",
+                                    "type": "string"
+                                }
+                            ]
                         },
                         {
                             "type": "Ext.form.field.Number",
@@ -546,6 +705,7 @@
                                 ],
                                 "selectOnFocus": true,
                                 "tabIndex": 19,
+                                "useDecimalSeparator": true,
                                 "value": [
                                     "{d.YBBX_Money}"
                                 ]
@@ -553,9 +713,17 @@
                             "name": "MyNumberField3",
                             "configAlternates": {
                                 "value": "binding",
-                                "readOnly": "binding"
+                                "readOnly": "binding",
+                                "useDecimalSeparator": "boolean"
                             },
-                            "designerId": "23471470-f278-448b-9b14-b05b006e96d9"
+                            "designerId": "23471470-f278-448b-9b14-b05b006e96d9",
+                            "customConfigs": [
+                                {
+                                    "group": "(Custom Properties)",
+                                    "name": "useDecimalSeparator",
+                                    "type": "string"
+                                }
+                            ]
                         },
                         {
                             "type": "Ext.form.field.Number",
@@ -571,6 +739,7 @@
                                 ],
                                 "selectOnFocus": true,
                                 "tabIndex": 23,
+                                "useDecimalSeparator": true,
                                 "value": [
                                     "{d.YB_Other_Pay}"
                                 ]
@@ -578,9 +747,17 @@
                             "name": "MyNumberField5",
                             "configAlternates": {
                                 "value": "binding",
-                                "readOnly": "binding"
+                                "readOnly": "binding",
+                                "useDecimalSeparator": "boolean"
                             },
-                            "designerId": "7259f660-d6cd-48ed-b52e-f04035405986"
+                            "designerId": "7259f660-d6cd-48ed-b52e-f04035405986",
+                            "customConfigs": [
+                                {
+                                    "group": "(Custom Properties)",
+                                    "name": "useDecimalSeparator",
+                                    "type": "string"
+                                }
+                            ]
                         },
                         {
                             "type": "Ext.form.field.Display",
@@ -657,7 +834,30 @@
                             "configAlternates": {
                                 "value": "binding"
                             },
-                            "designerId": "903fa88c-e63e-43f1-8d17-fef0b1454377"
+                            "designerId": "903fa88c-e63e-43f1-8d17-fef0b1454377",
+                            "cn": [
+                                {
+                                    "type": "fixedfunction",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|params": [
+                                            "value",
+                                            "displayField"
+                                        ],
+                                        "fn": "renderer",
+                                        "implHandler": [
+                                            "if(Ext.isDefined(value))",
+                                            "    return Ext.util.Format.number(value,'0.00');"
+                                        ]
+                                    },
+                                    "name": "renderer",
+                                    "designerId": "c6f9969a-1be8-480b-9d68-b2d657a5b6cc"
+                                }
+                            ]
                         }
                     ]
                 },
@@ -765,6 +965,7 @@
                                 "readOnly": [
                                     "{Readonly}"
                                 ],
+                                "reference": "txtStdDisease_Name",
                                 "selectOnFocus": true,
                                 "tabIndex": 12,
                                 "value": [
@@ -792,6 +993,7 @@
                                 ],
                                 "selectOnFocus": true,
                                 "tabIndex": 16,
+                                "useDecimalSeparator": true,
                                 "value": [
                                     "{d.ZF_Money}"
                                 ]
@@ -799,9 +1001,17 @@
                             "name": "MyNumberField6",
                             "configAlternates": {
                                 "value": "binding",
-                                "readOnly": "binding"
+                                "readOnly": "binding",
+                                "useDecimalSeparator": "boolean"
                             },
-                            "designerId": "dbbe5cd3-e2ae-4872-a144-155eaf562955"
+                            "designerId": "dbbe5cd3-e2ae-4872-a144-155eaf562955",
+                            "customConfigs": [
+                                {
+                                    "group": "(Custom Properties)",
+                                    "name": "useDecimalSeparator",
+                                    "type": "string"
+                                }
+                            ]
                         },
                         {
                             "type": "Ext.form.field.Number",
@@ -818,6 +1028,7 @@
                                 ],
                                 "selectOnFocus": true,
                                 "tabIndex": 20,
+                                "useDecimalSeparator": true,
                                 "value": [
                                     "{d.XNH_Money}"
                                 ]
@@ -825,9 +1036,17 @@
                             "name": "MyNumberField7",
                             "configAlternates": {
                                 "value": "binding",
-                                "readOnly": "binding"
+                                "readOnly": "binding",
+                                "useDecimalSeparator": "boolean"
                             },
-                            "designerId": "d2a83a03-a3a1-44e9-b5b9-7b8513f0e6ef"
+                            "designerId": "d2a83a03-a3a1-44e9-b5b9-7b8513f0e6ef",
+                            "customConfigs": [
+                                {
+                                    "group": "(Custom Properties)",
+                                    "name": "useDecimalSeparator",
+                                    "type": "string"
+                                }
+                            ]
                         },
                         {
                             "type": "Ext.form.field.Number",
@@ -843,6 +1062,7 @@
                                 ],
                                 "selectOnFocus": true,
                                 "tabIndex": 24,
+                                "useDecimalSeparator": true,
                                 "value": [
                                     "{d.GR_Money}"
                                 ]
@@ -850,9 +1070,17 @@
                             "name": "MyNumberField8",
                             "configAlternates": {
                                 "value": "binding",
-                                "readOnly": "binding"
+                                "readOnly": "binding",
+                                "useDecimalSeparator": "boolean"
                             },
-                            "designerId": "88c4d42b-1b89-4eae-8c13-53a0f0e67efb"
+                            "designerId": "88c4d42b-1b89-4eae-8c13-53a0f0e67efb",
+                            "customConfigs": [
+                                {
+                                    "group": "(Custom Properties)",
+                                    "name": "useDecimalSeparator",
+                                    "type": "string"
+                                }
+                            ]
                         },
                         {
                             "type": "Ext.form.field.Display",
@@ -949,7 +1177,34 @@
                             "configAlternates": {
                                 "value": "binding"
                             },
-                            "designerId": "5ed9ff97-be54-4222-8999-a273abae07b1"
+                            "designerId": "5ed9ff97-be54-4222-8999-a273abae07b1",
+                            "cn": [
+                                {
+                                    "type": "fixedfunction",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|params": [
+                                            "value",
+                                            "displayField"
+                                        ],
+                                        "fn": "renderer",
+                                        "implHandler": [
+                                            "if(value==='正常'){",
+                                            "    return '<span style=\"color:green\">'+value+'</spen>';",
+                                            "}",
+                                            "else{",
+                                            "    return '<span style=\"color:red\">'+value+'</spen>';",
+                                            "}"
+                                        ]
+                                    },
+                                    "name": "renderer",
+                                    "designerId": "c67dc306-c779-4a9f-87f6-8b65be06fa61"
+                                }
+                            ]
                         },
                         {
                             "type": "Ext.form.field.ComboBox",
@@ -1047,6 +1302,7 @@
                                 ],
                                 "selectOnFocus": true,
                                 "tabIndex": 17,
+                                "useDecimalSeparator": true,
                                 "value": [
                                     "{d.Medicare_Line}"
                                 ]
@@ -1054,9 +1310,17 @@
                             "name": "MyNumberField9",
                             "configAlternates": {
                                 "value": "binding",
-                                "readOnly": "binding"
+                                "readOnly": "binding",
+                                "useDecimalSeparator": "boolean"
                             },
-                            "designerId": "6a346249-7422-4142-9ec9-4dbd4f57f3fa"
+                            "designerId": "6a346249-7422-4142-9ec9-4dbd4f57f3fa",
+                            "customConfigs": [
+                                {
+                                    "group": "(Custom Properties)",
+                                    "name": "useDecimalSeparator",
+                                    "type": "string"
+                                }
+                            ]
                         },
                         {
                             "type": "Ext.form.field.Number",
@@ -1071,6 +1335,7 @@
                                     "{Readonly}"
                                 ],
                                 "tabIndex": 21,
+                                "useDecimalSeparator": true,
                                 "value": [
                                     "{d.CYDBBC_Money}"
                                 ]
@@ -1078,9 +1343,17 @@
                             "name": "MyNumberField10",
                             "configAlternates": {
                                 "value": "binding",
-                                "readOnly": "binding"
+                                "readOnly": "binding",
+                                "useDecimalSeparator": "boolean"
                             },
-                            "designerId": "e8e065a9-d233-4111-bb2d-a9af668c0a3f"
+                            "designerId": "e8e065a9-d233-4111-bb2d-a9af668c0a3f",
+                            "customConfigs": [
+                                {
+                                    "group": "(Custom Properties)",
+                                    "name": "useDecimalSeparator",
+                                    "type": "string"
+                                }
+                            ]
                         },
                         {
                             "type": "Ext.form.field.ComboBox",
@@ -1108,7 +1381,8 @@
                             "configAlternates": {
                                 "value": "binding",
                                 "store": "binding",
-                                "readOnly": "binding"
+                                "readOnly": "binding",
+                                "useDecimalSeparator": "boolean"
                             },
                             "designerId": "c1727abf-4479-4df9-af96-eb76a64623de"
                         },
@@ -1226,13 +1500,16 @@
             "userConfig": {
                 "container|align": "middle",
                 "container|pack": "center",
+                "defaultButtonUI": null,
                 "defaults": [
                     "{",
                     "    width:60",
                     "}",
                     ""
                 ],
-                "dock": null
+                "designer|uiInterfaceName": "default",
+                "dock": null,
+                "layout|flex": null
             },
             "name": "MyToolbar",
             "designerId": "ae4d3c78-0276-46a9-a13e-df44eec045bc",
@@ -1245,12 +1522,14 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "designer|uiInterfaceName": "default-toolbar-small",
                         "disabled": [
                             "{Readonly}"
                         ],
                         "layout|flex": null,
                         "tabIndex": 27,
-                        "text": "提交"
+                        "text": "提交",
+                        "ui": "default-toolbar-small"
                     },
                     "name": "MyButton5",
                     "configAlternates": {
@@ -1269,7 +1548,7 @@
                                 "fn": "onSubmitClick",
                                 "implHandler": [
                                     "var vm=this.getViewModel();",
-                                    "alert(vm.get('d.In_Date'));",
+                                    "alert(vm.get('d.StdDisease_Code'));",
                                     "alert(vm.get('d.Out_Date'));"
                                 ],
                                 "name": "click",

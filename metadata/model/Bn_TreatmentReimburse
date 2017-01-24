@@ -235,7 +235,7 @@
                         ],
                         "fn": "convert",
                         "implHandler": [
-                            "if (v)",
+                            "if (Ext.isString(v))",
                             "    return new Date(parseInt(v.replace('/Date(', '')));"
                         ]
                     },
@@ -271,7 +271,7 @@
                         ],
                         "fn": "convert",
                         "implHandler": [
-                            "if (v)",
+                            "if (Ext.isString(v))",
                             "    return new Date(parseInt(v.replace('/Date(', '')));"
                         ]
                     },
@@ -307,7 +307,7 @@
                         ],
                         "fn": "convert",
                         "implHandler": [
-                            "if (v)",
+                            "if (Ext.isString(v))",
                             "    return new Date(parseInt(v.replace('/Date(', '')));"
                         ]
                     },
@@ -343,7 +343,7 @@
                         ],
                         "fn": "convert",
                         "implHandler": [
-                            "if (v)",
+                            "if (Ext.isString(v))",
                             "    return new Date(parseInt(v.replace('/Date(', '')));"
                         ]
                     },
@@ -509,7 +509,7 @@
                         ],
                         "fn": "convert",
                         "implHandler": [
-                            "if (v)",
+                            "if (Ext.isString(v))",
                             "    return new Date(parseInt(v.replace('/Date(', '')));"
                         ]
                     },
@@ -643,7 +643,7 @@
                         ],
                         "fn": "convert",
                         "implHandler": [
-                            "if (v)",
+                            "if (Ext.isString(v))",
                             "    return new Date(parseInt(v.replace('/Date(', '')));"
                         ]
                     },
@@ -694,7 +694,7 @@
                         ],
                         "fn": "convert",
                         "implHandler": [
-                            "if (v)",
+                            "if (Ext.isString(v))",
                             "    return new Date(parseInt(v.replace('/Date(', '')));"
                         ]
                     },
@@ -762,7 +762,7 @@
                         ],
                         "fn": "convert",
                         "implHandler": [
-                            "if (v)",
+                            "if (Ext.isString(v))",
                             "    return new Date(parseInt(v.replace('/Date(', '')));"
                         ]
                     },
@@ -940,6 +940,108 @@
                     "designerId": "4e730de7-4bb3-482e-9bb6-f3f69a7b2c24"
                 }
             ]
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "Name"
+            },
+            "name": "MyField",
+            "designerId": "f8816926-7185-455d-85ec-34a4faadf8b2"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "Ry_Zt"
+            },
+            "name": "MyField1",
+            "designerId": "17d1f3c6-e5b4-4f38-b12a-e9adf5df028a"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "Operator_Name"
+            },
+            "name": "MyField2",
+            "designerId": "549117c2-c58b-445a-a383-678e8947d371"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "Pay_Operator_Name"
+            },
+            "name": "MyField3",
+            "designerId": "4454dac9-e035-4efb-8c88-85ea217e5ba8"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "Cancel_Operator_Name"
+            },
+            "name": "MyField4",
+            "designerId": "a5f8ca2f-6e89-4270-bae8-807b63358540"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "IdentityType_Name"
+            },
+            "name": "MyField5",
+            "designerId": "c05608c9-c3dc-474a-8751-eb51315294ad"
+        },
+        {
+            "type": "staticfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "createNewItem",
+                "implHandler": [
+                    "var d = ccmz.model.Bn_TreatmentReimburse.create({",
+                    "    'Operator_ID':ccmz.getApplication().curUser.UserId,",
+                    "    'Operator_Name':ccmz.getApplication().curUser.CNName,",
+                    "    'TreatmentHosptial_Code':ccmz.getApplication().curUser.Hospital.Code,",
+                    "    'TreatmentHosptial':ccmz.getApplication().curUser.Hospital.Name,",
+                    "    'TypeIn_Date':new Date(),",
+                    "    'Apply_Date':new Date()",
+                    "});",
+                    "return d;"
+                ]
+            },
+            "name": "createNewItem",
+            "designerId": "3388de3b-38e2-4236-9c13-27745cb73b55"
         }
     ]
 }

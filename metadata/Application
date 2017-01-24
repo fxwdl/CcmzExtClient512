@@ -6,24 +6,41 @@
     },
     "codeClass": null,
     "userConfig": {
+        "curUser": [
+            "null"
+        ],
         "models": [
             "Bn_TreatmentReimburse",
-            "SystemEnum"
+            "SystemEnum",
+            "DictStdDisease",
+            "DictFamilyMember1"
         ],
         "name": "ccmz",
         "stores": [
             "ReimSourceStore",
             "ReimburseTypeStore",
-            "SpecBNStore"
+            "SpecBNStore",
+            "DictStdDiseaseStore"
         ],
         "title": "长春市医疗救助管理系统",
         "views": [
             "MyViewport",
-            "yljz.TRItem"
+            "yljz.TRItem",
+            "SelWindow"
         ]
     },
     "name": "Application",
+    "configAlternates": {
+        "curUser": "object"
+    },
     "designerId": "application",
+    "customConfigs": [
+        {
+            "group": "(Custom Properties)",
+            "name": "curUser",
+            "type": "string"
+        }
+    ],
     "cn": [
         {
             "type": "Ext.Loader",

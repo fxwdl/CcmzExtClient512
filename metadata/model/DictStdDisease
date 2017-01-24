@@ -1,0 +1,93 @@
+{
+    "type": "Ext.data.Model",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "DictStdDisease"
+    },
+    "name": "MyModel",
+    "designerId": "a6f49a77-f879-4c12-a40a-dba686e25aee",
+    "cn": [
+        {
+            "type": "Ext.data.field.String",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "Code"
+            },
+            "name": "MyString18",
+            "designerId": "220a1f70-4054-4a77-9440-f8c0840a64af"
+        },
+        {
+            "type": "Ext.data.field.String",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "ShortName"
+            },
+            "name": "MyString20",
+            "designerId": "b8425de2-c5e7-4a46-9c55-8d927bbb022b"
+        },
+        {
+            "type": "Ext.data.field.String",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "Category"
+            },
+            "name": "MyString21",
+            "designerId": "95ad2ae4-86db-4fec-b94e-599ee9c25667"
+        },
+        {
+            "type": "Ext.data.field.String",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "Memo"
+            },
+            "name": "MyString22",
+            "designerId": "cd895cc3-d4ee-474f-8fc7-503d12f681d3"
+        },
+        {
+            "type": "Ext.data.field.Integer",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "RT_ID"
+            },
+            "name": "MyInteger1",
+            "designerId": "48362417-00d8-4dfa-893b-b5cf9ae317e4"
+        },
+        {
+            "type": "Ext.data.field.String",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "Name"
+            },
+            "name": "MyString23",
+            "designerId": "50e17518-c356-4228-8241-269274ad64c4"
+        }
+    ]
+}

@@ -1,0 +1,51 @@
+{
+    "type": "jsonstore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "DictStdDiseaseStore",
+        "model": "DictStdDisease",
+        "remoteFilter": true,
+        "remoteSort": true,
+        "storeId": "DictStdDiseaseStore"
+    },
+    "name": "MyJsonStore",
+    "designerId": "e1674b7b-d617-4d51-aaeb-df9c6eec3f1f",
+    "cn": [
+        {
+            "type": "Ext.data.proxy.Ajax",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "extraParams": [
+                    "{searchKey:null}"
+                ],
+                "url": "/DictStdDisease/GetData"
+            },
+            "name": "MyAjaxProxy",
+            "designerId": "a872efcd-cf0f-4e7b-9caa-b956b4536820",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "messageProperty": "msg",
+                        "rootProperty": "data"
+                    },
+                    "name": "MyJsonReader",
+                    "designerId": "97ce63d6-b3a9-4c11-a66e-d8b0cd75d359"
+                }
+            ]
+        }
+    ]
+}

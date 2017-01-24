@@ -17,9 +17,77 @@ Ext.define('ccmz.view.yljz.TRItemViewController', {
     extend: 'Ext.app.ViewController',
     alias: 'controller.yljz.tritem',
 
+    requires: [
+        'ccmz.view.SelWindow'
+    ],
+
+    doClearCallback: function() {
+        var vm=this.getViewModel();
+        vm.set('d.StdDisease_Code','');
+        vm.set('d.StdDisease_Name','');
+    },
+
+    doOkCallback: function(data) {
+        if(data){
+            var vm=this.getViewModel();
+            vm.set('d.StdDisease_Code',data.get("Code"));
+            vm.set('d.StdDisease_Name',data.get("Name"));
+            this.lookupReference('txtStdDisease_Name').focus();
+        }
+    },
+
+    onSfzhPressEnter: function(field, e, eOpts) {
+        if (e.getKey()==e.ENTER){
+            ccmz.model.DictFamilyMember1.load(field.getValue(), {
+                scope: this,
+                failure: function(record, operation) {
+                    console.log("error");
+                },
+                success: function(record, operation) {
+                    var vm=this.getViewModel();
+                    if (!Ext.isEmpty(operation._response.responseText)){
+                        vm.set('d.Name',record.get('Name'));
+                        vm.set('d.SfLb',record.get('Sflb'));
+                        vm.set('d.Family_Code',record.get('Family_Code'));
+                        vm.set('d.Ry_Zt',record.get('Ry_Zt'));
+                    }
+                    else{
+                        Ext.Msg.alert('提示','此人未录入到系统中');
+                        vm.set('d.Name','');
+                        vm.set('d.SfLb','');
+                        vm.set('d.Family_Code','');
+                        vm.set('d.Ry_Zt','');
+                    }
+                }
+            });
+        }
+    },
+
+    onReimSourceChange: function(field, newValue, oldValue, eOpts) {
+        var vm=this.getViewModel();
+        if (newValue==1){
+            vm.set('d.TreatmentHosptial_Code','');
+            vm.set('d.TreatmentHosptial','');
+        }
+        else{
+            vm.set('d.TreatmentHosptial_Code',ccmz.getApplication().curUser.Hospital.Code);
+            vm.set('d.TreatmentHosptial',ccmz.getApplication().curUser.Hospital.Name);
+        }
+    },
+
+    onSelDiseaseClick: function(button, e, eOpts) {
+        var params={doClearCallback:this.doClearCallback,doOkCallback:this.doOkCallback,scope:this};
+        var win=Ext.create('ccmz.view.SelWindow',params);
+        var vm=win.getViewModel();
+        var store=vm.getStore('stdDiseaseStore');
+        var rt_id=this.getViewModel().get('d.Reim_Type_ID');
+        store.filter('RT_ID',rt_id);
+        win.show();
+    },
+
     onSubmitClick: function(button, e, eOpts) {
         var vm=this.getViewModel();
-        alert(vm.get('d.In_Date'));
+        alert(vm.get('d.StdDisease_Code'));
         alert(vm.get('d.Out_Date'));
     },
 

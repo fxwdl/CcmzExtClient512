@@ -36,10 +36,9 @@ Ext.define('ccmz.view.MyViewportViewController', {
     },
 
     doS_Treatment_Add: function(record, tabPanel) {
-        /*
-        var d=new ccmz.model.Bn_TreatmentReimburse();
-        d.set('TypeIn_Date',Date());
-        d.set('Apply_Date',Date());
+
+        var d=new ccmz.model.Bn_TreatmentReimburse.createNewItem();
+
         var v=new ccmz.view.yljz.TRItem({
             viewModel:{
                 data:{
@@ -56,7 +55,7 @@ Ext.define('ccmz.view.MyViewportViewController', {
             items: v,
         });
         tabPanel.setActiveTab(tab);
-        */
+        /*
         ccmz.model.Bn_TreatmentReimburse.load('cb244d72-a330-4a90-88ba-0007c21a1c16', {
             scope: this,
             failure: function(record, operation) {
@@ -84,7 +83,7 @@ Ext.define('ccmz.view.MyViewportViewController', {
                 //do something whether the load succeeded or failed
             }
         });
-
+        */
     },
 
     onBtnChangePwdClick: function(button, e, eOpts) {
@@ -120,7 +119,7 @@ Ext.define('ccmz.view.MyViewportViewController', {
                 var vm=me.getViewModel();
                 vm.set("UserName",r.UserName);
                 vm.set("CurDept",r.CurDept);
-
+                ccmz.getApplication().curUser=r.d;
             }});
     },
 

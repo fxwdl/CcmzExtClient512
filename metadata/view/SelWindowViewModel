@@ -1,0 +1,72 @@
+{
+    "type": "Ext.app.ViewModel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "data": [
+            "{",
+            "rt_id:null,",
+            "keyValue:''",
+            "}"
+        ],
+        "designer|userAlias": "selwindow",
+        "designer|userClassName": "SelWindowViewModel"
+    },
+    "designerId": "8e5aa7db-1e73-449f-a42b-b5fd154553d7",
+    "cn": [
+        {
+            "type": "Ext.data.Store",
+            "reference": {
+                "name": "stores",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "model": "DictStdDisease",
+                "name": "stdDiseaseStore",
+                "remoteFilter": true,
+                "remoteSort": true
+            },
+            "name": "MyStore",
+            "designerId": "5b3d81aa-d927-46d1-a897-817195cf8d99",
+            "cn": [
+                {
+                    "type": "Ext.data.proxy.Ajax",
+                    "reference": {
+                        "name": "proxy",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "extraParams": [
+                            "{searchKey:null}"
+                        ],
+                        "timeout": 60000,
+                        "url": "/DictStdDisease/GetData"
+                    },
+                    "name": "MyAjaxProxy1",
+                    "designerId": "746e2862-2fcb-44b8-a23c-3f86378d6575",
+                    "cn": [
+                        {
+                            "type": "Ext.data.reader.Json",
+                            "reference": {
+                                "name": "reader",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "messageProperty": "msg",
+                                "rootProperty": "data"
+                            },
+                            "name": "MyJsonReader1",
+                            "designerId": "b17d2ac2-7801-426d-97ff-1b9b6fe83f15"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
