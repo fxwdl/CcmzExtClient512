@@ -21,9 +21,6 @@
         "maxWidth": null,
         "modelValidation": true,
         "padding": 5,
-        "requires": [
-            "ccmz.view.SelWindow"
-        ],
         "title": null,
         "width": null
     },
@@ -1193,6 +1190,8 @@
                                         ],
                                         "fn": "renderer",
                                         "implHandler": [
+                                            "if (!Ext.isDefined(value))",
+                                            "    return;",
                                             "if(value==='正常'){",
                                             "    return '<span style=\"color:green\">'+value+'</spen>';",
                                             "}",

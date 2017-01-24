@@ -270,11 +270,36 @@
                             },
                             "codeClass": null,
                             "userConfig": {
+                                "reference": "btnQuery",
                                 "text": "查询",
                                 "width": null
                             },
                             "name": "MyButton14",
-                            "designerId": "a5021c0f-a0ac-4243-bd07-fd5ed87f15e2"
+                            "designerId": "a5021c0f-a0ac-4243-bd07-fd5ed87f15e2",
+                            "cn": [
+                                {
+                                    "type": "viewcontrollereventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onBtnQueryClick",
+                                        "implHandler": [
+                                            "var vm=this.getViewModel();",
+                                            "var store=vm.getStore('stdDiseaseStore');",
+                                            "var proxy=store.getProxy();",
+                                            "proxy.extraParams.searchKey=vm.get('keyValue');",
+                                            "store.loadPage(1);"
+                                        ],
+                                        "name": "click",
+                                        "scope": "me"
+                                    },
+                                    "name": "onBtnQueryClick",
+                                    "designerId": "45ff84c4-0bfb-401e-9a4a-63104f5585ee"
+                                }
+                            ]
                         }
                     ]
                 }

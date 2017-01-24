@@ -27,8 +27,7 @@ Ext.define('ccmz.view.yljz.TRItem', {
         'Ext.form.field.Display',
         'Ext.form.FieldContainer',
         'Ext.button.Button',
-        'Ext.toolbar.Toolbar',
-        'ccmz.view.SelWindow'
+        'Ext.toolbar.Toolbar'
     ],
 
     controller: 'yljz.tritem',
@@ -440,6 +439,8 @@ Ext.define('ccmz.view.yljz.TRItem', {
                         {
                             xtype: 'displayfield',
                             renderer: function(value, displayField) {
+                                if (!Ext.isDefined(value))
+                                return;
                                 if(value==='正常'){
                                     return '<span style="color:green">'+value+'</spen>';
                                 }

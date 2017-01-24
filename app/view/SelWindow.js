@@ -115,7 +115,14 @@ Ext.define('ccmz.view.SelWindow', {
                     items: [
                         {
                             xtype: 'button',
-                            text: '查询'
+                            reference: 'btnQuery',
+                            text: '查询',
+                            listeners: {
+                                click: {
+                                    fn: 'onBtnQueryClick',
+                                    scope: 'controller'
+                                }
+                            }
                         }
                     ]
                 }

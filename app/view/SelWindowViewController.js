@@ -30,6 +30,14 @@ Ext.define('ccmz.view.SelWindowViewController', {
         win.close();
     },
 
+    onBtnQueryClick: function(button, e, eOpts) {
+        var vm=this.getViewModel();
+        var store=vm.getStore('stdDiseaseStore');
+        var proxy=store.getProxy();
+        proxy.extraParams.searchKey=vm.get('keyValue');
+        store.loadPage(1);
+    },
+
     onGridpanelItemDblClick: function(dataview, record, item, index, e, eOpts) {
         this.onOKClick();
     },

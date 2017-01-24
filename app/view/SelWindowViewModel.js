@@ -24,7 +24,6 @@ Ext.define('ccmz.view.SelWindowViewModel', {
     ],
 
     data: {
-        rt_id: null,
         keyValue: ''
     },
 
