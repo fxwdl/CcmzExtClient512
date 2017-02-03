@@ -36,31 +36,75 @@ Ext.define('ccmz.view.yljz.TRItemViewController', {
         }
     },
 
+    setStatus: function() {
+        var vm=this.getViewModel();
+        var cStatus=this.lookupReference('cStatus');
+        var f=vm.get('d.Finish_Flag');
+
+        switch(f){
+            case 0:
+                cStatus.setStyle({background:'blue',color:'white'});
+                cStatus.setHtml('<span>未救助</span>');
+                break;
+            case 1:
+                cStatus.setStyle({background:'green',color:'white'});
+                cStatus.setHtml('<span>已救助</span>');
+                break;
+            case 2:
+                cStatus.setStyle({background:'red',color:'white'});
+                cStatus.setHtml('<span>已作废</span>');
+                break;
+        }
+    },
+
+    LoadFamilyMemeber: function(sfzh) {
+        var vm=this.getViewModel();
+        if (vm.get('d.Finish_Flag')!==0 ||sfzh.length!=18){
+            return;
+        }
+        ccmz.model.DictFamilyMember1.load(sfzh, {
+            scope: this,
+            failure: function(record, operation) {
+                console.log("error");
+            },
+            success: function(record, operation) {
+                var vm=this.getViewModel();
+                if (!Ext.isEmpty(operation._response.responseText)){
+                    vm.set('d.Name',record.get('Name'));
+                    vm.set('d.SfLb',record.get('Sflb'));
+                    vm.set('d.Family_Code',record.get('Family_Code'));
+                    vm.set('d.Ry_Zt',record.get('Ry_Zt'));
+                }
+                else{
+                    ccmz.getApplication().ShowAlertInfo('此人未录入到系统中');
+                    vm.set('d.Name','');
+                    vm.set('d.SfLb','');
+                    vm.set('d.Family_Code','');
+                    vm.set('d.Ry_Zt','');
+                }
+            }
+        });
+    },
+
+    getModel: function() {
+        var vm=this.getViewModel();
+        return vm.data.d;
+    },
+
     onSfzhPressEnter: function(field, e, eOpts) {
         if (e.getKey()==e.ENTER){
-            ccmz.model.DictFamilyMember1.load(field.getValue(), {
-                scope: this,
-                failure: function(record, operation) {
-                    console.log("error");
-                },
-                success: function(record, operation) {
-                    var vm=this.getViewModel();
-                    if (!Ext.isEmpty(operation._response.responseText)){
-                        vm.set('d.Name',record.get('Name'));
-                        vm.set('d.SfLb',record.get('Sflb'));
-                        vm.set('d.Family_Code',record.get('Family_Code'));
-                        vm.set('d.Ry_Zt',record.get('Ry_Zt'));
-                    }
-                    else{
-                        Ext.Msg.alert('提示','此人未录入到系统中');
-                        vm.set('d.Name','');
-                        vm.set('d.SfLb','');
-                        vm.set('d.Family_Code','');
-                        vm.set('d.Ry_Zt','');
-                    }
-                }
-            });
+            var txtSfzh = this.lookupReference('txtSfzh');
+            this.LoadFamilyMemeber(txtSfzh.getValue());
         }
+    },
+
+    onSfzhChange: function(field, newValue, oldValue, eOpts) {
+        this.getViewModel().set('d.Card_NO',newValue);
+    },
+
+    onSfzhBlur: function(component, event, eOpts) {
+        var txtSfzh = this.lookupReference('txtSfzh');
+        this.LoadFamilyMemeber(txtSfzh.getValue());
     },
 
     onReimSourceChange: function(field, newValue, oldValue, eOpts) {
@@ -86,12 +130,103 @@ Ext.define('ccmz.view.yljz.TRItemViewController', {
     },
 
     onSubmitClick: function(button, e, eOpts) {
-        var vm=this.getViewModel();
-        alert(vm.get('d.StdDisease_Code'));
-        alert(vm.get('d.Out_Date'));
+        var view=this.getView();
+        var form=view.getForm();
+        if (view.isValid()){
+            var vm=this.getViewModel();
+            var d=vm.data.d;
+            if(d.get('Out_Date')<new Date(2016,1,1)){
+                form.markInvalid([{
+                    field:'Out_Date',
+                    message:'出院日期不可以小于2016年1月1日'
+                }]);
+                return;
+            }
+            var reim_Type_ID=vm.get('d.Reim_Type_ID');
+            if (reim_Type_ID!=21 && vm.get('d.StdDisease_Code').length===0){
+                form.markInvalid([{
+                    field:'StdDisease_Code',
+                    message:'医疗类别为特殊疾病或大病门诊时,必需选择疾病代码'
+                }]);
+                return;
+            }
+            var phantom=d.phantom;
+            vm.set('CalGR_Money',vm.get('CalGR_Money'));
+            d.save({
+                failure: function(record, operation) {
+                    var msg=operation.getError().statusText?operation.getError().statusText:operation.getError();
+                    ccmz.getApplication().ShowAlertError(msg);
+                },
+                success: function(record, operation) {
+                    if (phantom){
+                        var tab=view.up('panel[tab]');
+                        tab.itemId=record.get('Reim_NO');
+                        tab.setTitle(record.get('Reim_NO'));
+                    }
+                    else{
+                        ccmz.getApplication().ShowAlertInfo('提交保存成功');
+                    }
+                }
+            });
+        }
+    },
+
+    onResetClick: function(button, e, eOpts) {
+        this.getModel().reject();
+    },
+
+    onPayClick: function(button, e, eOpts) {
+        var me=this;
+        if(ccmz.getApplication().ShowConfirm('您确定要进行报销吗？',function(){
+            ccmz.getApplication().showLoadingMask();
+            Ext.Ajax.request({
+                scope: this,
+                url: '/YLJZ/PayTRItem/'+me.getModel().getId(),
+                method: 'POST',
+                success: function (response, opts) {
+                    var result = Ext.decode(response.responseText);
+                    if (result.success) {
+                        //me.getModel().set(result.data);
+                        me.getModel().load();
+                    }
+                    else {
+                        ccmz.getApplication().ShowAlertError(result.msg);
+                    }
+                },
+                failure: function (response, opts) {
+                    ccmz.getApplication().ShowAlertError('发生服务器错误：' + response.statusText);
+                },
+            });
+        },me));
+    },
+
+    onCancelClick: function(button, e, eOpts) {
+        var me=this;
+        if(ccmz.getApplication().ShowConfirm('您确定要进行作废吗？',function(){
+            ccmz.getApplication().showLoadingMask();
+            Ext.Ajax.request({
+                scope: this,
+                url: '/YLJZ/CancelTRItem/'+me.getModel().getId(),
+                method: 'POST',
+                success: function (response, opts) {
+                    var result = Ext.decode(response.responseText);
+                    if (result.success) {
+                        me.getModel().load();
+                    }
+                    else {
+                        ccmz.getApplication().ShowAlertError(result.msg);
+                    }
+                },
+                failure: function (response, opts) {
+                    ccmz.getApplication().ShowAlertError('发生服务器错误：' + response.statusText);
+                },
+            });
+        },me));
     },
 
     onFormAfterRender: function(component, eOpts) {
+        var vm=this.getViewModel();
+        vm.bind('{d.Finish_Flag}',this.setStatus,this);
         var txtSfzh = this.lookupReference('txtSfzh');
         txtSfzh.focus(false,500);
     }

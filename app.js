@@ -77,6 +77,32 @@ Ext.application({
         });
     },
 
+    ShowAlertInfo: function(msg) {
+        Ext.Msg.show({
+            title: '提示',
+            msg: msg,
+            buttons: Ext.Msg.OK,
+            icon: Ext.Msg.INFO
+        });
+    },
+
+    ShowAlertError: function(msg) {
+        Ext.Msg.show({
+            title: '错误',
+            msg: msg,
+            buttons: Ext.Msg.OK,
+            icon: Ext.Msg.ERROR
+        });
+    },
+
+    ShowConfirm: function(msg, yesfn, scope) {
+        Ext.MessageBox.confirm('提示',msg,function(btn){
+            if (btn=='yes'){
+                Ext.callback(yesfn, scope || this);
+            }
+        },scope);
+    },
+
     launch: function() {
         Ext.create('ccmz.view.MyViewport');
     }

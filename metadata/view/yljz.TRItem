@@ -29,6 +29,64 @@
     "viewModelInstanceId": "ac207feb-e765-484e-baee-d53e988a4e62",
     "cn": [
         {
+            "type": "Ext.container.Container",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "container|align": "bottom",
+                "container|pack": "center",
+                "layout": "hbox",
+                "layout|flex": null
+            },
+            "name": "MyContainer2",
+            "designerId": "fd4be6a4-56c4-4e03-b6db-ef9598093a7e",
+            "cn": [
+                {
+                    "type": "Ext.container.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "html": [
+                            "<h1>长春市城乡医疗救助</h1>"
+                        ],
+                        "layout": "fit",
+                        "layout|flex": 1,
+                        "layout|margins": "",
+                        "margin": "-5 0 -5 0",
+                        "style": [
+                            "text-align:center;"
+                        ],
+                        "width": 279
+                    },
+                    "name": "MyContainer7",
+                    "designerId": "36a35c05-6a18-4504-8902-a1b756606b63"
+                },
+                {
+                    "type": "Ext.container.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "id": null,
+                        "itemId": null,
+                        "layout|flex": 1,
+                        "margin": "3 0 0 0",
+                        "reference": "cStatus"
+                    },
+                    "name": "MyContainer3",
+                    "designerId": "9836fb29-850a-4abd-8bc7-f1103bd2900a"
+                }
+            ]
+        },
+        {
             "type": "Ext.form.FieldSet",
             "reference": {
                 "name": "items",
@@ -64,7 +122,7 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "container|padding": "",
+                        "container|padding": null,
                         "defaults": [
                             "{",
                             "width:250,",
@@ -72,6 +130,7 @@
                             "}"
                         ],
                         "layout": "vbox",
+                        "padding": "0 10 0 10",
                         "style": null,
                         "width": "25%"
                     },
@@ -122,28 +181,8 @@
                                         "fn": "onSfzhPressEnter",
                                         "implHandler": [
                                             "if (e.getKey()==e.ENTER){",
-                                            "    ccmz.model.DictFamilyMember1.load(field.getValue(), {",
-                                            "        scope: this,",
-                                            "        failure: function(record, operation) {",
-                                            "            console.log(\"error\");",
-                                            "        },",
-                                            "        success: function(record, operation) {",
-                                            "            var vm=this.getViewModel();",
-                                            "            if (!Ext.isEmpty(operation._response.responseText)){                ",
-                                            "                vm.set('d.Name',record.get('Name'));",
-                                            "                vm.set('d.SfLb',record.get('Sflb'));",
-                                            "                vm.set('d.Family_Code',record.get('Family_Code'));",
-                                            "                vm.set('d.Ry_Zt',record.get('Ry_Zt'));",
-                                            "            }",
-                                            "            else{",
-                                            "                Ext.Msg.alert('提示','此人未录入到系统中');",
-                                            "                vm.set('d.Name','');",
-                                            "                vm.set('d.SfLb','');",
-                                            "                vm.set('d.Family_Code','');",
-                                            "                vm.set('d.Ry_Zt','');                ",
-                                            "            }",
-                                            "        }",
-                                            "    });",
+                                            "    var txtSfzh = this.lookupReference('txtSfzh');",
+                                            "    this.LoadFamilyMemeber(txtSfzh.getValue());",
                                             "}"
                                         ],
                                         "name": "specialkey",
@@ -151,6 +190,43 @@
                                     },
                                     "name": "onSfzhPressEnter",
                                     "designerId": "e75d8469-4565-4608-8193-34cc088823bc"
+                                },
+                                {
+                                    "type": "viewcontrollereventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onSfzhChange",
+                                        "implHandler": [
+                                            "this.getViewModel().set('d.Card_NO',newValue);"
+                                        ],
+                                        "name": "change",
+                                        "scope": "me"
+                                    },
+                                    "name": "onSfzhChange",
+                                    "designerId": "11de94a8-96b1-4d2f-9578-9dd1045074be"
+                                },
+                                {
+                                    "type": "viewcontrollereventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onSfzhBlur",
+                                        "implHandler": [
+                                            "var txtSfzh = this.lookupReference('txtSfzh');",
+                                            "this.LoadFamilyMemeber(txtSfzh.getValue());"
+                                        ],
+                                        "name": "blur",
+                                        "scope": "me"
+                                    },
+                                    "name": "onSfzhBlur",
+                                    "designerId": "132f49ea-9868-4804-b2ca-f0594cf45e1b"
                                 }
                             ]
                         },
@@ -481,6 +557,7 @@
                         ],
                         "layout": "vbox",
                         "layout|columnWidth": null,
+                        "padding": "0 10 0 10",
                         "width": "25%"
                     },
                     "name": "MyContainer4",
@@ -542,6 +619,7 @@
                             "userConfig": {
                                 "fieldLabel": "出院时间",
                                 "format": null,
+                                "name": "Out_Date",
                                 "readOnly": [
                                     "{Readonly}"
                                 ],
@@ -585,6 +663,7 @@
                                         "editable": false,
                                         "fieldLabel": null,
                                         "layout|flex": 1,
+                                        "name": "StdDisease_Code",
                                         "readOnly": [
                                             "{Readonly}"
                                         ],
@@ -874,6 +953,7 @@
                             "}"
                         ],
                         "layout": "vbox",
+                        "padding": "0 10 0 10",
                         "width": "25%"
                     },
                     "name": "MyContainer5",
@@ -1061,7 +1141,7 @@
                                 "tabIndex": 24,
                                 "useDecimalSeparator": true,
                                 "value": [
-                                    "{d.GR_Money}"
+                                    "{CalGR_Money}"
                                 ]
                             },
                             "name": "MyNumberField8",
@@ -1151,6 +1231,7 @@
                             "}"
                         ],
                         "layout": "vbox",
+                        "padding": "0 10 0 10",
                         "width": "25%"
                     },
                     "name": "MyContainer6",
@@ -1193,10 +1274,10 @@
                                             "if (!Ext.isDefined(value))",
                                             "    return;",
                                             "if(value==='正常'){",
-                                            "    return '<span style=\"color:green\">'+value+'</spen>';",
+                                            "    return '<b><span style=\"color:green\">'+value+'</spen></b>';",
                                             "}",
                                             "else{",
-                                            "    return '<span style=\"color:red\">'+value+'</spen>';",
+                                            "    return '<b><span style=\"color:red\">'+value+'</spen></b>';",
                                             "}"
                                         ]
                                     },
@@ -1546,9 +1627,45 @@
                             "userConfig": {
                                 "fn": "onSubmitClick",
                                 "implHandler": [
-                                    "var vm=this.getViewModel();",
-                                    "alert(vm.get('d.StdDisease_Code'));",
-                                    "alert(vm.get('d.Out_Date'));"
+                                    "var view=this.getView();",
+                                    "var form=view.getForm();",
+                                    "if (view.isValid()){",
+                                    "    var vm=this.getViewModel();",
+                                    "    var d=vm.data.d;",
+                                    "    if(d.get('Out_Date')<new Date(2016,1,1)){",
+                                    "        form.markInvalid([{",
+                                    "            field:'Out_Date',",
+                                    "            message:'出院日期不可以小于2016年1月1日'",
+                                    "        }]);",
+                                    "        return;",
+                                    "    }",
+                                    "    var reim_Type_ID=vm.get('d.Reim_Type_ID');",
+                                    "    if (reim_Type_ID!=21 && vm.get('d.StdDisease_Code').length===0){",
+                                    "        form.markInvalid([{",
+                                    "            field:'StdDisease_Code',",
+                                    "            message:'医疗类别为特殊疾病或大病门诊时,必需选择疾病代码'",
+                                    "        }]);",
+                                    "        return;",
+                                    "    }",
+                                    "    var phantom=d.phantom;",
+                                    "    vm.set('CalGR_Money',vm.get('CalGR_Money'));",
+                                    "    d.save({",
+                                    "        failure: function(record, operation) {",
+                                    "            var msg=operation.getError().statusText?operation.getError().statusText:operation.getError();            ",
+                                    "            ccmz.getApplication().ShowAlertError(msg);",
+                                    "        },",
+                                    "        success: function(record, operation) {",
+                                    "            if (phantom){",
+                                    "                var tab=view.up('panel[tab]');",
+                                    "                tab.itemId=record.get('Reim_NO');",
+                                    "                tab.setTitle(record.get('Reim_NO'));",
+                                    "            }",
+                                    "            else{",
+                                    "                ccmz.getApplication().ShowAlertInfo('提交保存成功');                ",
+                                    "            }",
+                                    "        }",
+                                    "    });",
+                                    "}"
                                 ],
                                 "name": "click",
                                 "scope": "me"
@@ -1577,7 +1694,27 @@
                     "configAlternates": {
                         "disabled": "binding"
                     },
-                    "designerId": "cee640c7-4450-4a52-840b-568c051727b2"
+                    "designerId": "cee640c7-4450-4a52-840b-568c051727b2",
+                    "cn": [
+                        {
+                            "type": "viewcontrollereventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onResetClick",
+                                "implHandler": [
+                                    "this.getModel().reject();"
+                                ],
+                                "name": "click",
+                                "scope": "me"
+                            },
+                            "name": "onResetClick",
+                            "designerId": "414b0a03-4943-46c0-be09-8adfd0a571db"
+                        }
+                    ]
                 },
                 {
                     "type": "Ext.button.Button",
@@ -1609,6 +1746,7 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "allowDepress": false,
                         "disabled": [
                             "{!CanPay}"
                         ],
@@ -1620,7 +1758,48 @@
                     "configAlternates": {
                         "disabled": "binding"
                     },
-                    "designerId": "3e78f83e-838d-4f09-8fb4-59464cd6ff1c"
+                    "designerId": "3e78f83e-838d-4f09-8fb4-59464cd6ff1c",
+                    "cn": [
+                        {
+                            "type": "viewcontrollereventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onPayClick",
+                                "implHandler": [
+                                    "var me=this;",
+                                    "if(ccmz.getApplication().ShowConfirm('您确定要进行报销吗？',function(){",
+                                    "    ccmz.getApplication().showLoadingMask();",
+                                    "    Ext.Ajax.request({",
+                                    "        scope: this,",
+                                    "        url: '/YLJZ/PayTRItem/'+me.getModel().getId(),",
+                                    "        method: 'POST',",
+                                    "        success: function (response, opts) {",
+                                    "            var result = Ext.decode(response.responseText);",
+                                    "            if (result.success) {",
+                                    "                //me.getModel().set(result.data);",
+                                    "                me.getModel().load();",
+                                    "            }",
+                                    "            else {",
+                                    "                ccmz.getApplication().ShowAlertError(result.msg);",
+                                    "            }",
+                                    "        },",
+                                    "        failure: function (response, opts) {",
+                                    "            ccmz.getApplication().ShowAlertError('发生服务器错误：' + response.statusText);",
+                                    "        },",
+                                    "    });    ",
+                                    "},me));"
+                                ],
+                                "name": "click",
+                                "scope": "me"
+                            },
+                            "name": "onPayClick",
+                            "designerId": "7d5e2221-d8d9-454d-8549-548d3c064792"
+                        }
+                    ]
                 },
                 {
                     "type": "Ext.button.Button",
@@ -1663,7 +1842,47 @@
                     "configAlternates": {
                         "disabled": "binding"
                     },
-                    "designerId": "941af13d-3ccf-4183-a135-20222abe671d"
+                    "designerId": "941af13d-3ccf-4183-a135-20222abe671d",
+                    "cn": [
+                        {
+                            "type": "viewcontrollereventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onCancelClick",
+                                "implHandler": [
+                                    "var me=this;",
+                                    "if(ccmz.getApplication().ShowConfirm('您确定要进行作废吗？',function(){",
+                                    "    ccmz.getApplication().showLoadingMask();",
+                                    "    Ext.Ajax.request({",
+                                    "        scope: this,",
+                                    "        url: '/YLJZ/CancelTRItem/'+me.getModel().getId(),",
+                                    "        method: 'POST',",
+                                    "        success: function (response, opts) {",
+                                    "            var result = Ext.decode(response.responseText);",
+                                    "            if (result.success) {",
+                                    "                me.getModel().load();",
+                                    "            }",
+                                    "            else {",
+                                    "                ccmz.getApplication().ShowAlertError(result.msg);",
+                                    "            }",
+                                    "        },",
+                                    "        failure: function (response, opts) {",
+                                    "            ccmz.getApplication().ShowAlertError('发生服务器错误：' + response.statusText);",
+                                    "        },",
+                                    "    });",
+                                    "},me));        "
+                                ],
+                                "name": "click",
+                                "scope": "me"
+                            },
+                            "name": "onCancelClick",
+                            "designerId": "ee335953-2b91-4850-8ea3-1bb8c0fa6f38"
+                        }
+                    ]
                 },
                 {
                     "type": "Ext.button.Button",
@@ -1693,6 +1912,8 @@
             "userConfig": {
                 "fn": "onFormAfterRender",
                 "implHandler": [
+                    "var vm=this.getViewModel();",
+                    "vm.bind('{d.Finish_Flag}',this.setStatus,this);",
                     "var txtSfzh = this.lookupReference('txtSfzh');",
                     "txtSfzh.focus(false,500);"
                 ],

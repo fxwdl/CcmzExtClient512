@@ -63,7 +63,7 @@ Ext.define("Ext.locale.zh_CN.form.field.Base", {
 // changing the msg text below will affect the LoadMask
 Ext.define("Ext.locale.zh_CN.view.AbstractView", {
     override: "Ext.view.AbstractView",
-    loadingText: "讀取中..."
+    loadingText: "读取中..."
 });
 
 Ext.define("Ext.locale.zh_CN.picker.Date", {
@@ -272,4 +272,58 @@ Ext.define("Ext.locale.zh_CN.window.MessageBox", {
 // This is needed until we can refactor all of the locales into individual files
 Ext.define("Ext.locale.zh_CN.Component", {	
     override: "Ext.Component"
+});
+Ext.define("Ext.locale.zh_CN.data.validator.Format", {
+    override: "Ext.data.validator.Format",
+    config: {        
+        message: '错误的格式',
+        
+        matcher: undefined
+    }
+});
+Ext.define("Ext.locale.zh_CN.data.validator.Email", {
+    override: "Ext.data.validator.Email",
+    config: {        
+        message: '不是有效的邮件地址',      
+        matcher: /^(")?(?:[^\."])(?:(?:[\.])?(?:[\w\-!#$%&'*+\/=?\^_`{|}~]))*\1@(\w[\-\w]*\.){1,5}([A-Za-z]){2,6}$/
+    }
+});
+Ext.define("Ext.locale.zh_CN.data.validator.Exclusion", {
+    override: "Ext.data.validator.Exclusion",
+    config: {        
+		message: '此值已被排除'
+    }
+});
+Ext.define("Ext.locale.zh_CN.data.validator.Inclusion", {
+    override: "Ext.data.validator.Inclusion",
+    config: {        
+		message: '值不在可接受的范围中'
+    }
+});
+Ext.define("Ext.locale.zh_CN.data.validator.Length", {
+    override: "Ext.data.validator.Length",
+    config: {        
+        minOnlyMessage: '长度必需小于 {0}',        
+        maxOnlyMessage: '长度必需大于 {0}',        
+        bothMessage: '长度必需在 {0} 与 {1} 之间'
+    }
+});
+Ext.define("Ext.locale.zh_CN.data.validator.Presence", {
+    override: "Ext.data.validator.Presence",
+    config: {        
+        message: '此值不能为空',        
+        allowEmpty: false
+    }
+});
+Ext.define("Ext.locale.zh_CN.data.validator.Range", {
+    override: "Ext.data.validator.Range",
+    config: {        
+        minOnlyMessage: '此值必需小于 {0}',
+        
+        maxOnlyMessage: '此值必需大于 {0}',
+        
+        bothMessage: '此值必需在 {0} 与 {1} 之间',
+        
+        nanMessage: '此值必需是数值'
+    }
 });

@@ -119,6 +119,79 @@
             },
             "name": "ShowServerError",
             "designerId": "d5180a41-3f26-4e18-974c-6a0bd8053756"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "msg"
+                ],
+                "fn": "ShowAlertInfo",
+                "implHandler": [
+                    "Ext.Msg.show({",
+                    "    title: '提示',",
+                    "    msg: msg,",
+                    "    buttons: Ext.Msg.OK,",
+                    "    icon: Ext.Msg.INFO",
+                    "});"
+                ]
+            },
+            "name": "ShowAlertInfo",
+            "designerId": "00d55ee1-59aa-4d14-bd86-a5298edddf84"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "msg"
+                ],
+                "fn": "ShowAlertError",
+                "implHandler": [
+                    "Ext.Msg.show({",
+                    "    title: '错误',",
+                    "    msg: msg,",
+                    "    buttons: Ext.Msg.OK,",
+                    "    icon: Ext.Msg.ERROR",
+                    "});"
+                ]
+            },
+            "name": "ShowAlertError",
+            "designerId": "518fe182-5d25-453c-a45a-0717ea8449af"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "msg",
+                    "yesfn",
+                    "scope"
+                ],
+                "fn": "ShowConfirm",
+                "implHandler": [
+                    "Ext.MessageBox.confirm('提示',msg,function(btn){",
+                    "    if (btn=='yes'){",
+                    "        Ext.callback(yesfn, scope || this);",
+                    "    }",
+                    "},scope);"
+                ]
+            },
+            "name": "ShowConfirm",
+            "designerId": "be1fa26a-379e-48d4-9778-2409e68d2205"
         }
     ]
 }

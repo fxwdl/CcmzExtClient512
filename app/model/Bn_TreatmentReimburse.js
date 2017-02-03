@@ -22,13 +22,16 @@ Ext.define('ccmz.model.Bn_TreatmentReimburse', {
         'Ext.data.field.Date',
         'Ext.data.field.Number',
         'Ext.data.proxy.Ajax',
-        'Ext.data.reader.Json'
+        'Ext.data.reader.Json',
+        'Ext.data.writer.Json',
+        'Ext.data.identifier.Uuid'
     ],
 
     statics: {
         createNewItem: function() {
             var d = ccmz.model.Bn_TreatmentReimburse.create({
                 'Operator_ID':ccmz.getApplication().curUser.UserId,
+                'Apply_Hospital_ID':ccmz.getApplication().curUser.Hospital.ID,
                 'Operator_Name':ccmz.getApplication().curUser.CNName,
                 'TreatmentHosptial_Code':ccmz.getApplication().curUser.Hospital.Code,
                 'TreatmentHosptial':ccmz.getApplication().curUser.Hospital.Name,
@@ -95,7 +98,12 @@ Ext.define('ccmz.model.Bn_TreatmentReimburse', {
         },
         {
             type: 'string',
-            name: 'TreatmentHosptial'
+            name: 'TreatmentHosptial',
+            validators: [
+                {
+                    type: 'presence'
+                }
+            ]
         },
         {
             type: 'string',
@@ -108,35 +116,38 @@ Ext.define('ccmz.model.Bn_TreatmentReimburse', {
         },
         {
             type: 'date',
-            convert: function(v, rec) {
-                if (Ext.isString(v))
-                return new Date(parseInt(v.replace('/Date(', '')));
-            },
-            name: 'In_Date'
+            name: 'In_Date',
+            dateFormat: 'MS',
+            validators: [
+                {
+                    type: 'presence'
+                }
+            ]
         },
         {
             type: 'date',
-            convert: function(v, rec) {
-                if (Ext.isString(v))
-                return new Date(parseInt(v.replace('/Date(', '')));
-            },
-            name: 'Out_Date'
+            name: 'Out_Date',
+            dateFormat: 'MS',
+            validators: [
+                {
+                    type: 'presence'
+                }
+            ]
         },
         {
             type: 'date',
-            convert: function(v, rec) {
-                if (Ext.isString(v))
-                return new Date(parseInt(v.replace('/Date(', '')));
-            },
-            name: 'Medicare_Date'
+            name: 'Medicare_Date',
+            dateFormat: 'MS',
+            validators: [
+                {
+                    type: 'presence'
+                }
+            ]
         },
         {
             type: 'date',
-            convert: function(v, rec) {
-                if (Ext.isString(v))
-                return new Date(parseInt(v.replace('/Date(', '')));
-            },
-            name: 'TypeIn_Date'
+            name: 'TypeIn_Date',
+            dateFormat: 'MS'
         },
         {
             type: 'float',
@@ -148,7 +159,12 @@ Ext.define('ccmz.model.Bn_TreatmentReimburse', {
         },
         {
             type: 'string',
-            name: 'StdDisease_Name'
+            name: 'StdDisease_Name',
+            validators: [
+                {
+                    type: 'presence'
+                }
+            ]
         },
         {
             type: 'float',
@@ -176,15 +192,17 @@ Ext.define('ccmz.model.Bn_TreatmentReimburse', {
         },
         {
             type: 'string',
-            name: 'Family_Code'
+            name: 'Family_Code',
+            validators: [
+                {
+                    type: 'presence'
+                }
+            ]
         },
         {
             type: 'date',
-            convert: function(v, rec) {
-                if (Ext.isString(v))
-                return new Date(parseInt(v.replace('/Date(', '')));
-            },
-            name: 'Apply_Date'
+            name: 'Apply_Date',
+            dateFormat: 'MS'
         },
         {
             type: 'float',
@@ -197,8 +215,7 @@ Ext.define('ccmz.model.Bn_TreatmentReimburse', {
         {
             type: 'int',
             defaultValue: 0,
-            name: 'Finish_Flag',
-            persist: false
+            name: 'Finish_Flag'
         },
         {
             type: 'string',
@@ -210,76 +227,56 @@ Ext.define('ccmz.model.Bn_TreatmentReimburse', {
         },
         {
             type: 'int',
-            name: 'PrintCount',
-            persist: false
+            name: 'PrintCount'
         },
         {
             type: 'string',
-            name: 'Operator_ID',
-            persist: false
+            name: 'Operator_ID'
         },
         {
             type: 'date',
-            convert: function(v, rec) {
-                if (Ext.isString(v))
-                return new Date(parseInt(v.replace('/Date(', '')));
-            },
+            allowNull: true,
             name: 'Create_Time',
-            persist: false
+            dateFormat: 'MS'
         },
         {
             type: 'string',
-            name: 'Pay_Operator_ID',
-            persist: false
+            name: 'Pay_Operator_ID'
         },
         {
             type: 'date',
-            convert: function(v, rec) {
-                if (Ext.isString(v))
-                return new Date(parseInt(v.replace('/Date(', '')));
-            },
             name: 'Finish_Date',
-            persist: false
+            dateFormat: 'MS'
         },
         {
             type: 'float',
             defaultValue: 0,
-            name: 'SelfBaseMoney',
-            persist: false
+            name: 'SelfBaseMoney'
         },
         {
             type: 'float',
-            name: 'YLJZ_Money',
-            persist: false
+            name: 'YLJZ_Money'
         },
         {
             type: 'date',
-            convert: function(v, rec) {
-                if (Ext.isString(v))
-                return new Date(parseInt(v.replace('/Date(', '')));
-            },
             name: 'Cancel_Date',
-            persist: false
+            dateFormat: 'MS'
         },
         {
             type: 'string',
-            name: 'Cancel_Operator_ID',
-            persist: false
+            name: 'Cancel_Operator_ID'
         },
         {
             type: 'float',
-            name: 'YBHG_Money',
-            persist: false
+            name: 'YBHG_Money'
         },
         {
             type: 'float',
-            name: 'SelfBaseMoney_Total',
-            persist: false
+            name: 'SelfBaseMoney_Total'
         },
         {
             type: 'float',
-            name: 'YLJZ_Money_Total',
-            persist: false
+            name: 'YLJZ_Money_Total'
         },
         {
             type: 'int',
@@ -291,6 +288,7 @@ Ext.define('ccmz.model.Bn_TreatmentReimburse', {
         },
         {
             type: 'int',
+            allowNull: true,
             name: 'IdentityType_ID'
         },
         {
@@ -328,15 +326,23 @@ Ext.define('ccmz.model.Bn_TreatmentReimburse', {
     proxy: {
         type: 'ajax',
         api: {
-            create: '',
+            create: '/YLJZ/CreateTRItem',
             read: '/YLJZ/GetTRItemById',
-            update: '',
+            update: '/YLJZ/UpdateTRItems',
             destroy: ''
         },
         reader: {
             type: 'json',
             messageProperty: 'msg',
             rootProperty: 'data'
+        },
+        writer: {
+            type: 'json',
+            writeAllFields: true
         }
+    },
+
+    identifier: {
+        type: 'uuid'
     }
 });

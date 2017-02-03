@@ -55,6 +55,100 @@
             },
             "name": "doOkCallback",
             "designerId": "e228027b-480e-47f2-beb5-f3547992bc8e"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "setStatus",
+                "implHandler": [
+                    "var vm=this.getViewModel();",
+                    "var cStatus=this.lookupReference('cStatus');",
+                    "var f=vm.get('d.Finish_Flag');",
+                    "",
+                    "switch(f){",
+                    "    case 0:",
+                    "        cStatus.setStyle({background:'blue',color:'white'});",
+                    "        cStatus.setHtml('<span>未救助</span>');",
+                    "        break;",
+                    "    case 1:",
+                    "        cStatus.setStyle({background:'green',color:'white'});",
+                    "        cStatus.setHtml('<span>已救助</span>');",
+                    "        break;",
+                    "    case 2:",
+                    "        cStatus.setStyle({background:'red',color:'white'});",
+                    "        cStatus.setHtml('<span>已作废</span>');",
+                    "        break;",
+                    "}"
+                ]
+            },
+            "name": "setStatus",
+            "designerId": "df086a3e-b97d-45f5-9baf-96d4abe05255"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "sfzh"
+                ],
+                "fn": "LoadFamilyMemeber",
+                "implHandler": [
+                    "var vm=this.getViewModel();",
+                    "if (vm.get('d.Finish_Flag')!==0 ||sfzh.length!=18){",
+                    "    return;",
+                    "}",
+                    "ccmz.model.DictFamilyMember1.load(sfzh, {",
+                    "    scope: this,",
+                    "    failure: function(record, operation) {",
+                    "        console.log(\"error\");",
+                    "    },",
+                    "    success: function(record, operation) {",
+                    "        var vm=this.getViewModel();",
+                    "        if (!Ext.isEmpty(operation._response.responseText)){",
+                    "            vm.set('d.Name',record.get('Name'));",
+                    "            vm.set('d.SfLb',record.get('Sflb'));",
+                    "            vm.set('d.Family_Code',record.get('Family_Code'));",
+                    "            vm.set('d.Ry_Zt',record.get('Ry_Zt'));",
+                    "        }",
+                    "        else{",
+                    "            ccmz.getApplication().ShowAlertInfo('此人未录入到系统中');",
+                    "            vm.set('d.Name','');",
+                    "            vm.set('d.SfLb','');",
+                    "            vm.set('d.Family_Code','');",
+                    "            vm.set('d.Ry_Zt','');",
+                    "        }",
+                    "    }",
+                    "});"
+                ]
+            },
+            "name": "LoadFamilyMemeber",
+            "designerId": "b28fbb4a-9b99-4123-88e6-71a7ac53818b"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "getModel",
+                "implHandler": [
+                    "var vm=this.getViewModel();",
+                    "return vm.data.d;"
+                ]
+            },
+            "name": "getModel",
+            "designerId": "5ffab6e7-adb8-4ef3-b95f-9b95739ebb00"
         }
     ]
 }

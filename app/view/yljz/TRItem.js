@@ -46,6 +46,32 @@ Ext.define('ccmz.view.yljz.TRItem', {
     },
     items: [
         {
+            xtype: 'container',
+            layout: {
+                type: 'hbox',
+                align: 'bottom',
+                pack: 'center'
+            },
+            items: [
+                {
+                    xtype: 'container',
+                    flex: 1,
+                    margins: '',
+                    html: '<h1>长春市城乡医疗救助</h1>',
+                    margin: '-5 0 -5 0',
+                    style: 'text-align:center;',
+                    width: 279,
+                    layout: 'fit'
+                },
+                {
+                    xtype: 'container',
+                    flex: 1,
+                    reference: 'cStatus',
+                    margin: '3 0 0 0'
+                }
+            ]
+        },
+        {
             xtype: 'fieldset',
             frame: false,
             scrollable: true,
@@ -57,15 +83,13 @@ Ext.define('ccmz.view.yljz.TRItem', {
             items: [
                 {
                     xtype: 'container',
+                    padding: '0 10 0 10',
                     width: '25%',
                     defaults: {
                         width: 250,
                         labelWidth: 80
                     },
-                    layout: {
-                        type: 'vbox',
-                        padding: ''
-                    },
+                    layout: 'vbox',
                     items: [
                         {
                             xtype: 'textfield',
@@ -78,7 +102,9 @@ Ext.define('ccmz.view.yljz.TRItem', {
                                 readOnly: '{Readonly}'
                             },
                             listeners: {
-                                specialkey: 'onSfzhPressEnter'
+                                specialkey: 'onSfzhPressEnter',
+                                change: 'onSfzhChange',
+                                blur: 'onSfzhBlur'
                             }
                         },
                         {
@@ -185,6 +211,7 @@ Ext.define('ccmz.view.yljz.TRItem', {
                 },
                 {
                     xtype: 'container',
+                    padding: '0 10 0 10',
                     width: '25%',
                     defaults: {
                         width: 250,
@@ -218,6 +245,7 @@ Ext.define('ccmz.view.yljz.TRItem', {
                             xtype: 'datefield',
                             tabIndex: 7,
                             fieldLabel: '出院时间',
+                            name: 'Out_Date',
                             selectOnFocus: true,
                             bind: {
                                 value: '{d.Out_Date}',
@@ -236,6 +264,7 @@ Ext.define('ccmz.view.yljz.TRItem', {
                                     xtype: 'textfield',
                                     flex: 1,
                                     tabIndex: 11,
+                                    name: 'StdDisease_Code',
                                     editable: false,
                                     bind: {
                                         value: '{d.StdDisease_Code}',
@@ -321,6 +350,7 @@ Ext.define('ccmz.view.yljz.TRItem', {
                 },
                 {
                     xtype: 'container',
+                    padding: '0 10 0 10',
                     width: '25%',
                     defaults: {
                         width: 250,
@@ -399,7 +429,7 @@ Ext.define('ccmz.view.yljz.TRItem', {
                             fieldLabel: '个人承担&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;',
                             selectOnFocus: true,
                             bind: {
-                                value: '{d.GR_Money}',
+                                value: '{CalGR_Money}',
                                 readOnly: '{Readonly}'
                             }
                         },
@@ -426,6 +456,7 @@ Ext.define('ccmz.view.yljz.TRItem', {
                 },
                 {
                     xtype: 'container',
+                    padding: '0 10 0 10',
                     width: '25%',
                     defaults: {
                         width: 250,
@@ -442,10 +473,10 @@ Ext.define('ccmz.view.yljz.TRItem', {
                                 if (!Ext.isDefined(value))
                                 return;
                                 if(value==='正常'){
-                                    return '<span style="color:green">'+value+'</spen>';
+                                    return '<b><span style="color:green">'+value+'</spen></b>';
                                 }
                                 else{
-                                    return '<span style="color:red">'+value+'</spen>';
+                                    return '<b><span style="color:red">'+value+'</spen></b>';
                                 }
                             },
                             flex: 1,
@@ -580,6 +611,9 @@ Ext.define('ccmz.view.yljz.TRItem', {
                     text: '重置',
                     bind: {
                         disabled: '{Readonly}'
+                    },
+                    listeners: {
+                        click: 'onResetClick'
                     }
                 },
                 {
@@ -594,9 +628,13 @@ Ext.define('ccmz.view.yljz.TRItem', {
                 {
                     xtype: 'button',
                     tabIndex: 30,
+                    allowDepress: false,
                     text: '报销',
                     bind: {
                         disabled: '{!CanPay}'
+                    },
+                    listeners: {
+                        click: 'onPayClick'
                     }
                 },
                 {
@@ -614,6 +652,9 @@ Ext.define('ccmz.view.yljz.TRItem', {
                     text: '作废',
                     bind: {
                         disabled: '{!IsPayed}'
+                    },
+                    listeners: {
+                        click: 'onCancelClick'
                     }
                 },
                 {

@@ -211,11 +211,65 @@
                         ],
                         "fn": "get",
                         "implHandler": [
-                            "return get('d.Finish_Flag')===0 && Ext.isDefined(get('d.Create_Time'));"
+                            "",
+                            "return get('d.Finish_Flag')===0 && get('d.Create_Time')!==null;"
                         ]
                     },
                     "name": "get",
                     "designerId": "ed629649-b1be-4b43-89f0-997c43f9a0da"
+                }
+            ]
+        },
+        {
+            "type": "Ext.app.bind.Formula",
+            "reference": {
+                "name": "formulas",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "CalGR_Money"
+            },
+            "name": "MyFormula",
+            "designerId": "fa93cdc5-8e2e-466e-b933-e5a94642e56f",
+            "cn": [
+                {
+                    "type": "fixedfunction",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|params": [
+                            "get"
+                        ],
+                        "fn": "get",
+                        "implHandler": [
+                            "return get('d.YLZ_Money')-get('d.YBBX_Money')-get('d.DBBX_Money')-get('d.GR_Accout_Pay')-get('d.YB_Other_Pay');"
+                        ]
+                    },
+                    "name": "get",
+                    "designerId": "1c72da63-b339-426c-9efb-dbd185432803"
+                },
+                {
+                    "type": "fixedfunction",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|params": [
+                            "value"
+                        ],
+                        "fn": "set",
+                        "implHandler": [
+                            "this.set('d.GR_Money',value);"
+                        ]
+                    },
+                    "name": "set",
+                    "designerId": "280e252d-e040-4dd7-afac-08cd072eb92c"
                 }
             ]
         }

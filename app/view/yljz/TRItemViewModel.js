@@ -40,7 +40,8 @@ Ext.define('ccmz.view.yljz.TRItemViewModel', {
     },
     formulas: {
         CanPay: function(get) {
-            return get('d.Finish_Flag')===0 && Ext.isDefined(get('d.Create_Time'));
+
+            return get('d.Finish_Flag')===0 && get('d.Create_Time')!==null;
         },
         Readonly: {
             get: function(data) {
@@ -59,6 +60,14 @@ Ext.define('ccmz.view.yljz.TRItemViewModel', {
                 return data===2;
             },
             bind: '{d.Finish_Flag}'
+        },
+        CalGR_Money: {
+            get: function(get) {
+                return get('d.YLZ_Money')-get('d.YBBX_Money')-get('d.DBBX_Money')-get('d.GR_Accout_Pay')-get('d.YB_Other_Pay');
+            },
+            set: function(value) {
+                this.set('d.GR_Money',value);
+            }
         }
     }
 

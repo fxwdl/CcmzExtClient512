@@ -53,7 +53,7 @@
                 ],
                 "fn": "doS_Treatment_Add",
                 "implHandler": [
-                    "",
+                    "/*",
                     "var d=new ccmz.model.Bn_TreatmentReimburse.createNewItem();",
                     "",
                     "var v=new ccmz.view.yljz.TRItem({",
@@ -72,8 +72,9 @@
                     "    items: v,",
                     "});",
                     "tabPanel.setActiveTab(tab);",
-                    "/*",
-                    "ccmz.model.Bn_TreatmentReimburse.load('cb244d72-a330-4a90-88ba-0007c21a1c16', {",
+                    "*/",
+                    "",
+                    "ccmz.model.Bn_TreatmentReimburse.load('e0193d7a-5a17-466c-b5d1-5848d2275ce9', {",
                     "    scope: this,",
                     "    failure: function(record, operation) {",
                     "        console.log(\"error\");",
@@ -100,7 +101,7 @@
                     "        //do something whether the load succeeded or failed",
                     "    }",
                     "});",
-                    "*/"
+                    ""
                 ]
             },
             "name": "doS_Treatment_Add",
