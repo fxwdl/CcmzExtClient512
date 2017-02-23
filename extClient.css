@@ -140,14 +140,3 @@
 {
     background-image: url(resources/images/house.png) !important;
 }
-
-/*.x-btn-default-small .x-btn-inner {
-font-size: 12px;
-}
-.x-window-header-text-container-default {
-font-size: 12px;
-}*/
-
-element.style {
-    width: 200px;
-}

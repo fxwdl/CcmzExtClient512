@@ -818,7 +818,8 @@
                     "update:'/YLJZ/UpdateTRItems',",
                     "destroy:''",
                     "}"
-                ]
+                ],
+                "url": "/YLJZ/GetData"
             },
             "name": "MyAjaxProxy",
             "designerId": "42ddf5dc-2e6e-4e4c-97d8-06ec165655d9",
@@ -964,6 +965,19 @@
             "codeClass": null,
             "name": "MyUuid",
             "designerId": "2cbb160c-2743-4017-96ce-48c6e707d07e"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "Apply_Hospital_Name"
+            },
+            "name": "MyField6",
+            "designerId": "d4dd149a-2e14-4782-82e9-3a6900c5e01f"
         }
     ]
 }

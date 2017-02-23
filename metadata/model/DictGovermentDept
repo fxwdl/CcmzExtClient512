@@ -1,0 +1,113 @@
+{
+    "type": "Ext.data.Model",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "DictGovermentDept",
+        "idProperty": "FullCode"
+    },
+    "name": "MyModel",
+    "designerId": "8216e716-5e89-4244-a80f-d5fe6e826543",
+    "cn": [
+        {
+            "type": "Ext.data.field.String",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "FullCode"
+            },
+            "name": "MyString24",
+            "designerId": "d944826a-4e25-4336-a2f2-d993fde5aa69"
+        },
+        {
+            "type": "Ext.data.field.String",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "Code"
+            },
+            "name": "MyString25",
+            "designerId": "504a1e36-62b5-46e7-a8bb-325966fa2623"
+        },
+        {
+            "type": "Ext.data.field.String",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "mapping": [
+                    "'Name'"
+                ],
+                "name": "text"
+            },
+            "name": "MyString26",
+            "designerId": "f8c45ee3-f271-4f05-bb26-d1d127cb7c95"
+        },
+        {
+            "type": "Ext.data.field.Integer",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "Level"
+            },
+            "name": "MyInteger8",
+            "designerId": "63bd8f68-fecf-48ee-a651-d3768c66b233"
+        },
+        {
+            "type": "Ext.data.field.String",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "ParentFullCode"
+            },
+            "name": "MyString27",
+            "designerId": "9eb68551-8e01-48d9-8c6d-e9a367f77f15"
+        },
+        {
+            "type": "Ext.data.field.Boolean",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "IsDeleted"
+            },
+            "name": "MyBoolean",
+            "designerId": "922535ab-3510-4e50-8042-a375c03a2df4"
+        },
+        {
+            "type": "Ext.data.field.Boolean",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "mapping": [
+                    "'IsLeaf'"
+                ],
+                "name": "leaf"
+            },
+            "name": "MyBoolean1",
+            "designerId": "212ebc2e-7fc2-490c-8d7b-79aa2743e13e"
+        }
+    ]
+}

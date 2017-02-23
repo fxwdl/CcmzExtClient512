@@ -1,0 +1,47 @@
+{
+    "type": "Ext.data.Store",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "DictHospitalStore",
+        "model": "DictHospital",
+        "pageSize": 0,
+        "storeId": "DictHospitalStore"
+    },
+    "name": "MyStore3",
+    "designerId": "9216d8b8-f2d6-48e6-8d44-a6c6dd616525",
+    "cn": [
+        {
+            "type": "Ext.data.proxy.Ajax",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "url": "/DictHospital/GetData"
+            },
+            "name": "MyAjaxProxy4",
+            "designerId": "dc1541a5-9c91-4819-812a-be4a883c97d3",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "messageProperty": "msg",
+                        "rootProperty": "data"
+                    },
+                    "name": "MyJsonReader3",
+                    "designerId": "1460d639-222c-4657-91f4-d088d636aa76"
+                }
+            ]
+        }
+    ]
+}

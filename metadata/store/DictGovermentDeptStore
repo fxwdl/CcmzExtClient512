@@ -1,0 +1,46 @@
+{
+    "type": "Ext.data.TreeStore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "DictGovermentDeptStore",
+        "model": "DictGovermentDept",
+        "storeId": "DictGovermentDeptStore"
+    },
+    "name": "MyTreeStore",
+    "designerId": "6d738e16-cf2d-4dcb-bbe2-e90584c5bd2a",
+    "cn": [
+        {
+            "type": "Ext.data.proxy.Ajax",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "url": "/DictGovermentDept/GetDept"
+            },
+            "name": "MyAjaxProxy",
+            "designerId": "0b95f8b5-3d24-4d04-b8b5-be0960beb4d4",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "messageProperty": "msg",
+                        "rootProperty": "data"
+                    },
+                    "name": "MyJsonReader",
+                    "designerId": "c698ddf1-dcb7-4bd3-9ae5-2c2534942b0a"
+                }
+            ]
+        }
+    ]
+}

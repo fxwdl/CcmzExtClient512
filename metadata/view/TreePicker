@@ -1,0 +1,548 @@
+{
+    "type": "Ext.form.field.Picker",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "columns": [
+            "null"
+        ],
+        "designer|userAlias": "treepicker",
+        "designer|userClassName": "TreePicker",
+        "displayField": [
+            "null"
+        ],
+        "fieldLabel": null,
+        "maxPickerHeight": 300,
+        "minPickerHeight": 100,
+        "mixins": [
+            "[",
+            "'Ext.util.StoreHolder'",
+            "]"
+        ],
+        "publishes": [
+            "[",
+            "    'value'",
+            "]"
+        ],
+        "requires": [
+            "ccmz.store.DictGovermentDeptStore"
+        ],
+        "selectOnTab": true,
+        "store": [
+            "null"
+        ],
+        "triggerCls": "x-form-arrow-trigger",
+        "twoWayBindable": [
+            "['value']"
+        ],
+        "uses": [
+            "Ext.tree.Panel"
+        ],
+        "value": [
+            "null"
+        ]
+    },
+    "name": "MyPicker",
+    "configAlternates": {
+        "selection": "object",
+        "collapseOnSelect": "boolean",
+        "clearValueOnEmpty": "boolean",
+        "store": "object",
+        "displayField": "object",
+        "columns": "object",
+        "selectOnTab": "boolean",
+        "maxPickerHeight": "number",
+        "minPickerHeight": "number"
+    },
+    "designerId": "16350908-1042-407f-992f-36b4cb9a571b",
+    "customConfigs": [
+        {
+            "group": "(Custom Properties)",
+            "name": "store",
+            "type": "string"
+        },
+        {
+            "group": "(Custom Properties)",
+            "name": "displayField",
+            "type": "string"
+        },
+        {
+            "group": "(Custom Properties)",
+            "name": "columns",
+            "type": "string"
+        },
+        {
+            "group": "(Custom Properties)",
+            "name": "selectOnTab",
+            "type": "string"
+        },
+        {
+            "group": "(Custom Properties)",
+            "name": "maxPickerHeight",
+            "type": "string"
+        },
+        {
+            "group": "(Custom Properties)",
+            "name": "minPickerHeight",
+            "type": "string"
+        }
+    ],
+    "viewControllerInstanceId": "2304e32f-37ac-44c9-a0db-03cf6058612f",
+    "viewModelInstanceId": "07e82154-d442-4259-996c-c8def6250b6b",
+    "cn": [
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "createPicker",
+                "implHandler": [
+                    "var me = this,",
+                    "    picker = new Ext.tree.Panel({",
+                    "        shrinkWrapDock: 2,",
+                    "        store: me.store,",
+                    "        useArrows:true,",
+                    "        floating: true,",
+                    "        displayField: me.displayField,",
+                    "        columns: me.columns,",
+                    "        minHeight: me.minPickerHeight,",
+                    "        maxHeight: me.maxPickerHeight,",
+                    "        manageHeight: false,",
+                    "        shadow: false,",
+                    "        rootVisible: false,",
+                    "        listeners: {",
+                    "            scope: me,",
+                    "            itemclick: me.onItemClick",
+                    "        },",
+                    "        viewConfig: {",
+                    "            listeners: {",
+                    "                scope: me,",
+                    "                render: me.onViewRender",
+                    "            }",
+                    "        }",
+                    "    }),",
+                    "    view = picker.getView();",
+                    "",
+                    "if (Ext.isIE9 && Ext.isStrict) {",
+                    "    // In IE9 strict mode, the tree view grows by the height of the horizontal scroll bar when the items are highlighted or unhighlighted.",
+                    "    // Also when items are collapsed or expanded the height of the view is off. Forcing a repaint fixes the problem.",
+                    "    view.on({",
+                    "        scope: me,",
+                    "        highlightitem: me.repaintPickerView,",
+                    "        unhighlightitem: me.repaintPickerView,",
+                    "        afteritemexpand: me.repaintPickerView,",
+                    "        afteritemcollapse: me.repaintPickerView",
+                    "    });",
+                    "}",
+                    "return picker;"
+                ],
+                "value": [
+                    "null"
+                ]
+            },
+            "name": "createPicker",
+            "configAlternates": {
+                "value": "object"
+            },
+            "designerId": "b1350eca-569d-49d5-9772-9040933d46ae",
+            "customConfigs": [
+                {
+                    "group": "(Custom Properties)",
+                    "name": "value",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "type": "processcfgfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "config"
+                ],
+                "fn": "processTreePicker"
+            },
+            "name": "processTreePicker",
+            "designerId": "fee6bd55-07b6-415b-887e-7e445d955cab"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "getValue",
+                "implHandler": [
+                    "if(this.getRawValue()===''){",
+                    "    this.value='';",
+                    "}",
+                    "return this.value;"
+                ]
+            },
+            "name": "getValue",
+            "designerId": "1916b596-a3d9-4e70-8012-0680579cdc3a"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "initComponent",
+                "implHandler": [
+                    "var me = this;",
+                    "",
+                    "me.callParent(arguments);",
+                    "",
+                    "me.mon(me.store, {",
+                    "    scope: me,",
+                    "    load: me.onLoad,",
+                    "    update: me.onUpdate",
+                    "});"
+                ]
+            },
+            "name": "initComponent",
+            "designerId": "5bf979a1-8372-475d-93a0-6a4aec0c87d4"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "view"
+                ],
+                "fn": "onViewRender",
+                "implHandler": [
+                    "view.getEl().on('keypress', this.onPickerKeypress, this);"
+                ]
+            },
+            "name": "onViewRender",
+            "designerId": "ec1cc84e-04e9-4900-86d8-9ab40d247d7e"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "repaintPickerView",
+                "implHandler": [
+                    "var style = this.picker.getView().getEl().dom.style;",
+                    "",
+                    "// can't use Element.repaint because it contains a setTimeout, which results in a flicker effect",
+                    "style.display = style.display;"
+                ]
+            },
+            "name": "repaintPickerView",
+            "designerId": "2a18e435-c5d1-4ac0-9ec6-703ebabd3984"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "view",
+                    "record",
+                    "node",
+                    "rowIndex",
+                    "e"
+                ],
+                "fn": "onItemClick",
+                "implHandler": [
+                    "this.selectItem(record);"
+                ]
+            },
+            "name": "onItemClick",
+            "designerId": "1ca5e8e2-d797-41b8-9176-372a03658068"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "e",
+                    "el"
+                ],
+                "fn": "onPickerKeypress",
+                "implHandler": [
+                    "var key = e.getKey();",
+                    "",
+                    "if(key === e.ENTER || (key === e.TAB && this.selectOnTab)) {",
+                    "    this.selectItem(this.picker.getSelectionModel().getSelection()[0]);",
+                    "}"
+                ]
+            },
+            "name": "onPickerKeypress",
+            "designerId": "5466ad40-c034-47c1-87cd-f920728dee6f"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "record"
+                ],
+                "fn": "selectItem",
+                "implHandler": [
+                    "var me = this;",
+                    "me.setValue(record.getId());",
+                    "me.fireEvent('select', me, record);",
+                    "me.collapse();"
+                ]
+            },
+            "name": "selectItem",
+            "designerId": "9390b91d-9da6-460f-b5d2-b4ca0e7ae6d7"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onExpand",
+                "implHandler": [
+                    "var me = this,",
+                    "    picker = me.picker,",
+                    "    store = picker.store,",
+                    "    value = me.value,",
+                    "    node;",
+                    "",
+                    "",
+                    "if (value) {",
+                    "    node = store.getNodeById(value);",
+                    "}",
+                    "",
+                    "if (!node) {",
+                    "    node = store.getRoot();",
+                    "}",
+                    "",
+                    "picker.selectPath(node.getPath());"
+                ]
+            },
+            "name": "onExpand",
+            "designerId": "0c120997-ba9a-4ed4-ba24-3662b845cd6c"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "getSubmitValue",
+                "implHandler": [
+                    "return this.value;  "
+                ]
+            },
+            "name": "getSubmitValue",
+            "designerId": "f8160ab3-81fd-439a-b649-6306f3f3891d"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onLoad",
+                "implHandler": [
+                    "var value = this.value;",
+                    "",
+                    "if (value) {",
+                    "    this.setValue(value);",
+                    "}"
+                ]
+            },
+            "name": "onLoad",
+            "designerId": "bce3cc9b-7ebe-45ae-b364-a13ffdccc572"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "store",
+                    "rec",
+                    "type",
+                    "modifiedFieldNames"
+                ],
+                "fn": "onUpdate",
+                "implHandler": [
+                    "var display = this.displayField;",
+                    "",
+                    "if (type === 'edit' && modifiedFieldNames && Ext.Array.contains(modifiedFieldNames, display) && this.value === rec.getId()) {",
+                    "    this.setRawValue(rec.get(display));",
+                    "}"
+                ]
+            },
+            "name": "onUpdate",
+            "designerId": "872455a3-b81d-4af1-bd7b-1ac9fb3184b9"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "store"
+                ],
+                "fn": "setStore",
+                "implHandler": [
+                    "if (store) {",
+                    "    this.store = store;",
+                    "    this.onLoad();",
+                    "}"
+                ]
+            },
+            "name": "setStore",
+            "designerId": "70c8f063-e3e8-46de-81d1-9c8e4bc51cf6"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "store",
+                    "initial"
+                ],
+                "fn": "bindStore",
+                "implHandler": [
+                    "this.mixins.storeholder.bindStore.apply(this, arguments);"
+                ]
+            },
+            "name": "bindStore",
+            "designerId": "869a8c09-d081-47ad-ba1a-b813e7de0d58"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "value"
+                ],
+                "fn": "setValue",
+                "implHandler": [
+                    "//调用父方的当前方法，以达到通知ViewModel",
+                    "this.callParent([value]);",
+                    "var me = this,",
+                    "    record;",
+                    "",
+                    "me.value = value;",
+                    "",
+                    "if (me.store.loading) {",
+                    "    // Called while the Store is loading. Ensure it is processed by the onLoad method.",
+                    "    return me;",
+                    "}",
+                    "",
+                    "// try to find a record in the store that matches the value",
+                    "record = value ? me.store.getNodeById(value) : me.store.getRoot();",
+                    "if (value === undefined) {",
+                    "    record = me.store.getRoot();",
+                    "    me.value = record.getId();",
+                    "} else {",
+                    "    record = me.store.getNodeById(value);",
+                    "}",
+                    "",
+                    "// set the raw value to the record's display field if a record was found",
+                    "me.setRawValue(record ? record.get(me.displayField) : '');",
+                    "",
+                    "return me;"
+                ]
+            },
+            "name": "setValue",
+            "designerId": "a01934af-60e8-4014-bfa9-fd34fbdcdac6"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "newValue",
+                    "oldValue"
+                ],
+                "fn": "updateValue",
+                "implHandler": [
+                    "var me = this,",
+                    "    record;",
+                    "",
+                    "me.value = value;",
+                    "",
+                    "if (me.store.loading) {",
+                    "    // Called while the Store is loading. Ensure it is processed by the onLoad method.",
+                    "    return me;",
+                    "}",
+                    "",
+                    "// try to find a record in the store that matches the value",
+                    "record = value ? me.store.getNodeById(value) : me.store.getRoot();",
+                    "if (value === undefined) {",
+                    "    record = me.store.getRoot();",
+                    "    me.value = record.getId();",
+                    "} else {",
+                    "    record = me.store.getNodeById(value);",
+                    "}",
+                    "",
+                    "// set the raw value to the record's display field if a record was found",
+                    "me.setRawValue(record ? record.get(me.displayField) : '');",
+                    "return me;"
+                ]
+            },
+            "name": "updateValue",
+            "designerId": "d0d53be9-0e12-4f3a-8227-e0b99a8fd864"
+        }
+    ]
+}

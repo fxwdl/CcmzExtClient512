@@ -9,35 +9,57 @@
         "curUser": [
             "null"
         ],
+        "mainTabPanel": [
+            "null"
+        ],
         "models": [
             "Bn_TreatmentReimburse",
             "SystemEnum",
             "DictStdDisease",
-            "DictFamilyMember1"
+            "DictFamilyMember1",
+            "DictGovermentDept",
+            "IdentityCategory",
+            "DictIdentityType",
+            "DictHospital"
         ],
         "name": "ccmz",
         "stores": [
             "ReimSourceStore",
             "ReimburseTypeStore",
             "SpecBNStore",
-            "DictStdDiseaseStore"
+            "DictStdDiseaseStore",
+            "DictGovermentDeptStore",
+            "RegTypeStore",
+            "ICTypeStore",
+            "ICStore",
+            "DictIdentityTypeStore",
+            "DictHospitalStore"
         ],
         "title": "长春市医疗救助管理系统",
         "views": [
             "MyViewport",
             "yljz.TRItem",
-            "SelWindow"
+            "SelWindow",
+            "yljz.TRQuery",
+            "CompareControl",
+            "DatePickerControl"
         ]
     },
     "name": "Application",
     "configAlternates": {
-        "curUser": "object"
+        "curUser": "object",
+        "mainTabPanel": "object"
     },
     "designerId": "application",
     "customConfigs": [
         {
             "group": "(Custom Properties)",
             "name": "curUser",
+            "type": "string"
+        },
+        {
+            "group": "(Custom Properties)",
+            "name": "mainTabPanel",
             "type": "string"
         }
     ],

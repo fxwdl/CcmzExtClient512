@@ -1,0 +1,207 @@
+{
+    "type": "Ext.form.FieldContainer",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "container|align": "middle",
+        "designer|userAlias": "datepickercontrol",
+        "designer|userClassName": "DatePickerControl",
+        "fieldLabel": "Label",
+        "height": null,
+        "labelAlign": null,
+        "layout": "hbox",
+        "publishes": [
+            "['value1','value2']"
+        ],
+        "twoWayBindable": [
+            "['value1','value2']"
+        ],
+        "value1": [
+            "null"
+        ],
+        "value2": [
+            "null"
+        ],
+        "width": null
+    },
+    "name": "CompareControl1",
+    "configAlternates": {
+        "v1": "object",
+        "value1": "object",
+        "value2": "object"
+    },
+    "designerId": "40e7ec95-3188-4f5c-97c9-b98e166c562d",
+    "customConfigs": [
+        {
+            "group": "(Custom Properties)",
+            "name": "value1",
+            "type": "string"
+        },
+        {
+            "group": "(Custom Properties)",
+            "name": "value2",
+            "type": "string"
+        }
+    ],
+    "viewControllerInstanceId": "d49c08c4-a630-45b9-9f56-ecfa35ddf360",
+    "viewModelInstanceId": "3305457c-140d-4a83-89dd-2a11b5e724a7",
+    "cn": [
+        {
+            "type": "Ext.form.field.Date",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fieldLabel": null,
+                "itemId": "dtp1",
+                "layout|flex": null,
+                "width": 111
+            },
+            "name": "MyDateField5",
+            "designerId": "30e1ab38-2746-4381-8f77-a842844c2182",
+            "cn": [
+                {
+                    "type": "basiceventbinding",
+                    "reference": {
+                        "name": "listeners",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fn": "onDtp1Change",
+                        "implHandler": [
+                            "if(field.isValid()){",
+                            "    this.setValue1(newValue);",
+                            "}"
+                        ],
+                        "name": "change",
+                        "scope": "me"
+                    },
+                    "name": "onDtp1Change",
+                    "designerId": "546385d9-6bb5-43aa-b31b-e606f401d3bf"
+                }
+            ]
+        },
+        {
+            "type": "Ext.form.Label",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "layout|flex": 1,
+                "text": "至"
+            },
+            "name": "MyLabel",
+            "designerId": "2a43c45b-dc4b-41a0-b560-e93afaa6eb8d"
+        },
+        {
+            "type": "Ext.form.field.Date",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fieldLabel": null,
+                "itemId": "dtp2",
+                "layout|flex": null,
+                "width": 111
+            },
+            "name": "MyDateField6",
+            "designerId": "2aabcd94-15f5-4f7f-a191-ad448c509a1e",
+            "cn": [
+                {
+                    "type": "basiceventbinding",
+                    "reference": {
+                        "name": "listeners",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fn": "onDtp2Change",
+                        "implHandler": [
+                            "if(field.isValid()){",
+                            "    this.setValue2(newValue);",
+                            "}"
+                        ],
+                        "name": "change",
+                        "scope": "me"
+                    },
+                    "name": "onDtp2Change",
+                    "designerId": "66e38239-6b3c-405a-8471-a76c2ed810a0"
+                }
+            ]
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "value",
+                    "oldValue"
+                ],
+                "fn": "updateValue1",
+                "implHandler": [
+                    "var me = this,",
+                    "    component  = me.getComponent('dtp1'),",
+                    "    valueValid = value !== undefined && value !== null && value !== '';",
+                    "",
+                    "if (component) {",
+                    "    component.suspendEvent('change');",
+                    "    component.setValue(value);",
+                    "    component.resumeEvent('change');",
+                    "}",
+                    "",
+                    "if (me.initialized) {",
+                    "    me.fireEvent('change', me, value, oldValue);",
+                    "}"
+                ]
+            },
+            "name": "updateValue1",
+            "designerId": "947a812a-117e-426e-9fb4-058d0617c81b"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "value",
+                    "oldValue"
+                ],
+                "fn": "updateValue2",
+                "implHandler": [
+                    "var me = this,",
+                    "    component  = me.getComponent('dtp2'),",
+                    "    valueValid = value !== undefined && value !== null && value !== '';",
+                    "",
+                    "if (component) {",
+                    "    component.suspendEvent('change');",
+                    "    component.setValue(value);",
+                    "    component.resumeEvent('change');",
+                    "}",
+                    "",
+                    "if (me.initialized) {",
+                    "    me.fireEvent('change', me, value, oldValue);",
+                    "}"
+                ]
+            },
+            "name": "updateValue2",
+            "designerId": "61deb121-8df4-4ad2-b8e2-2c4677f00263"
+        }
+    ]
+}

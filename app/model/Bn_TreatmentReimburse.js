@@ -320,6 +320,9 @@ Ext.define('ccmz.model.Bn_TreatmentReimburse', {
         },
         {
             name: 'IdentityType_Name'
+        },
+        {
+            name: 'Apply_Hospital_Name'
         }
     ],
 
@@ -331,6 +334,7 @@ Ext.define('ccmz.model.Bn_TreatmentReimburse', {
             update: '/YLJZ/UpdateTRItems',
             destroy: ''
         },
+        url: '/YLJZ/GetData',
         reader: {
             type: 'json',
             messageProperty: 'msg',

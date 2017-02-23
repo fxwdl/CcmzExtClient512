@@ -185,6 +185,7 @@
                                     "                }",
                                     "",
                                     "            }});",
+                                    "        location.href = r.msg;",
                                     "    }",
                                     "}, this);"
                                 ],
@@ -325,7 +326,27 @@
                 "referenceHolder": true
             },
             "name": "MyTabPanel",
-            "designerId": "933eb240-a2c7-4f6f-b8c9-b7e2e666dbfc"
+            "designerId": "933eb240-a2c7-4f6f-b8c9-b7e2e666dbfc",
+            "cn": [
+                {
+                    "type": "viewcontrollereventbinding",
+                    "reference": {
+                        "name": "listeners",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fn": "onTabpanelAfterRender",
+                        "implHandler": [
+                            "ccmz.getApplication().mainTabPanel=component;"
+                        ],
+                        "name": "afterrender",
+                        "scope": "me"
+                    },
+                    "name": "onTabpanelAfterRender",
+                    "designerId": "23524cf0-9bb4-4322-898c-c96b8e3db35e"
+                }
+            ]
         }
     ]
 }

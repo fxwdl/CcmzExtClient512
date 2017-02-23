@@ -1,0 +1,231 @@
+{
+    "type": "Ext.form.FieldContainer",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "container|align": "stretch",
+        "designer|userAlias": "comparecontrol",
+        "designer|userClassName": "CompareControl",
+        "fieldLabel": "Label",
+        "height": null,
+        "layout": "hbox",
+        "mixins": [
+            "{",
+            "observable : 'Ext.util.Observable'",
+            "}"
+        ],
+        "publishes": [
+            "[",
+            "'symbol','value'",
+            "]"
+        ],
+        "symbol": "",
+        "twoWayBindable": [
+            "[",
+            "'symbol','value'",
+            "]"
+        ],
+        "value": [
+            "null"
+        ],
+        "width": null
+    },
+    "name": "MyFieldContainer",
+    "configAlternates": {
+        "value": "object"
+    },
+    "designerId": "e2b5c02d-7013-4eda-8017-7cabb43e0d98",
+    "customConfigs": [
+        {
+            "group": "(Custom Properties)",
+            "name": "symbol",
+            "type": "string"
+        },
+        {
+            "group": "(Custom Properties)",
+            "name": "value",
+            "type": "string"
+        }
+    ],
+    "viewControllerInstanceId": "0d5839f4-37ec-4888-9431-181c3ffb4415",
+    "viewModelInstanceId": "369dd0dc-cc23-45c6-b0ad-064d07c3d715",
+    "cn": [
+        {
+            "type": "Ext.form.field.ComboBox",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "editable": false,
+                "fieldLabel": null,
+                "fieldStyle": "text-align: center;",
+                "itemId": "cbo",
+                "store": [
+                    "[",
+                    "'>','=','<'",
+                    "]"
+                ],
+                "value": null,
+                "width": 45
+            },
+            "name": "MyComboBox3",
+            "configAlternates": {
+                "store": "array",
+                "value": "string"
+            },
+            "designerId": "8cf5b677-1006-4327-95db-48ca28a1104d",
+            "cn": [
+                {
+                    "type": "basiceventbinding",
+                    "reference": {
+                        "name": "listeners",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fn": "onComboboxSelect",
+                        "implHandler": [
+                            "var me=this;",
+                            "this.setSymbol(record.get('field1'));"
+                        ],
+                        "name": "select",
+                        "scope": "me"
+                    },
+                    "name": "onComboboxSelect",
+                    "designerId": "c9766cee-a8cc-4783-b9c1-5bf2cc3ad316"
+                }
+            ]
+        },
+        {
+            "type": "Ext.form.field.Text",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fieldLabel": null,
+                "inputType": "number",
+                "itemId": "txt",
+                "layout|flex": 1,
+                "reference": null,
+                "textAlign": "right",
+                "width": null
+            },
+            "name": "MyTextField2",
+            "designerId": "db9e78a1-4ef8-4184-a132-4d0ddc4f0866",
+            "customConfigs": [
+                {
+                    "group": "(Custom Properties)",
+                    "name": "textAlign",
+                    "type": "string"
+                }
+            ],
+            "cn": [
+                {
+                    "type": "basiceventbinding",
+                    "reference": {
+                        "name": "listeners",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fn": "onTextfieldChange",
+                        "implHandler": [
+                            "this.setValue(newValue);"
+                        ],
+                        "name": "change",
+                        "scope": "me"
+                    },
+                    "name": "onTextfieldChange",
+                    "designerId": "857f525b-90f5-4d16-a640-1c26d1556658"
+                }
+            ]
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|commentHeader": [
+                    "双向绑定时,修改ViewModel时会触发此方法"
+                ],
+                "designer|params": [
+                    "newValue",
+                    "oldValue"
+                ],
+                "fn": "updateSymbol",
+                "implHandler": [
+                    "if(newValue!==''){",
+                    "    var combo=this.down('combobox');",
+                    "    combo.suspendEvent('select');",
+                    "    combo.setValue(newValue);",
+                    "    combo.resumeEvent('select');",
+                    "}"
+                ]
+            },
+            "name": "updateSymbol",
+            "designerId": "3e8a52f0-d3ad-4c67-bf0a-1097f2019124"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "value",
+                    "oldValue"
+                ],
+                "fn": "updateValue",
+                "implHandler": [
+                    "var me = this,",
+                    "    component  = me.getComponent('txt'),",
+                    "    // allows value to be zero but not undefined or null (other falsey values)",
+                    "    valueValid = value !== undefined && value !== null && value !== '';",
+                    "",
+                    "if (component) {",
+                    "    component.suspendEvent('change');",
+                    "    component.setValue(value);",
+                    "    component.resumeEvent('change');",
+                    "}",
+                    "",
+                    "if (me.initialized) {",
+                    "    me.fireEvent('change', me, value, oldValue);",
+                    "}"
+                ]
+            },
+            "name": "updateValue",
+            "designerId": "670bb55e-fe20-41e3-8f73-8fb079803a39"
+        },
+        {
+            "type": "processcfgfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "config"
+                ],
+                "fn": "processCompareControl",
+                "implHandler": [
+                    "this.mixins.observable.constructor.call(this, config);"
+                ]
+            },
+            "name": "processCompareControl",
+            "designerId": "f5515812-6122-4170-af04-6e5dd8759266"
+        }
+    ]
+}

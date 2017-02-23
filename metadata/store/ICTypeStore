@@ -1,0 +1,27 @@
+{
+    "type": "Ext.data.Store",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "data": [
+            "[",
+            "{",
+            "value:1,",
+            "text:'重点救助对象'",
+            "},",
+            "{",
+            "value:2,",
+            "text:'一般救助对象'",
+            "}",
+            "]"
+        ],
+        "designer|userClassName": "ICTypeStore",
+        "model": "SystemEnum",
+        "storeId": "ICTypeStore"
+    },
+    "name": "RegTypeStore1",
+    "designerId": "f887ed27-0f2d-443a-825e-372954519308"
+}

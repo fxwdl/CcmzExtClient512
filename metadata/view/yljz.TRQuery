@@ -1,0 +1,1407 @@
+{
+    "type": "Ext.container.Container",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "QueryType": 0,
+        "container|align": "stretch",
+        "designer|userAlias": "yljztrquery",
+        "designer|userClassName": "yljz.TRQuery",
+        "height": 635,
+        "layout": "vbox",
+        "requires": [
+            "ccmz.store.DictGovermentDeptStore"
+        ],
+        "showDetailLink": true,
+        "width": 1110
+    },
+    "configAlternates": {
+        "QueryType": "number",
+        "showDetailLink": "boolean"
+    },
+    "designerId": "c422c19d-95b1-46e8-9f22-80a3f7e26563",
+    "customConfigs": [
+        {
+            "group": "(Custom Properties)",
+            "name": "QueryType",
+            "type": "string"
+        },
+        {
+            "group": "(Custom Properties)",
+            "name": "showDetailLink",
+            "type": "string"
+        }
+    ],
+    "viewControllerInstanceId": "88d5f3ca-51a0-4731-a213-a57775f0fe95",
+    "viewModelInstanceId": "6ade4068-8f2c-4cb2-a94a-dcca2169bf0e",
+    "cn": [
+        {
+            "type": "Ext.panel.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "collapsed": false,
+                "collapsible": true,
+                "defaults": [
+                    "{",
+                    "margin:'5 5 5 5'",
+                    "}"
+                ],
+                "layout": "anchor",
+                "margin": 5,
+                "padding": 0,
+                "title": "查询条件"
+            },
+            "name": "MyPanel1",
+            "designerId": "43fc785f-be9a-4d91-8287-7ae01f4a3ba5",
+            "cn": [
+                {
+                    "type": "Ext.container.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "container|align": "stretch",
+                        "defaults": [
+                            "{",
+                            "padding:'0 0 0 5'",
+                            "}"
+                        ],
+                        "layout": "hbox",
+                        "margin": null,
+                        "padding": null
+                    },
+                    "name": "MyContainer1",
+                    "designerId": "eb594d6c-c353-4d3f-967a-603a9ffccc65",
+                    "cn": [
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "身份证号",
+                                "labelWidth": 60,
+                                "layout|flex": 1,
+                                "reference": null,
+                                "value": [
+                                    "{sfzh}"
+                                ]
+                            },
+                            "name": "MyTextField",
+                            "configAlternates": {
+                                "value": "binding"
+                            },
+                            "designerId": "1df2a283-940a-432e-80d1-03a83a839ace"
+                        },
+                        {
+                            "type": "Ext.form.field.ComboBox",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "报销类型",
+                                "labelWidth": 70,
+                                "layout|flex": 1,
+                                "padding": null,
+                                "queryMode": "local",
+                                "reference": "cboReimSource",
+                                "store": "ReimSourceStore",
+                                "value": [
+                                    "{reim_source}"
+                                ],
+                                "valueField": "value"
+                            },
+                            "name": "MyComboBox",
+                            "configAlternates": {
+                                "value": "binding"
+                            },
+                            "designerId": "f0b4041c-905c-4d3d-9ef7-e7fcd7ce17a0"
+                        },
+                        {
+                            "type": "Ext.form.field.ComboBox",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "救助类别",
+                                "labelWidth": 60,
+                                "layout|flex": 1,
+                                "padding": null,
+                                "queryMode": "local",
+                                "store": "ReimburseTypeStore",
+                                "value": [
+                                    "{reim_type}"
+                                ],
+                                "valueField": "value"
+                            },
+                            "name": "MyComboBox1",
+                            "configAlternates": {
+                                "value": "binding"
+                            },
+                            "designerId": "3e2ff3fc-d4a4-4e1b-b5d5-efd33b42bbec"
+                        },
+                        {
+                            "type": "linkedinstance",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "displayField": [
+                                    "text"
+                                ],
+                                "fieldLabel": "行政区划",
+                                "labelWidth": 60,
+                                "layout|flex": 1,
+                                "padding": "0 0 0 5",
+                                "reference": "org",
+                                "selectOnFocus": true,
+                                "value": [
+                                    "{dept_id}"
+                                ]
+                            },
+                            "name": "treepicker3",
+                            "configAlternates": {
+                                "value": "binding"
+                            },
+                            "designerId": "b74fb85e-2dc1-490f-a1b9-d53748bff097",
+                            "masterInstanceId": "16350908-1042-407f-992f-36b4cb9a571b",
+                            "cn": [
+                                {
+                                    "type": "processcfgfunction",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|params": [
+                                            "config"
+                                        ],
+                                        "fn": "processOrg",
+                                        "implHandler": [
+                                            "var s=Ext.create('ccmz.store.DictGovermentDeptStore');",
+                                            "Ext.applyIf(config,{store:s});",
+                                            "return config;"
+                                        ]
+                                    },
+                                    "name": "processOrg",
+                                    "designerId": "c79f1106-31aa-4275-96ae-4c3718e2633c"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.form.field.ComboBox",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "allQuery": "all",
+                                "displayField": "Name",
+                                "fieldLabel": "医院",
+                                "fieldStyle": "",
+                                "labelWidth": 90,
+                                "layout|flex": 1,
+                                "reference": "cboHospital",
+                                "store": null,
+                                "value": [
+                                    "{apply_hospital}"
+                                ],
+                                "valueField": "ID"
+                            },
+                            "name": "MyComboBox2",
+                            "configAlternates": {
+                                "value": "binding",
+                                "QueryType": "number"
+                            },
+                            "designerId": "81d65ae8-0b47-416a-99aa-fd0f469a32c7",
+                            "cn": [
+                                {
+                                    "type": "viewcontrollereventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onCboHospitalAfterRender",
+                                        "implHandler": [
+                                            "var vm=this.getViewModel();",
+                                            "component.getStore().load({",
+                                            "    scope:this,",
+                                            "    callback: function(records, operation, success) {",
+                                            "        if (records.length>0){            ",
+                                            "            component.setValue(records[0]);",
+                                            "        }",
+                                            "",
+                                            "        component.setEditable(false);",
+                                            "    }",
+                                            "});"
+                                        ],
+                                        "name": "afterrender",
+                                        "scope": "me"
+                                    },
+                                    "name": "onCboHospitalAfterRender",
+                                    "designerId": "01fb4125-1bff-413e-86fb-508b67508380"
+                                },
+                                {
+                                    "type": "processcfgfunction",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|params": [
+                                            "config"
+                                        ],
+                                        "fn": "processCboHospital",
+                                        "implHandler": [
+                                            "var s=Ext.create('ccmz.store.DictHospitalStore',{autoLoad:false});",
+                                            "s.getProxy().setUrl('/DictHospital/GetDataByUser');",
+                                            "config=Ext.apply(config,{store:s});",
+                                            "return config;"
+                                        ]
+                                    },
+                                    "name": "processCboHospital",
+                                    "designerId": "f88174de-34d6-4989-b71c-7994e506a914"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.container.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "container|align": "stretch",
+                        "defaults": [
+                            "{",
+                            "padding:'0 0 0 5'",
+                            "}"
+                        ],
+                        "layout": "hbox",
+                        "margin": null
+                    },
+                    "name": "MyContainer2",
+                    "designerId": "fc94bc21-02ea-41e1-8079-9c2cc21dda2c",
+                    "cn": [
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "人员姓名",
+                                "labelWidth": 60,
+                                "layout|flex": 1,
+                                "value": [
+                                    "{name}"
+                                ]
+                            },
+                            "name": "MyTextField1",
+                            "configAlternates": {
+                                "value": "binding"
+                            },
+                            "designerId": "f9cf380c-3ab0-46c6-857d-b7fd35234577"
+                        },
+                        {
+                            "type": "linkedinstance",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "医疗总费用",
+                                "labelWidth": 70,
+                                "layout|flex": 1,
+                                "reference": null,
+                                "symbol": [
+                                    "{ylz_symbol}"
+                                ],
+                                "value": [
+                                    "{ylz_value}"
+                                ]
+                            },
+                            "name": "comparecontrol12",
+                            "configAlternates": {
+                                "symbol": "binding",
+                                "value": "binding"
+                            },
+                            "designerId": "13d74d43-b135-4760-af75-644eec04762b",
+                            "masterInstanceId": "e2b5c02d-7013-4eda-8017-7cabb43e0d98"
+                        },
+                        {
+                            "type": "linkedinstance",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "个人承担",
+                                "labelWidth": 60,
+                                "layout|flex": 1,
+                                "symbol": [
+                                    "{gr_symbol}"
+                                ],
+                                "value": [
+                                    "{gr_value}"
+                                ]
+                            },
+                            "name": "comparecontrol13",
+                            "configAlternates": {
+                                "value": "binding",
+                                "symbol": "binding"
+                            },
+                            "designerId": "9cac71fa-8c9c-48f3-9e49-6fd6bc64c7fc",
+                            "masterInstanceId": "e2b5c02d-7013-4eda-8017-7cabb43e0d98"
+                        },
+                        {
+                            "type": "linkedinstance",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "民政救助",
+                                "labelWidth": 60,
+                                "layout|flex": 1,
+                                "symbol": [
+                                    "{yljz_symbol}"
+                                ],
+                                "value": [
+                                    "{yljz_value}"
+                                ]
+                            },
+                            "name": "comparecontrol14",
+                            "configAlternates": {
+                                "value": "binding",
+                                "symbol": "binding"
+                            },
+                            "designerId": "49e7f38d-2268-4356-acf3-80ac45cacae8",
+                            "masterInstanceId": "e2b5c02d-7013-4eda-8017-7cabb43e0d98"
+                        },
+                        {
+                            "type": "linkedinstance",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "累计民政救助",
+                                "labelWidth": 90,
+                                "layout|flex": 1,
+                                "symbol": [
+                                    "{sum_yljz_symbol}"
+                                ],
+                                "value": [
+                                    "{sum_yljz_value}"
+                                ]
+                            },
+                            "name": "comparecontrol15",
+                            "configAlternates": {
+                                "value": "binding",
+                                "symbol": "binding"
+                            },
+                            "designerId": "9a7071ac-5efd-4e4b-9f38-eaba75393831",
+                            "masterInstanceId": "e2b5c02d-7013-4eda-8017-7cabb43e0d98"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.container.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "container|align": "stretch",
+                        "defaults": [
+                            "{",
+                            "padding:'0 0 0 5'",
+                            "}"
+                        ],
+                        "layout": "hbox",
+                        "margin": null
+                    },
+                    "name": "MyContainer3",
+                    "designerId": "b360d606-63ee-4436-8c21-dbab0a77fe8b",
+                    "cn": [
+                        {
+                            "type": "Ext.form.field.ComboBox",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "保障对象",
+                                "labelWidth": 60,
+                                "layout|flex": 1,
+                                "queryMode": "local",
+                                "reference": null,
+                                "store": "RegTypeStore",
+                                "value": [
+                                    "{reg_type}"
+                                ],
+                                "valueField": "value"
+                            },
+                            "name": "MyComboBox4",
+                            "configAlternates": {
+                                "value": "binding"
+                            },
+                            "designerId": "dbfb47fd-0284-49f5-9265-921ebf038f4c"
+                        },
+                        {
+                            "type": "Ext.form.field.ComboBox",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "对象范围",
+                                "labelWidth": 70,
+                                "layout|flex": 1,
+                                "queryMode": "local",
+                                "store": "ICTypeStore",
+                                "value": [
+                                    "{ic_type}"
+                                ],
+                                "valueField": "value"
+                            },
+                            "name": "MyComboBox5",
+                            "configAlternates": {
+                                "value": "binding"
+                            },
+                            "designerId": "e1b4d9b0-487c-4e95-ad7f-1e6cc2450a8b"
+                        },
+                        {
+                            "type": "Ext.form.field.ComboBox",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "身份分类",
+                                "labelWidth": 60,
+                                "layout|flex": 1,
+                                "queryMode": "local",
+                                "reference": null,
+                                "store": [
+                                    "{IC}"
+                                ],
+                                "value": [
+                                    "{ic}"
+                                ],
+                                "valueField": "value"
+                            },
+                            "name": "MyComboBox6",
+                            "configAlternates": {
+                                "store": "binding",
+                                "value": "binding"
+                            },
+                            "designerId": "794095ff-2092-43f5-975e-30aeaf343f1e"
+                        },
+                        {
+                            "type": "Ext.form.field.ComboBox",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "allQuery": "all",
+                                "displayField": "Name",
+                                "fieldLabel": "人员类别",
+                                "labelWidth": 60,
+                                "layout|flex": 1,
+                                "store": [
+                                    "{DIT}"
+                                ],
+                                "value": [
+                                    "{idt_type}"
+                                ],
+                                "valueField": "ID"
+                            },
+                            "name": "MyComboBox7",
+                            "configAlternates": {
+                                "filters": "binding",
+                                "value": "binding",
+                                "store": "binding"
+                            },
+                            "designerId": "f7cab9a5-0d50-44bf-8ec0-3e5b26075271"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "疾病名称",
+                                "labelWidth": 90,
+                                "layout|flex": 1,
+                                "value": [
+                                    "{disease_name}"
+                                ]
+                            },
+                            "name": "MyTextField7",
+                            "configAlternates": {
+                                "value": "binding"
+                            },
+                            "designerId": "7a3bf9fa-abf6-4504-9dc3-33477403701f"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.container.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "container|align": "middle",
+                        "defaults": [
+                            "{",
+                            "padding:'0 0 0 5'",
+                            "}"
+                        ],
+                        "layout": "hbox",
+                        "margin": null
+                    },
+                    "name": "MyContainer8",
+                    "designerId": "ef0bc8fa-a1ec-46db-9913-bb43e07341b2",
+                    "cn": [
+                        {
+                            "type": "linkedinstance",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "录入日期",
+                                "labelWidth": 60,
+                                "value1": [
+                                    "{apply_date1}"
+                                ],
+                                "value2": [
+                                    "{apply_date2}"
+                                ]
+                            },
+                            "name": "datepickercontrol9",
+                            "configAlternates": {
+                                "value1": "binding",
+                                "value2": "binding"
+                            },
+                            "designerId": "29e8214b-1737-4cd4-b839-e71a0b843c80",
+                            "masterInstanceId": "40e7ec95-3188-4f5c-97c9-b98e166c562d"
+                        },
+                        {
+                            "type": "linkedinstance",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "报销日期",
+                                "hideMode": null,
+                                "labelWidth": 60,
+                                "reference": "dtpFinishDate",
+                                "value1": [
+                                    "{finish_date1}"
+                                ],
+                                "value2": [
+                                    "{finish_date2}"
+                                ]
+                            },
+                            "name": "datepickercontrol10",
+                            "configAlternates": {
+                                "value1": "binding",
+                                "value2": "binding"
+                            },
+                            "designerId": "5a91fa3d-bb7f-42e9-b12d-49068e3151d6",
+                            "masterInstanceId": "40e7ec95-3188-4f5c-97c9-b98e166c562d"
+                        },
+                        {
+                            "type": "linkedinstance",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "作废日期",
+                                "labelWidth": 60,
+                                "layout|flex": null,
+                                "reference": "dtpCancelDate",
+                                "value1": [
+                                    "{cancel_date1}"
+                                ],
+                                "value2": [
+                                    "{cancel_date2}"
+                                ]
+                            },
+                            "name": "datepickercontrol11",
+                            "configAlternates": {
+                                "value1": "binding",
+                                "value2": "binding"
+                            },
+                            "designerId": "87ed9dec-24d0-4414-9310-168b50440c9a",
+                            "masterInstanceId": "40e7ec95-3188-4f5c-97c9-b98e166c562d"
+                        },
+                        {
+                            "type": "Ext.container.Container",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "container|align": "middle",
+                                "container|pack": "end",
+                                "layout": "hbox",
+                                "layout|flex": 1
+                            },
+                            "name": "MyContainer9",
+                            "designerId": "fe00458d-24da-491f-925e-bb92c38b472e",
+                            "cn": [
+                                {
+                                    "type": "Ext.button.Button",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|uiInterfaceName": "default-toolbar-small",
+                                        "height": null,
+                                        "layout|flex": null,
+                                        "margin": "0 10 0 0",
+                                        "text": "查询数据",
+                                        "ui": "default-toolbar-small"
+                                    },
+                                    "name": "MyButton13",
+                                    "designerId": "7df75e43-c14f-406c-a6de-6dbb8f86b8dd",
+                                    "cn": [
+                                        {
+                                            "type": "viewcontrollereventbinding",
+                                            "reference": {
+                                                "name": "listeners",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "fn": "onQueryClick",
+                                                "implHandler": [
+                                                    "var view=this.getView();",
+                                                    "var vm=this.getViewModel();",
+                                                    "var s=vm.getStore('GridData');",
+                                                    "s.clearFilter(true);",
+                                                    "s.filter([",
+                                                    "    {property: 'Finish_Flag',value:view.QueryType},",
+                                                    "    {property: 'Sfzh',value:vm.get('sfzh'),disableOnEmpty:true},",
+                                                    "    {property: 'Reim_Source',value:vm.get('reim_source'),disableOnEmpty:true},",
+                                                    "    {property: 'Reim_Type_ID',value:vm.get('reim_type'),disableOnEmpty:true},",
+                                                    "    {property: 'JGBM',value:vm.get('dept_id'),disableOnEmpty:true},",
+                                                    "    {property: 'Apply_Hospital_ID',value:vm.get('apply_hospital'),disableOnEmpty:true},",
+                                                    "    {property: 'Name',value:vm.get('name'),disableOnEmpty:true},",
+                                                    "    {property: 'CP_YLZ',value:vm.get('ylz_value'),operator:vm.get('ylz_symbol'),disableOnEmpty:true},",
+                                                    "    {property: 'CP_GR',value:vm.get('gr_value'),operator:vm.get('gr_symbol'),disableOnEmpty:true},",
+                                                    "    {property: 'CP_YLJZ',value:vm.get('yljz_value'),operator:vm.get('yljz_symbol'),disableOnEmpty:true},",
+                                                    "    {property: 'CP_YLJZ_LJ',value:vm.get('sum_yljz_value'),operator:vm.get('sum_yljz_symbol'),disableOnEmpty:true},",
+                                                    "    {property: 'RegType',value:vm.get('reg_type'),disableOnEmpty:true},",
+                                                    "    {property: 'IC_Type',value:vm.get('ic_type'),disableOnEmpty:true},",
+                                                    "    {property: 'IC',value:vm.get('ic'),disableOnEmpty:true},",
+                                                    "    {property: 'SFLB',value:vm.get('idt_type'),disableOnEmpty:true},",
+                                                    "    {property: 'StdDisease_Name',value:vm.get('disease_name'),disableOnEmpty:true},",
+                                                    "    {property: 'Create_Time1',value:vm.get('apply_date1'),disableOnEmpty:true},",
+                                                    "    {property: 'Create_Time2',value:vm.get('apply_date1'),disableOnEmpty:true},",
+                                                    "    {property: 'Finish_Date1',value:vm.get('finish_date1'),disableOnEmpty:true},",
+                                                    "    {property: 'Finish_Date2',value:vm.get('finish_date2'),disableOnEmpty:true},",
+                                                    "    {property: 'Cancel_Date1',value:vm.get('cancel_date1'),disableOnEmpty:true},",
+                                                    "    {property: 'Cancel_Date2',value:vm.get('cancel_date2'),disableOnEmpty:true},",
+                                                    "],null,true);",
+                                                    "s.sort('Finish_Date', 'DESC');"
+                                                ],
+                                                "name": "click",
+                                                "scope": "me"
+                                            },
+                                            "name": "onQueryClick",
+                                            "designerId": "5fefa8d5-d48e-441b-95b6-0313f4c4f248"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "Ext.button.Button",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|uiInterfaceName": "default-toolbar-small",
+                                        "layout|flex": null,
+                                        "text": "查看报表",
+                                        "ui": "default-toolbar-small"
+                                    },
+                                    "name": "MyButton14",
+                                    "designerId": "a19174b7-f8c5-4bd0-85ea-144677d8ad18",
+                                    "cn": [
+                                        {
+                                            "type": "viewcontrollereventbinding",
+                                            "reference": {
+                                                "name": "listeners",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "fn": "onReportClick",
+                                                "implHandler": [
+                                                    "var vm=this.getViewModel();",
+                                                    "vm.set('apply_date1',new Date());"
+                                                ],
+                                                "name": "click",
+                                                "scope": "me"
+                                            },
+                                            "name": "onReportClick",
+                                            "designerId": "b3bb807c-0b51-4423-b465-e0f8292a882e"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "viewcontrollereventbinding",
+                    "reference": {
+                        "name": "listeners",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fn": "onConditionPanelRender",
+                        "implHandler": [
+                            "var view=this.getView();",
+                            "var vm=this.getViewModel();",
+                            "var dtpFinishDate=this.lookupReference('dtpFinishDate');",
+                            "var dtpCancelDate=this.lookupReference('dtpCancelDate');",
+                            "var year=(new Date()).getFullYear();",
+                            "var beginDate=new Date(year,0,1);",
+                            "var endDate=new Date(year,11,31);",
+                            "switch(view.QueryType){",
+                            "    case 0:",
+                            "        dtpFinishDate.setHidden(true);",
+                            "        dtpCancelDate.setHidden(true);",
+                            "        break;",
+                            "    case 1:",
+                            "        dtpCancelDate.setHidden(true);",
+                            "        vm.set('finish_date1',beginDate);",
+                            "        vm.set('finish_date2',endDate);",
+                            "        break;",
+                            "    case 2:",
+                            "        dtpFinishDate.setHidden(true);",
+                            "        vm.set('cancel_date1',beginDate);",
+                            "        vm.set('cancel_date2',endDate);",
+                            "        break;",
+                            "    default:",
+                            "        break;",
+                            "}"
+                        ],
+                        "name": "render",
+                        "scope": "me"
+                    },
+                    "name": "onConditionPanelRender",
+                    "designerId": "553b89f8-9eb9-451d-8f3f-72080928c8a6"
+                }
+            ]
+        },
+        {
+            "type": "Ext.grid.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "columnLines": true,
+                "layout|flex": 1,
+                "store": [
+                    "{GridData}"
+                ],
+                "title": "查询结果",
+                "titleCollapse": true
+            },
+            "name": "MyGridPanel",
+            "configAlternates": {
+                "store": "binding"
+            },
+            "designerId": "fb5b1e75-3a85-4aba-a8a8-d4f7e2562a27",
+            "cn": [
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "Reim_NO",
+                        "text": "凭证编号",
+                        "width": 110
+                    },
+                    "name": "MyColumn9",
+                    "designerId": "22c3a28e-03db-4b27-941e-e62631b16569",
+                    "cn": [
+                        {
+                            "type": "fixedfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|params": [
+                                    "value",
+                                    "metaData",
+                                    "record",
+                                    "rowIndex",
+                                    "colIndex",
+                                    "store",
+                                    "view"
+                                ],
+                                "fn": "renderer",
+                                "implHandler": [
+                                    "var p=this.findParentByType('yljztrquery');",
+                                    "if (p.showDetailLink){",
+                                    "    return '<a href=\"#\">'+value+'</a>';",
+                                    "}",
+                                    "else{",
+                                    "    return value;",
+                                    "}"
+                                ]
+                            },
+                            "name": "renderer",
+                            "designerId": "779f22fc-42e7-43e9-8eb9-b8e1c49c8688"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "Family_Code",
+                        "text": "家庭编码",
+                        "width": 120
+                    },
+                    "name": "MyColumn",
+                    "designerId": "19d9de8f-6aaa-401b-ac8c-e5781b6f7933"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "Sfzh",
+                        "text": "身份证号",
+                        "width": 150
+                    },
+                    "name": "MyColumn1",
+                    "designerId": "49596ca6-c146-49ca-a7cf-611092c6e223"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "Name",
+                        "text": "姓名",
+                        "width": 70
+                    },
+                    "name": "MyColumn2",
+                    "designerId": "2b6f3028-591f-452d-b539-c53abd975c2d"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "Reim_Source",
+                        "text": "报销类型",
+                        "width": 70
+                    },
+                    "name": "MyColumn3",
+                    "designerId": "9837e77f-e239-4a58-8168-b01b0cd683d6",
+                    "cn": [
+                        {
+                            "type": "fixedfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|params": [
+                                    "value",
+                                    "metaData",
+                                    "record",
+                                    "rowIndex",
+                                    "colIndex",
+                                    "store",
+                                    "view"
+                                ],
+                                "fn": "renderer",
+                                "implHandler": [
+                                    "var r=this.lookupController().lookupReference('cboReimSource').getStore().findRecord('value',value);",
+                                    "if (r){",
+                                    "    return r.data.text;",
+                                    "}",
+                                    "else{",
+                                    "    return value;",
+                                    "}"
+                                ]
+                            },
+                            "name": "renderer",
+                            "designerId": "cb69bbac-6668-4f8c-9280-6173c528c5b4"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "TreatmentHosptial",
+                        "text": "就诊医院",
+                        "width": 150
+                    },
+                    "name": "MyColumn4",
+                    "designerId": "816ce687-680a-4579-b4b5-5ea258e0902c"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "SfLb",
+                        "text": "身份类别",
+                        "width": 80
+                    },
+                    "name": "MyColumn5",
+                    "designerId": "15ddda1a-1165-4d85-a220-725366a86d5e"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "StdDisease_Name",
+                        "text": "诊断疾病名称",
+                        "width": 150
+                    },
+                    "name": "MyColumn6",
+                    "designerId": "a695f154-7e28-40fb-9c03-df857ff4f284"
+                },
+                {
+                    "type": "Ext.grid.column.Date",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "In_Date",
+                        "format": "Y/m/d",
+                        "text": "入院时间",
+                        "width": 90
+                    },
+                    "name": "MyDateColumn",
+                    "designerId": "56417501-7e25-4ff3-927e-40752122b7eb"
+                },
+                {
+                    "type": "Ext.grid.column.Date",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "Out_Date",
+                        "format": "Y/m/d",
+                        "text": "出院时间",
+                        "width": 90
+                    },
+                    "name": "MyDateColumn1",
+                    "designerId": "7604190e-63fb-4a91-9c94-0c02d06752e1"
+                },
+                {
+                    "type": "Ext.grid.column.Number",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "YLZ_Money",
+                        "text": "医疗总费用",
+                        "width": 80
+                    },
+                    "name": "MyNumberColumn1",
+                    "designerId": "c929d361-025c-47ba-a3b4-4171e1ae435b"
+                },
+                {
+                    "type": "Ext.grid.column.Number",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "Medicare_Line",
+                        "text": "起付线",
+                        "width": 80
+                    },
+                    "name": "MyNumberColumn2",
+                    "designerId": "f185dfa4-aaf4-4598-a63e-082bcdee542f"
+                },
+                {
+                    "type": "Ext.grid.column.Number",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "ZL_Money",
+                        "text": "自理费用",
+                        "width": 80
+                    },
+                    "name": "MyNumberColumn3",
+                    "designerId": "6f1deb31-4686-46a1-8d04-9412ebe1ebc1"
+                },
+                {
+                    "type": "Ext.grid.column.Number",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "ZF_Money",
+                        "text": "自费(不参与补偿)",
+                        "width": 80
+                    },
+                    "name": "MyNumberColumn4",
+                    "designerId": "397a035c-97bd-4cce-9764-7061f030ded2"
+                },
+                {
+                    "type": "Ext.grid.column.Number",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "YBBX_Money",
+                        "text": "医院(农合)报销",
+                        "width": 80
+                    },
+                    "name": "MyNumberColumn5",
+                    "designerId": "fd77ed51-8c73-451d-b4a0-ce1d2e61580b"
+                },
+                {
+                    "type": "Ext.grid.column.Number",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "YBHG_Money",
+                        "text": "大额合规费用",
+                        "width": 80
+                    },
+                    "name": "MyNumberColumn6",
+                    "designerId": "41d863de-e9b7-47e9-8f50-43a3ec10abf3"
+                },
+                {
+                    "type": "Ext.grid.column.Number",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "CYDBBC_Money",
+                        "text": "参与大病补偿",
+                        "width": 80
+                    },
+                    "name": "MyNumberColumn7",
+                    "designerId": "d8f08cdf-2577-4974-9432-ed46be42d441"
+                },
+                {
+                    "type": "Ext.grid.column.Number",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "DBBX_Money",
+                        "text": "大病保险补偿",
+                        "width": 80
+                    },
+                    "name": "MyNumberColumn8",
+                    "designerId": "c2d97be6-cd98-42ae-8f78-a2505bcd6c8d"
+                },
+                {
+                    "type": "Ext.grid.column.Number",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "XNH_Money",
+                        "text": "新农合参与补偿",
+                        "width": 80
+                    },
+                    "name": "MyNumberColumn9",
+                    "designerId": "081b51c9-99b7-459b-8214-77c0e6059941"
+                },
+                {
+                    "type": "Ext.grid.column.Number",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "GR_Money",
+                        "text": "个人承担",
+                        "width": 80
+                    },
+                    "name": "MyNumberColumn10",
+                    "designerId": "ff93f077-a047-4153-b9f3-3c1cd282998a"
+                },
+                {
+                    "type": "Ext.grid.column.Number",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "YLJZ_Money",
+                        "text": "民政补偿",
+                        "width": 80
+                    },
+                    "name": "MyNumberColumn11",
+                    "designerId": "1b7a06f5-3ad1-4cee-a0b7-34ccf44af5b2"
+                },
+                {
+                    "type": "Ext.grid.column.Date",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "Finish_Date",
+                        "format": "Y/m/d",
+                        "text": "民政报销时间",
+                        "width": 90
+                    },
+                    "name": "MyDateColumn2",
+                    "designerId": "8cef3f74-5ac6-4817-aaef-15162cd64d56"
+                },
+                {
+                    "type": "Ext.grid.column.Date",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "TypeIn_Date",
+                        "format": "Y/m/d",
+                        "text": "录入日期",
+                        "width": 90
+                    },
+                    "name": "MyDateColumn3",
+                    "designerId": "9e6a0559-6bdd-43e6-944e-c1cc8646bef7"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "Apply_Hospital_Name",
+                        "text": "垫付医院",
+                        "width": 150
+                    },
+                    "name": "MyColumn7",
+                    "designerId": "3ea0710a-3efe-423d-abf9-59249dc21758"
+                },
+                {
+                    "type": "Ext.toolbar.Paging",
+                    "reference": {
+                        "name": "dockedItems",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dock": "bottom",
+                        "store": [
+                            "{GridData}"
+                        ],
+                        "width": 360
+                    },
+                    "name": "MyPagingToolbar",
+                    "configAlternates": {
+                        "store": "binding"
+                    },
+                    "designerId": "59afdf3f-a507-4cc3-9c9f-70175e38bee2",
+                    "cn": [
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "Label",
+                                "layout|flex": null,
+                                "width": 100
+                            },
+                            "name": "MyTextField8",
+                            "designerId": "3ae9fb36-9b17-41c3-bfc1-4119007bb02d"
+                        }
+                    ]
+                },
+                {
+                    "type": "viewcontrollereventbinding",
+                    "reference": {
+                        "name": "listeners",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fn": "onGridpanelCellClick",
+                        "implHandler": [
+                            "if (!this.getView().showDetailLink)",
+                            "    return;",
+                            "if (cellIndex===0){",
+                            "    var v=new ccmz.view.yljz.TRItem({",
+                            "        viewModel:{",
+                            "            data:{",
+                            "                d:record",
+                            "            }",
+                            "        }",
+                            "    });",
+                            "    var tabPanel=ccmz.getApplication().mainTabPanel;",
+                            "    var tab=tabPanel.getComponent(record.get(\"Reim_NO\"));    ",
+                            "    if (!tab){",
+                            "        tab=tabPanel.add({",
+                            "        autoScroll: true,",
+                            "        xtype: \"panel\",",
+                            "        layout: 'fit',",
+                            "        itemId:record.get(\"Reim_NO\"),",
+                            "        title: record.get(\"Reim_NO\"),",
+                            "        closable: true,",
+                            "        items: v,",
+                            "        });        ",
+                            "    }",
+                            "    tabPanel.setActiveTab(tab);",
+                            "",
+                            "}"
+                        ],
+                        "name": "cellclick",
+                        "scope": "me"
+                    },
+                    "name": "onGridpanelCellClick",
+                    "designerId": "e2fa74cd-903e-4266-8f85-2b164a79aa8f"
+                }
+            ]
+        },
+        {
+            "type": "viewcontrollereventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onContainerAfterRender",
+                "implHandler": [
+                    ""
+                ],
+                "name": "afterrender",
+                "scope": "me"
+            },
+            "name": "onContainerAfterRender",
+            "designerId": "102b4f68-77f4-4ed6-b6de-cb41d7556277"
+        }
+    ]
+}

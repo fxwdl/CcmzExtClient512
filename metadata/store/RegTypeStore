@@ -1,0 +1,27 @@
+{
+    "type": "Ext.data.Store",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "data": [
+            "[",
+            "{",
+            "value:1,",
+            "text:'城镇'",
+            "},",
+            "{",
+            "value:2,",
+            "text:'农村'",
+            "}",
+            "]"
+        ],
+        "designer|userClassName": "RegTypeStore",
+        "model": "SystemEnum",
+        "storeId": "RegTypeStore"
+    },
+    "name": "MyStore1",
+    "designerId": "bfa34024-ec88-4913-9c46-b7c10f67cb0a"
+}

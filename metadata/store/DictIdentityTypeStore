@@ -1,0 +1,48 @@
+{
+    "type": "jsonstore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "DictIdentityTypeStore",
+        "model": "DictIdentityType",
+        "pageSize": 0,
+        "remoteFilter": true,
+        "storeId": "DictIdentityTypeStore"
+    },
+    "name": "DictStdDiseaseStore1",
+    "designerId": "6e051e86-2cd3-4d0c-9dcf-e70dcf775cf8",
+    "cn": [
+        {
+            "type": "Ext.data.proxy.Ajax",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "url": "/DictIdentityType/GetData"
+            },
+            "name": "MyAjaxProxy",
+            "designerId": "0f8b6a5c-7fb2-471a-8ef2-3231e03d7050",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "messageProperty": "msg",
+                        "rootProperty": "data"
+                    },
+                    "name": "MyJsonReader",
+                    "designerId": "817886d8-f0a9-47f1-aab1-d2a0d435b859"
+                }
+            ]
+        }
+    ]
+}

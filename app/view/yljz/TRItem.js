@@ -149,6 +149,7 @@ Ext.define('ccmz.view.yljz.TRItem', {
                             useDecimalSeparator: true,
                             tabIndex: 14,
                             fieldLabel: '医疗总费用',
+                            fieldStyle: 'text-align: right;',
                             selectOnFocus: true,
                             minValue: 0,
                             bind: {
@@ -161,6 +162,7 @@ Ext.define('ccmz.view.yljz.TRItem', {
                             useDecimalSeparator: true,
                             tabIndex: 18,
                             fieldLabel: '大病保险补偿金额',
+                            fieldStyle: 'text-align: right;',
                             selectOnFocus: true,
                             bind: {
                                 value: '{d.DBBX_Money}',
@@ -172,6 +174,7 @@ Ext.define('ccmz.view.yljz.TRItem', {
                             useDecimalSeparator: true,
                             tabIndex: 22,
                             fieldLabel: '个人账户支付',
+                            fieldStyle: 'text-align: right;',
                             selectOnFocus: true,
                             bind: {
                                 value: '{d.GR_Accout_Pay}',
@@ -291,6 +294,7 @@ Ext.define('ccmz.view.yljz.TRItem', {
                             useDecimalSeparator: true,
                             tabIndex: 15,
                             fieldLabel: '自理费用',
+                            fieldStyle: 'text-align: right;',
                             selectOnFocus: true,
                             bind: {
                                 value: '{d.ZL_Money}',
@@ -302,6 +306,7 @@ Ext.define('ccmz.view.yljz.TRItem', {
                             useDecimalSeparator: true,
                             tabIndex: 19,
                             fieldLabel: '医保(农合)报销',
+                            fieldStyle: 'text-align: right;',
                             selectOnFocus: true,
                             bind: {
                                 value: '{d.YBBX_Money}',
@@ -313,6 +318,7 @@ Ext.define('ccmz.view.yljz.TRItem', {
                             useDecimalSeparator: true,
                             tabIndex: 23,
                             fieldLabel: '医保其它支付',
+                            fieldStyle: 'text-align: right;',
                             selectOnFocus: true,
                             bind: {
                                 value: '{d.YB_Other_Pay}',
@@ -405,6 +411,7 @@ Ext.define('ccmz.view.yljz.TRItem', {
                             useDecimalSeparator: true,
                             tabIndex: 16,
                             fieldLabel: '自费金额',
+                            fieldStyle: 'text-align: right;',
                             selectOnFocus: true,
                             bind: {
                                 value: '{d.ZF_Money}',
@@ -416,6 +423,7 @@ Ext.define('ccmz.view.yljz.TRItem', {
                             useDecimalSeparator: true,
                             tabIndex: 20,
                             fieldLabel: '新农合参与补偿金额',
+                            fieldStyle: 'text-align: right;',
                             selectOnFocus: true,
                             bind: {
                                 value: '{d.XNH_Money}',
@@ -427,6 +435,7 @@ Ext.define('ccmz.view.yljz.TRItem', {
                             useDecimalSeparator: true,
                             tabIndex: 24,
                             fieldLabel: '个人承担&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;',
+                            fieldStyle: 'text-align: right;',
                             selectOnFocus: true,
                             bind: {
                                 value: '{CalGR_Money}',
@@ -522,6 +531,7 @@ Ext.define('ccmz.view.yljz.TRItem', {
                             useDecimalSeparator: true,
                             tabIndex: 17,
                             fieldLabel: '起付线',
+                            fieldStyle: 'text-align: right;',
                             selectOnFocus: true,
                             decimalPrecision: 0,
                             bind: {
@@ -534,6 +544,7 @@ Ext.define('ccmz.view.yljz.TRItem', {
                             useDecimalSeparator: true,
                             tabIndex: 21,
                             fieldLabel: '新农合参与大病补偿金额',
+                            fieldStyle: 'text-align: right;',
                             bind: {
                                 value: '{d.CYDBBC_Money}',
                                 readOnly: '{Readonly}'

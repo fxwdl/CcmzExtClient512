@@ -1,0 +1,133 @@
+{
+    "type": "Ext.data.Model",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "DictHospital",
+        "idProperty": "ID"
+    },
+    "name": "MyModel",
+    "designerId": "24703e65-ed73-43f4-8465-f160d2cdb9ef",
+    "cn": [
+        {
+            "type": "Ext.data.field.String",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "ID"
+            },
+            "name": "MyString18",
+            "designerId": "7cce450c-432c-426d-ad81-868defa723df"
+        },
+        {
+            "type": "Ext.data.field.Integer",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "HospitalLevel_ID"
+            },
+            "name": "MyInteger8",
+            "designerId": "59f9c10e-d05e-4d4e-97d6-ff1d334355fc"
+        },
+        {
+            "type": "Ext.data.field.String",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "Name"
+            },
+            "name": "MyString20",
+            "designerId": "a7b9aef9-f0b2-42cb-b1eb-6fbbdec3a062"
+        },
+        {
+            "type": "Ext.data.field.String",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "ShortName"
+            },
+            "name": "MyString21",
+            "designerId": "5e96b1e9-3417-44f2-94bc-f7a88cca1409"
+        },
+        {
+            "type": "Ext.data.field.String",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "Code"
+            },
+            "name": "MyString22",
+            "designerId": "0fa850c5-c6eb-4ab7-ad7f-fbd9c47662c8"
+        },
+        {
+            "type": "Ext.data.field.String",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "ContactName"
+            },
+            "name": "MyString23",
+            "designerId": "65166c23-2e23-442d-90a1-40cc3c623089"
+        },
+        {
+            "type": "Ext.data.field.String",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "Tel"
+            },
+            "name": "MyString24",
+            "designerId": "0f4f1f87-4752-4d98-96c6-2291464af186"
+        },
+        {
+            "type": "Ext.data.field.String",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "Address"
+            },
+            "name": "MyString25",
+            "designerId": "b1abe3e8-d797-4b9b-bd96-4a3682f322dd"
+        },
+        {
+            "type": "Ext.data.field.String",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "Memo"
+            },
+            "name": "MyString26",
+            "designerId": "69bace02-9b3e-4f53-82eb-2f796a108332"
+        }
+    ]
+}

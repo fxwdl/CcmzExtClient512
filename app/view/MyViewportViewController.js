@@ -30,13 +30,21 @@ Ext.define('ccmz.view.MyViewportViewController', {
             case 'LightSwitchApplication:S_Treatment_Add':
                 me.doS_Treatment_Add(record,tabPanel);
                 break;
+            case 'LightSwitchApplication:S_Treatment_NoPayList':
+                me.doS_Treatment_Query(record,tabPanel,'域外报销列表','Treatment_NoPayList',0,true);
+                break;
+            case 'LightSwitchApplication:S_Treatment_PayList':
+                me.doS_Treatment_Query(record,tabPanel,'已报销凭证查询','Treatment_PayList',1,true);
+                break;
+            case 'LightSwitchApplication:S_Treatment_CancelList':
+                me.doS_Treatment_Query(record,tabPanel,'已作废凭证查询','Treatment_CancelList',2,true);
+                break;
             default:
                 break;
         }
     },
 
     doS_Treatment_Add: function(record, tabPanel) {
-        /*
         var d=new ccmz.model.Bn_TreatmentReimburse.createNewItem();
 
         var v=new ccmz.view.yljz.TRItem({
@@ -55,8 +63,8 @@ Ext.define('ccmz.view.MyViewportViewController', {
             items: v,
         });
         tabPanel.setActiveTab(tab);
-        */
 
+        /*
         ccmz.model.Bn_TreatmentReimburse.load('e0193d7a-5a17-466c-b5d1-5848d2275ce9', {
             scope: this,
             failure: function(record, operation) {
@@ -84,7 +92,24 @@ Ext.define('ccmz.view.MyViewportViewController', {
                 //do something whether the load succeeded or failed
             }
         });
+        */
+    },
 
+    doS_Treatment_Query: function(record, tabPanel, title, itemId, queryType, showLink) {
+        var tab=tabPanel.getComponent('Treatment_CancelList');
+        if (!tab){
+            var v=new ccmz.view.yljz.TRQuery({QueryType:queryType,showDetailLink:showLink});
+            tab=tabPanel.add({
+                autoScroll: true,
+                xtype: "panel",
+                layout: 'fit',
+                title: title,
+                closable: true,
+                items: v,
+                itemId:itemId
+            });
+        }
+        tabPanel.setActiveTab(tab);
     },
 
     onBtnChangePwdClick: function(button, e, eOpts) {
@@ -106,6 +131,7 @@ Ext.define('ccmz.view.MyViewportViewController', {
                         }
 
                     }});
+                    location.href = r.msg;
                 }
             }, this);
     },
@@ -171,6 +197,10 @@ Ext.define('ccmz.view.MyViewportViewController', {
                 });
             },
         });
+    },
+
+    onTabpanelAfterRender: function(component, eOpts) {
+        ccmz.getApplication().mainTabPanel=component;
     }
 
 });

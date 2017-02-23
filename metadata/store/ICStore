@@ -1,0 +1,39 @@
+{
+    "type": "Ext.data.Store",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "data": [
+            "[",
+            "{",
+            "value:1,",
+            "text:'一类对象',",
+            "type:1",
+            "},",
+            "{",
+            "value:2,",
+            "text:'二类对象',",
+            "type:1",
+            "},",
+            "{",
+            "value:3,",
+            "text:'三类对象',",
+            "type:2",
+            "},",
+            "{",
+            "value:4,",
+            "text:'四类对象',",
+            "type:2",
+            "}",
+            "]"
+        ],
+        "designer|userClassName": "ICStore",
+        "model": "IdentityCategory",
+        "storeId": "ICStore"
+    },
+    "name": "ICTypeStore1",
+    "designerId": "dc771ddf-19e7-4292-b2c1-d12a14139189"
+}

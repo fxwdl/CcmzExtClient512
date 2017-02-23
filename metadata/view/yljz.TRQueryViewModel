@@ -1,0 +1,208 @@
+{
+    "type": "Ext.app.ViewModel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "data": [
+            "{",
+            "    sfzh:'',",
+            "    reim_source:null,",
+            "    reim_type:null,",
+            "    dept_id:'',",
+            "    apply_hospital:null,",
+            "    name:'',",
+            "    ylz_symbol:'>',",
+            "    ylz_value:'',",
+            "    gr_symbol:'>',",
+            "    gr_value:'',",
+            "    yljz_symbol:'>',",
+            "    yljz_value:'',",
+            "    sum_yljz_symbol:'>',",
+            "    sum_yljz_value:'',",
+            "    reg_type:null,",
+            "    ic_type:null,",
+            "    ic:null,",
+            "    idt_type:null,",
+            "    disease_name:'',",
+            "    apply_date1:null,",
+            "    apply_date2:null,",
+            "    finish_date1:null,",
+            "    finish_date2:null,",
+            "    cancel_date1:null,",
+            "    cancel_date2:null",
+            "}"
+        ],
+        "designer|userAlias": "yljz.trquery",
+        "designer|userClassName": "yljz.TRQueryViewModel"
+    },
+    "designerId": "6ade4068-8f2c-4cb2-a94a-dcca2169bf0e",
+    "cn": [
+        {
+            "type": "Ext.data.ChainedStore",
+            "reference": {
+                "name": "stores",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "IC",
+                "source": "ICStore"
+            },
+            "name": "MyChainedStore",
+            "designerId": "432cd440-1746-4f80-b43e-aa32de9bf9bc",
+            "cn": [
+                {
+                    "type": "Ext.util.Filter",
+                    "reference": {
+                        "name": "filters",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "disableOnEmpty": true,
+                        "exactMatch": true,
+                        "property": "type",
+                        "value": [
+                            "{ic_type}"
+                        ]
+                    },
+                    "name": "MyFilter",
+                    "designerId": "463aaa0b-f096-476b-8e0c-cdef5496b297"
+                }
+            ]
+        },
+        {
+            "type": "Ext.data.Store",
+            "reference": {
+                "name": "stores",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "model": "IdentityCategory",
+                "name": "DIT",
+                "pageSize": 0
+            },
+            "name": "MyStore1",
+            "designerId": "79e6109f-a100-4e2b-9774-e931c7cbba99",
+            "cn": [
+                {
+                    "type": "Ext.data.proxy.Ajax",
+                    "reference": {
+                        "name": "proxy",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "url": "/DictIdentityType/GetData"
+                    },
+                    "name": "MyAjaxProxy2",
+                    "designerId": "013151ac-24f9-4dc5-83d0-4c63e6a5527e",
+                    "cn": [
+                        {
+                            "type": "Ext.data.reader.Json",
+                            "reference": {
+                                "name": "reader",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "messageProperty": "msg",
+                                "rootProperty": "data"
+                            },
+                            "name": "MyJsonReader2",
+                            "designerId": "af4e87a9-62e5-48d3-ba81-cdbdea8fac20"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.util.Filter",
+                    "reference": {
+                        "name": "filters",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "disableOnEmpty": true,
+                        "property": "RegType",
+                        "value": [
+                            "{reg_type}"
+                        ]
+                    },
+                    "name": "MyFilter1",
+                    "designerId": "a01f769d-cd3f-42c0-834b-1444da90fcd5"
+                },
+                {
+                    "type": "Ext.util.Filter",
+                    "reference": {
+                        "name": "filters",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "disableOnEmpty": true,
+                        "property": "CategoryID",
+                        "value": [
+                            "{ic}"
+                        ]
+                    },
+                    "name": "MyFilter2",
+                    "designerId": "0fa1db59-264d-4cc2-87d1-a2d66dd4fdb0"
+                }
+            ]
+        },
+        {
+            "type": "Ext.data.Store",
+            "reference": {
+                "name": "stores",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "model": "Bn_TreatmentReimburse",
+                "name": "GridData",
+                "remoteFilter": true,
+                "remoteSort": true
+            },
+            "name": "MyStore",
+            "designerId": "a07b264a-996c-4740-9111-06a1558fe571",
+            "cn": [
+                {
+                    "type": "Ext.data.proxy.Ajax",
+                    "reference": {
+                        "name": "proxy",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "actionMethods": [
+                            "{\"create\":\"POST\",\"read\":\"POST\",\"update\":\"POST\",\"destroy\":\"POST\"}"
+                        ],
+                        "url": "/YLJZ/GetData"
+                    },
+                    "name": "MyAjaxProxy1",
+                    "designerId": "08236e8f-1b98-4c1f-a913-84f4c2f59cec",
+                    "cn": [
+                        {
+                            "type": "Ext.data.reader.Json",
+                            "reference": {
+                                "name": "reader",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "messageProperty": "msg",
+                                "rootProperty": "data"
+                            },
+                            "name": "MyJsonReader1",
+                            "designerId": "31409fdd-0263-4687-bcfc-54b76e1c5cf5"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

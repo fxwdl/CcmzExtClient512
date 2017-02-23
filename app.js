@@ -28,22 +28,36 @@ Ext.application({
         'Ext.Loader'
     ],
     curUser: null,
+    mainTabPanel: null,
     models: [
         'Bn_TreatmentReimburse',
         'SystemEnum',
         'DictStdDisease',
-        'DictFamilyMember1'
+        'DictFamilyMember1',
+        'DictGovermentDept',
+        'IdentityCategory',
+        'DictIdentityType',
+        'DictHospital'
     ],
     stores: [
         'ReimSourceStore',
         'ReimburseTypeStore',
         'SpecBNStore',
-        'DictStdDiseaseStore'
+        'DictStdDiseaseStore',
+        'DictGovermentDeptStore',
+        'RegTypeStore',
+        'ICTypeStore',
+        'ICStore',
+        'DictIdentityTypeStore',
+        'DictHospitalStore'
     ],
     views: [
         'MyViewport',
         'yljz.TRItem',
-        'SelWindow'
+        'SelWindow',
+        'yljz.TRQuery',
+        'CompareControl',
+        'DatePickerControl'
     ],
     name: 'ccmz',
     title: '长春市医疗救助管理系统',

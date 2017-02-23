@@ -1,0 +1,13 @@
+{
+    "type": "Ext.app.ViewController",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "yljz.trquery",
+        "designer|userClassName": "yljz.TRQueryViewController"
+    },
+    "designerId": "88d5f3ca-51a0-4731-a213-a57775f0fe95"
+}
