@@ -105,7 +105,8 @@ Ext.define('ccmz.view.yljz.TRQueryViewController', {
                     data:{
                         d:record
                     }
-                }
+                },
+                isLoading:true
             });
             var tabPanel=ccmz.getApplication().mainTabPanel;
             var tab=tabPanel.getComponent(record.get("Reim_NO"));
@@ -121,7 +122,8 @@ Ext.define('ccmz.view.yljz.TRQueryViewController', {
                 });
             }
             tabPanel.setActiveTab(tab);
-
+            v.getViewModel().notify();
+            v.setIsLoading(false);
         }
     },
 

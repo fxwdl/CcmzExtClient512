@@ -27,8 +27,13 @@ Ext.define('ccmz.view.yljz.TRItem', {
         'Ext.form.field.Display',
         'Ext.form.FieldContainer',
         'Ext.button.Button',
-        'Ext.toolbar.Toolbar'
+        'Ext.toolbar.Toolbar',
+        'Ext.ux.IFrame'
     ],
+
+    config: {
+        isLoading: null
+    },
 
     controller: 'yljz.tritem',
     viewModel: {
@@ -120,7 +125,8 @@ Ext.define('ccmz.view.yljz.TRItem', {
                                 store: '{rsStore}'
                             },
                             listeners: {
-                                change: 'onReimSourceChange'
+                                change: 'onReimSourceChange',
+                                select: 'onReimSourceSelect'
                             }
                         },
                         {
@@ -655,6 +661,9 @@ Ext.define('ccmz.view.yljz.TRItem', {
                     text: '打印凭证',
                     bind: {
                         disabled: '{!IsPayed}'
+                    },
+                    listeners: {
+                        click: 'onPrintClick'
                     }
                 },
                 {

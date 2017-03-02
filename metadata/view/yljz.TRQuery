@@ -176,7 +176,7 @@
                                     "{dept_id}"
                                 ]
                             },
-                            "name": "treepicker3",
+                            "name": "treepicker",
                             "configAlternates": {
                                 "value": "binding"
                             },
@@ -348,7 +348,7 @@
                                     "{ylz_value}"
                                 ]
                             },
-                            "name": "comparecontrol12",
+                            "name": "comparecontrol",
                             "configAlternates": {
                                 "symbol": "binding",
                                 "value": "binding"
@@ -374,7 +374,7 @@
                                     "{gr_value}"
                                 ]
                             },
-                            "name": "comparecontrol13",
+                            "name": "comparecontrol1",
                             "configAlternates": {
                                 "value": "binding",
                                 "symbol": "binding"
@@ -400,7 +400,7 @@
                                     "{yljz_value}"
                                 ]
                             },
-                            "name": "comparecontrol14",
+                            "name": "comparecontrol2",
                             "configAlternates": {
                                 "value": "binding",
                                 "symbol": "binding"
@@ -426,7 +426,7 @@
                                     "{sum_yljz_value}"
                                 ]
                             },
-                            "name": "comparecontrol15",
+                            "name": "comparecontrol3",
                             "configAlternates": {
                                 "value": "binding",
                                 "symbol": "binding"
@@ -622,7 +622,7 @@
                                     "{apply_date2}"
                                 ]
                             },
-                            "name": "datepickercontrol9",
+                            "name": "datepickercontrol",
                             "configAlternates": {
                                 "value1": "binding",
                                 "value2": "binding"
@@ -649,7 +649,7 @@
                                     "{finish_date2}"
                                 ]
                             },
-                            "name": "datepickercontrol10",
+                            "name": "datepickercontrol1",
                             "configAlternates": {
                                 "value1": "binding",
                                 "value2": "binding"
@@ -676,7 +676,7 @@
                                     "{cancel_date2}"
                                 ]
                             },
-                            "name": "datepickercontrol11",
+                            "name": "datepickercontrol2",
                             "configAlternates": {
                                 "value1": "binding",
                                 "value2": "binding"
@@ -1358,10 +1358,11 @@
                             "            data:{",
                             "                d:record",
                             "            }",
-                            "        }",
+                            "        },",
+                            "        isLoading:true",
                             "    });",
                             "    var tabPanel=ccmz.getApplication().mainTabPanel;",
-                            "    var tab=tabPanel.getComponent(record.get(\"Reim_NO\"));    ",
+                            "    var tab=tabPanel.getComponent(record.get(\"Reim_NO\"));",
                             "    if (!tab){",
                             "        tab=tabPanel.add({",
                             "        autoScroll: true,",
@@ -1371,10 +1372,11 @@
                             "        title: record.get(\"Reim_NO\"),",
                             "        closable: true,",
                             "        items: v,",
-                            "        });        ",
-                            "    }",
+                            "        });",
+                            "    }    ",
                             "    tabPanel.setActiveTab(tab);",
-                            "",
+                            "    v.getViewModel().notify();",
+                            "    v.setIsLoading(false);",
                             "}"
                         ],
                         "name": "cellclick",

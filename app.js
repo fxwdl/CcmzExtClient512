@@ -17,7 +17,8 @@
 Ext.Loader.setConfig({
     disableCaching: false,
     paths: {
-        ccmz: 'app'
+        ccmz: 'app',
+        'Ext.ux': 'ux/'
     }
 });
 

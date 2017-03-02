@@ -17,14 +17,36 @@
             "}"
         ],
         "height": null,
+        "isLoading": [
+            "null"
+        ],
         "layout": "vbox",
         "maxWidth": null,
         "modelValidation": true,
         "padding": 5,
+        "requires": [
+            "Ext.ux.IFrame"
+        ],
         "title": null,
         "width": null
     },
+    "configAlternates": {
+        "loading": "boolean",
+        "isLoading": "object"
+    },
     "designerId": "b52f97b3-979a-44ef-b2b3-b11a6c95f21e",
+    "customConfigs": [
+        {
+            "group": "(Custom Properties)",
+            "name": "loading",
+            "type": "string"
+        },
+        {
+            "group": "(Custom Properties)",
+            "name": "isLoading",
+            "type": "string"
+        }
+    ],
     "viewControllerInstanceId": "14afedb1-7bd9-4cb4-9c5c-301f0adbe90b",
     "viewModelInstanceId": "ac207feb-e765-484e-baee-d53e988a4e62",
     "cn": [
@@ -271,6 +293,9 @@
                                     "userConfig": {
                                         "fn": "onReimSourceChange",
                                         "implHandler": [
+                                            "var v=this.getView();",
+                                            "if (v.getIsLoading())",
+                                            "    return;",
                                             "var vm=this.getViewModel();",
                                             "if (newValue==1){",
                                             "    vm.set('d.TreatmentHosptial_Code','');",
@@ -278,14 +303,41 @@
                                             "}",
                                             "else{",
                                             "    vm.set('d.TreatmentHosptial_Code',ccmz.getApplication().curUser.Hospital.Code);",
-                                            "    vm.set('d.TreatmentHosptial',ccmz.getApplication().curUser.Hospital.Name);    ",
+                                            "    vm.set('d.TreatmentHosptial',ccmz.getApplication().curUser.Hospital.Name);",
                                             "}"
                                         ],
+                                        "isLoading": null,
                                         "name": "change",
                                         "scope": "me"
                                     },
                                     "name": "onReimSourceChange",
-                                    "designerId": "80ff6bf4-1dfb-4722-8707-47ad6d162a1d"
+                                    "configAlternates": {
+                                        "loading": "object",
+                                        "isLoading": "object"
+                                    },
+                                    "designerId": "80ff6bf4-1dfb-4722-8707-47ad6d162a1d",
+                                    "customConfigs": [
+                                        {
+                                            "group": "(Custom Properties)",
+                                            "name": "isLoading",
+                                            "type": "string"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "viewcontrollereventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onReimSourceSelect",
+                                        "name": "select",
+                                        "scope": "me"
+                                    },
+                                    "name": "onReimSourceSelect",
+                                    "designerId": "3bb9bc31-365b-46b2-b96c-fa91e16fd697"
                                 }
                             ]
                         },
@@ -1832,7 +1884,51 @@
                     "configAlternates": {
                         "disabled": "binding"
                     },
-                    "designerId": "854580ed-aacc-4214-913f-a18ed1fdd34a"
+                    "designerId": "854580ed-aacc-4214-913f-a18ed1fdd34a",
+                    "cn": [
+                        {
+                            "type": "viewcontrollereventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onPrintClick",
+                                "implHandler": [
+                                    "var vm=this.getViewModel();",
+                                    "",
+                                    "var ps=Ext.encode({",
+                                    "    ReportName:'MAPIssuingVoucher_New',",
+                                    "    Args:",
+                                    "    [",
+                                    "        {",
+                                    "            ArgName:'argStr',ArgValue:vm.get('d.ID'),PType:'P_String'          ",
+                                    "        }     ",
+                                    "    ]",
+                                    "});",
+                                    "console.log(ps);",
+                                    "var tabPanel=ccmz.getApplication().mainTabPanel;",
+                                    "tab=tabPanel.add(new Ext.ux.IFrame({",
+                                    "    autoScroll: false,",
+                                    "    layout: 'fit',",
+                                    "    itemId:'print-'+vm.get(\"d.Reim_NO\"),",
+                                    "    title: '打印凭证:'+vm.get(\"d.Reim_NO\"),",
+                                    "    closable: true,",
+                                    "    //html:'<iframe src=\"/ReportViewer.aspx?rp'+ps+' width=\"100%\" height=\"100%\"></iframe>'",
+                                    "    src:'/ReportViewer.aspx?p='+encodeURI(ps),",
+                                    "    loadMask: '页面加载中...',",
+                                    "    border: false",
+                                    "}));",
+                                    "tabPanel.setActiveTab(tab);"
+                                ],
+                                "name": "click",
+                                "scope": "me"
+                            },
+                            "name": "onPrintClick",
+                            "designerId": "dd5527e6-55b8-4cdd-bdb2-2f77190195cf"
+                        }
+                    ]
                 },
                 {
                     "type": "Ext.button.Button",

@@ -133,7 +133,7 @@
                 ],
                 "fn": "doS_Treatment_Query",
                 "implHandler": [
-                    "var tab=tabPanel.getComponent('Treatment_CancelList');",
+                    "var tab=tabPanel.getComponent(itemId);",
                     "if (!tab){",
                     "    var v=new ccmz.view.yljz.TRQuery({QueryType:queryType,showDetailLink:showLink});",
                     "    tab=tabPanel.add({",

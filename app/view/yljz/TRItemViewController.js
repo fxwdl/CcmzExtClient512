@@ -108,6 +108,9 @@ Ext.define('ccmz.view.yljz.TRItemViewController', {
     },
 
     onReimSourceChange: function(field, newValue, oldValue, eOpts) {
+        var v=this.getView();
+        if (v.getIsLoading())
+        return;
         var vm=this.getViewModel();
         if (newValue==1){
             vm.set('d.TreatmentHosptial_Code','');
@@ -117,6 +120,10 @@ Ext.define('ccmz.view.yljz.TRItemViewController', {
             vm.set('d.TreatmentHosptial_Code',ccmz.getApplication().curUser.Hospital.Code);
             vm.set('d.TreatmentHosptial',ccmz.getApplication().curUser.Hospital.Name);
         }
+    },
+
+    onReimSourceSelect: function(combo, record, eOpts) {
+
     },
 
     onSelDiseaseClick: function(button, e, eOpts) {
@@ -198,6 +205,34 @@ Ext.define('ccmz.view.yljz.TRItemViewController', {
                 },
             });
         },me));
+    },
+
+    onPrintClick: function(button, e, eOpts) {
+        var vm=this.getViewModel();
+
+        var ps=Ext.encode({
+            ReportName:'MAPIssuingVoucher_New',
+            Args:
+            [
+            {
+                ArgName:'argStr',ArgValue:vm.get('d.ID'),PType:'P_String'
+            }
+            ]
+        });
+        console.log(ps);
+        var tabPanel=ccmz.getApplication().mainTabPanel;
+        tab=tabPanel.add(new Ext.ux.IFrame({
+            autoScroll: false,
+            layout: 'fit',
+            itemId:'print-'+vm.get("d.Reim_NO"),
+            title: '打印凭证:'+vm.get("d.Reim_NO"),
+            closable: true,
+            //html:'<iframe src="/ReportViewer.aspx?rp'+ps+' width="100%" height="100%"></iframe>'
+            src:'/ReportViewer.aspx?p='+encodeURI(ps),
+            loadMask: '页面加载中...',
+            border: false
+        }));
+        tabPanel.setActiveTab(tab);
     },
 
     onCancelClick: function(button, e, eOpts) {

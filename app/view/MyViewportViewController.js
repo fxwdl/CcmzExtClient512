@@ -96,7 +96,7 @@ Ext.define('ccmz.view.MyViewportViewController', {
     },
 
     doS_Treatment_Query: function(record, tabPanel, title, itemId, queryType, showLink) {
-        var tab=tabPanel.getComponent('Treatment_CancelList');
+        var tab=tabPanel.getComponent(itemId);
         if (!tab){
             var v=new ccmz.view.yljz.TRQuery({QueryType:queryType,showDetailLink:showLink});
             tab=tabPanel.add({
