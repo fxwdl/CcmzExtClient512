@@ -18,6 +18,7 @@
       },
       {
          "path": "app/override/form/field/Number.js",
+         "bootstrap": true,
          "x-compile": true
       },
       {

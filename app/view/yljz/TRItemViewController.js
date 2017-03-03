@@ -219,7 +219,7 @@ Ext.define('ccmz.view.yljz.TRItemViewController', {
             }
             ]
         });
-        console.log(ps);
+
         var tabPanel=ccmz.getApplication().mainTabPanel;
         tab=tabPanel.add(new Ext.ux.IFrame({
             autoScroll: false,

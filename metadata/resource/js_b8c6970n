@@ -6,6 +6,7 @@
     },
     "codeClass": null,
     "userConfig": {
+        "bootstrap": true,
         "defer": false,
         "designer|userClassName": "js_b8c6970n",
         "url": "app/override/form/field/Number.js",

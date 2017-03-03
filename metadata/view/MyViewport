@@ -185,7 +185,7 @@
                                     "                }",
                                     "",
                                     "            }});",
-                                    "        location.href = r.msg;",
+                                    "        location.href = '/';",
                                     "    }",
                                     "}, this);"
                                 ],

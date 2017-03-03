@@ -131,7 +131,7 @@ Ext.define('ccmz.view.MyViewportViewController', {
                         }
 
                     }});
-                    location.href = r.msg;
+                    location.href = '/';
                 }
             }, this);
     },

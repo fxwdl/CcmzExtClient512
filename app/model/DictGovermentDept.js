@@ -22,7 +22,7 @@ Ext.define('ccmz.model.DictGovermentDept', {
         'Ext.data.field.Boolean'
     ],
 
-    idProperty: 'FullCode',
+    idProperty: 'Code',
 
     fields: [
         {

@@ -7,7 +7,7 @@
     "codeClass": null,
     "userConfig": {
         "designer|userClassName": "DictGovermentDept",
-        "idProperty": "FullCode"
+        "idProperty": "Code"
     },
     "name": "MyModel",
     "designerId": "8216e716-5e89-4244-a80f-d5fe6e826543",

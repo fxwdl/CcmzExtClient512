@@ -64,8 +64,83 @@ Ext.define('ccmz.view.yljz.TRQueryViewController', {
     },
 
     onReportClick: function(button, e, eOpts) {
+        var view=this.getView();
         var vm=this.getViewModel();
-        vm.set('apply_date1',new Date());
+        var p={
+            ReportName:'TreatmentReimburseList',
+            Args:
+            [
+            {
+                ArgName:'Finish_Flag',ArgValue:view.QueryType,PType:'P_Integer'
+            }
+        ]};
+        var add=ccmz.getApplication().DateAdd;
+        if(!Ext.isEmpty(vm.get('finish_date1')) && !Ext.isEmpty(vm.get('finish_date2'))){
+            p.Args.push({ArgName:'fromDate',ArgValue:vm.get('finish_date1'),PType:'P_DateTime'});
+            p.Args.push({ArgName:'endDate',ArgValue:
+            add(add(vm.get('finish_date2'),'d',1),'s',-1),PType:'P_DateTime'});
+        }
+        if(!Ext.isEmpty(vm.get('reim_source'))){
+            p.Args.push({ArgName:'ReimSource',ArgValue:vm.get('reim_source'),PType:'P_Integer'});
+        }
+        if(!Ext.isEmpty(vm.get('reim_type'))){
+            p.Args.push({ArgName:'ReimType',ArgValue:vm.get('reim_type'),PType:'P_Integer'});
+        }
+        if(!Ext.isEmpty(vm.get('sfzh'))){
+            p.Args.push({ArgName:'sfzh',ArgValue:vm.get('sfzh'),PType:'P_String'});
+        }
+        if(!Ext.isEmpty(vm.get('dept_id'))){
+            p.Args.push({ArgName:'QuCode',ArgValue:vm.get('dept_id'),PType:'P_String'});
+        }
+        if(!Ext.isEmpty(vm.get('disease_name'))){
+            p.Args.push({ArgName:'DiseaseName',ArgValue:vm.get('disease_name'),PType:'P_String'});
+        }
+        if(!Ext.isEmpty(vm.get('name'))){
+            p.Args.push({ArgName:'Name',ArgValue:vm.get('name'),PType:'P_String'});
+        }
+        if(!Ext.isEmpty(vm.get('idt_type'))){
+            p.Args.push({ArgName:'IdentityType_ID',ArgValue:vm.get('idt_type'),PType:'P_Integer'});
+        }
+        if(!Ext.isEmpty(vm.get('apply_hospital'))){
+            p.Args.push({ArgName:'ApplyHospital',ArgValue:vm.get('apply_hospital'),PType:'P_String'});
+        }
+        if(!Ext.isEmpty(vm.get('ylz_symbol')) && !Ext.isEmpty(vm.get('ylz_value'))){
+            p.Args.push({ArgName:'CP_YLZ',ArgValue:vm.get('ylz_symbol'),PType:'P_String'});
+            p.Args.push({ArgName:'CP_YLZ_Value',ArgValue:vm.get('ylz_value'),PType:'P_Float'});
+        }
+        if(!Ext.isEmpty(vm.get('gr_symbol')) && !Ext.isEmpty(vm.get('gr_value'))){
+            p.Args.push({ArgName:'CP_GR',ArgValue:vm.get('gr_symbol'),PType:'P_String'});
+            p.Args.push({ArgName:'CP_GR_Value',ArgValue:vm.get('gr_value'),PType:'P_Float'});
+        }
+        if(!Ext.isEmpty(vm.get('yljz_symbol')) && !Ext.isEmpty(vm.get('yljz_value'))){
+            p.Args.push({ArgName:'CP_YLJZ',ArgValue:vm.get('yljz_symbol'),PType:'P_String'});
+            p.Args.push({ArgName:'CP_YLJZ_Value',ArgValue:vm.get('yljz_value'),PType:'P_Float'});
+        }
+        if(!Ext.isEmpty(vm.get('sum_yljz_symbol')) && !Ext.isEmpty(vm.get('sum_yljz_value'))){
+            p.Args.push({ArgName:'CP_YLJZ_LJ',ArgValue:vm.get('sum_yljz_symbol'),PType:'P_String'});
+            p.Args.push({ArgName:'CP_YLJZ_LJ_Value',ArgValue:vm.get('sum_yljz_value'),PType:'P_Float'});
+        }
+        if(!Ext.isEmpty(vm.get('reg_type'))){
+            p.Args.push({ArgName:'RegType',ArgValue:vm.get('reg_type'),PType:'P_Integer'});
+        }
+        if(!Ext.isEmpty(vm.get('ic_type'))){
+            p.Args.push({ArgName:'IC_Type',ArgValue:vm.get('ic_type'),PType:'P_Integer'});
+        }
+        if(!Ext.isEmpty(vm.get('ic'))){
+            p.Args.push({ArgName:'IC',ArgValue:vm.get('ic'),PType:'P_Integer'});
+        }
+        var ps=Ext.encode(p);
+        var tabPanel=ccmz.getApplication().mainTabPanel;
+        tab=tabPanel.add(new Ext.ux.IFrame({
+            autoScroll: false,
+            layout: 'fit',
+            title: '长春市城乡医疗救助统计表',
+            closable: true,
+            src:'/ReportViewer.aspx?p='+encodeURI(ps),
+            loadMask: '页面加载中...',
+            border: false
+        }));
+        tabPanel.setActiveTab(tab);
     },
 
     onConditionPanelRender: function(component, eOpts) {
